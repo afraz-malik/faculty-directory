@@ -1,0 +1,52 @@
+.header {
+  background-image: url('./bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
+  padding: 20px 0px;
+  .body {
+    // border: 1px solid black;
+    width: 70%;
+    margin: 250px auto;
+    // margin: auto;
+    .title {
+      h3 {
+        font-size: 60px;
+        font-weight: 500;
+        margin-bottom: 20px;
+        color: white;
+      }
+      p {
+        color: white;
+        // margin: 100px;
+        line-height: 30px;
+      }
+    }
+    .input {
+      display: flex;
+      margin-top: 100px;
+      input {
+        height: 53px;
+        width: 36.4%;
+        padding: 0 30px;
+        margin-right: 22px;
+        float: left;
+        border: none;
+        font-size: 14px;
+      }
+      button {
+        display: inline-block;
+        min-width: 196px;
+        text-align: center;
+        border: none;
+        padding: 15px 10px;
+        font-weight: 600;
+        font-size: 16px;
+        position: relative;
+        color: #fff;
+        cursor: pointer;
+        background: #d82a4e;
+      }
+    }
+  }
+}
