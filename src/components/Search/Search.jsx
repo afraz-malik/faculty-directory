@@ -13,10 +13,10 @@ const Search = () => {
           <button className={SearchCss.filterbtn}> Filters </button>
           <button className={SearchCss.searchbtn}> Search Faculty</button>
         </div>
-        <div className={SearchCss.filter}>
+        {/*<div className={SearchCss.filter}>
           {' '}
           <h3> Advance Search</h3>{' '}
-          <div className={SearchCss.filters}>
+           <div className={SearchCss.filters}>
             <select>
               <option>Value 1</option>
               <option>Value 1</option>
@@ -45,7 +45,7 @@ const Search = () => {
               <option>Value 1</option>
             </select>
           </div>
-        </div>
+        </div>*/}
       </div>
     </div>
   )
