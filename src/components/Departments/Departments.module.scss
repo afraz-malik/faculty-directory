@@ -16,15 +16,17 @@
       color: #878787;
       line-height: 2.2;
       font-weight: 500;
+      margin: 5px 125px;
     }
   }
   .cards {
     margin: 100px 0;
-    display: grid;
-    align-items: center;
-    grid-template-columns: auto auto auto;
+    display: flex;
+    flex-wrap: wrap;
+    // align-items: center;
+    // grid-template-columns: auto auto auto;
     justify-content: space-between;
-    grid-gap: 30px;
+    grid-gap: 40px;
     .card {
       width: 340px;
       height: 300px;
@@ -37,14 +39,19 @@
       &:hover {
         .cardtext {
           background-color: #d82a4e;
-          color: white;
-          span {
+          span,
+          p,
+          h6 {
             color: white;
           }
         }
       }
-      img {
+      .img {
         width: 100%;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: top center;
       }
       .cardtext {
         transition: all 0.4s;
@@ -54,18 +61,24 @@
         bottom: 0;
         background: #edf4f6;
         text-align: left;
-        height: 125px;
+        height: 140px;
         padding: 10px 30px;
 
         h6 {
           font-size: 16px;
           margin-bottom: 10px;
           margin-top: 10px;
+          font-weight: 600;
+          color: #474747;
         }
         p {
           margin: 0;
-          font-size: 12px;
+          // font-size: 12px;
           margin-bottom: 20px;
+          font-size: 14.1px;
+          color: #878787;
+          line-height: 2.2;
+          font-weight: 500;
         }
         span {
           font-size: 18px;

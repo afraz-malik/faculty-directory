@@ -4,37 +4,37 @@ const Departments = () => {
   const dept = [
     {
       name: 'Computer Scient',
-      des: 'hello from cs dept',
+      des: 'Lorem ipsum dolor sit amet, consectetur',
       member: '500',
       image: '1.jpg',
     },
     {
       name: 'Education',
-      des: 'I learn with sana',
+      des: 'Lorem ipsum dolor sit amet, consectetur',
       member: '102',
       image: '2.jpg',
     },
     {
       name: 'Arts',
-      des: 'Nalaik bche',
+      des: 'Lorem ipsum dolor sit amet, consectetur',
       member: '500',
       image: '3.jpg',
     },
     {
       name: 'Management',
-      des: 'Ayisha b cycle',
+      des: 'Lorem ipsum dolor sit amet, consectetur',
       member: '200',
       image: '4.jpg',
     },
     {
       name: 'Science & tech',
-      des: 'To b loru',
+      des: 'Lorem ipsum dolor sit amet, consectetur',
       member: '60',
       image: '5.jpg',
     },
     {
       name: 'Cryptocurrencies',
-      des: 'Afraz zindabad',
+      des: 'Lorem ipsum dolor sit amet, consectetur',
       member: '24',
       image: '6.jpg',
     },
@@ -53,11 +53,14 @@ const Departments = () => {
       <div className={DepartmentsCss.cards}>
         {dept.map((el) => (
           <div className={DepartmentsCss.card}>
-            <img alt="" src={`images/${el.image}`} />
+            <div
+              className={DepartmentsCss.img}
+              style={{ backgroundImage: `url(images/${el.image})` }}
+            ></div>
             <div className={DepartmentsCss.cardtext}>
               <h6>{el.name}</h6>
               <p>{el.des}</p>
-              <span>{el.member} member</span>
+              <span>{el.member} Members</span>
             </div>
           </div>
         ))}

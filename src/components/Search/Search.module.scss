@@ -11,24 +11,15 @@
   }
   .inside {
     background-color: white;
-    .input {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    grid-gap: 30px;
+    .row {
       display: flex;
-      padding: 30px;
-      input {
-        height: 56px;
-        width: 36.6%;
-        padding: 0 30px;
-        margin-right: 18px;
-        float: left;
-        border: none;
-        font-size: 14px;
-        background: #edf4f6;
-        // border: none;
-        outline: none;
-        &:focus {
-          border-bottom: 3px solid #d82a4e;
-        }
-      }
+      // flex-wrap: wrap;
+      grid-gap: 30px;
+      // padding: 30px;
       button {
         display: inline-block;
         min-width: 196px;
@@ -41,6 +32,68 @@
         color: #fff;
         cursor: pointer;
         background: #d82a4e;
+      }
+      input {
+        height: 56px;
+        width: 100%;
+        padding: 0 30px;
+        margin-right: 18px;
+        float: left;
+        border: none;
+        font-size: 14px;
+        background: #edf4f6;
+        // border: none;
+        outline: none;
+        &:focus {
+          border-bottom: 3px solid #d82a4e;
+        }
+      }
+      .filterbtn {
+        border: 1px solid #d82a4e;
+        background-color: transparent;
+        color: #d82a4e;
+        &:hover {
+          background: #d82a4e;
+          color: #fff;
+        }
+      }
+      .searchbtn {
+        // display: none;
+      }
+    }
+    .filter {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      // align-items: center;
+      // margin: 0 50px 20px 50px;
+      padding: 30px;
+      border: 1px solid pink;
+      h3 {
+        margin: 0 0 20px 0px;
+        text-align: left;
+      }
+      .filters {
+        display: flex;
+        flex-wrap: wrap;
+        grid-gap: 30px;
+        align-items: center;
+        justify-content: space-between;
+        select {
+          height: 56px;
+          width: 200px;
+          padding: 0 30px;
+          -moz-appearance: none; /* Firefox */
+          -webkit-appearance: none; /* Safari and Chrome */
+          appearance: none;
+          // margin-right: 18px;
+          // float: left;
+          // border: none;
+          // font-size: 14px;
+          // background: #edf4f6;
+          // border: none;
+          // outline: none;
+        }
       }
     }
   }

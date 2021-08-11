@@ -1,9 +1,15 @@
 import React from 'react'
 import HeaderCss from './Header.module.scss'
 import Navbar from '../Navbar/Navbar'
+
 const Header = () => {
   return (
-    <div className={HeaderCss.header}>
+    <div
+      className={HeaderCss.header}
+      style={{
+        backgroundImage: `url('images/bg.jpg')`,
+      }}
+    >
       <Navbar />
       <div className={HeaderCss.body}>
         <div className={HeaderCss.title}>
