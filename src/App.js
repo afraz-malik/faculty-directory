@@ -1,19 +1,16 @@
 import './App.css'
-import Header from './components/Header/Header'
-import Departments from './components/Departments/Departments'
-import Search from './components/Search/Search'
-import FactultyCard from './components/FacultyCard/FactultyCard'
-import BecomeFaculty from './components/BecomeFaculty/BecomeFaculty'
-import Footer from './components/Footer/Footer'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+// Pages
+import Home from './pages/Home'
 const App = () => {
   return (
     <div className="App">
-      <Header />
-      <Departments />
-      <Search />
-      <FactultyCard />
-      <BecomeFaculty />
-      <Footer />
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Home} />
+        </Switch>
+        {/* <Home /> */}
+      </Router>
     </div>
   )
 }
