@@ -1,10 +1,10 @@
 import React from 'react'
-import ContactCss from './ContactCss.module.scss'
+import ContactCss from './Contact.module.scss'
 
-const ContactUs = () => {
+const Contact = () => {
   return (
     <section className={ContactCss.section}>
-      <div className={ContactCss.container}>
+      <div className={ContactCss.container} id="contact">
         <div className={ContactCss.row}>
           <div className={ContactCss.col1}>
             <div className={ContactCss.contact_warp}>
@@ -48,22 +48,22 @@ const ContactUs = () => {
                 <li>yourmail@gmail.com</li>
               </ul>
               <div className={ContactCss.social}>
-                <a href="#">
+                <a href="#af">
                   <i className={ContactCss.fa}></i>
                 </a>
-                <a href="#">
+                <a href="#af">
                   <i className={ContactCss.fa}></i>
                 </a>
-                <a href="#">
+                <a href="#af">
                   <i className={ContactCss.fa}></i>
                 </a>
-                <a href="#">
+                <a href="#af">
                   <i className={ContactCss.fa}></i>
                 </a>
-                <a href="#">
+                <a href="#af">
                   <i className={ContactCss.fa}></i>
                 </a>
-                <a href="#">
+                <a href="#af">
                   <i className={ContactCss.fa}></i>
                 </a>
               </div>
@@ -75,4 +75,4 @@ const ContactUs = () => {
   )
 }
 
-export default ContactUs
+export default Contact

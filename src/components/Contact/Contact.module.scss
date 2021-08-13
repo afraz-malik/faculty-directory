@@ -1,7 +1,14 @@
 .section {
   padding-top: 115px;
+  margin-bottom: 115px;
   .container {
     max-width: 1180px;
+    margin: auto;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
     .row {
       display: -ms-flexbox;
       display: flex;
@@ -43,7 +50,9 @@
           form {
             padding: 69px 40px 47px;
             background: #fff;
-            input[type='email'],
+            display: flex;
+            flex-direction: column;
+            input[type='text'],
             textarea {
               height: 57px;
               width: 100%;
@@ -55,9 +64,28 @@
               font-weight: 500;
               background: #edf4f6;
             }
+            textarea {
+              padding-top: 23px;
+              padding-bottom: 15px;
+              height: 225px;
+              width: 100%;
+              // padding: 0 30px;
+              float: left;
+              border: none;
+              font-size: 14px;
+              font-weight: 500;
+              background: #edf4f6;
+              overflow: auto;
+              resize: vertical;
+              // margin: 0;
+              margin-bottom: 27px;
+              font-family: inherit;
+              line-height: inherit;
+            }
             button {
               display: inline-block;
-              min-width: 196px;
+              // float: l;
+              width: 196px;
               text-align: center;
               border: none;
               padding: 17px 10px;
@@ -80,6 +108,7 @@
         max-width: 33.333333%;
         position: relative;
         width: 100%;
+        text-align: left;
         min-height: 1px;
         padding-right: 15px;
         padding-left: 15px;

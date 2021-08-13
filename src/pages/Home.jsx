@@ -4,6 +4,7 @@ import Header from '../components/Header/Header'
 import Departments from '../components/Departments/Departments'
 import Search from '../components/Search/Search'
 import FactultyCard from '../components/FacultyCard/FactultyCard'
+import Contact from '../components/Contact/Contact'
 import BecomeFaculty from '../components/BecomeFaculty/BecomeFaculty'
 import Footer from '../components/Footer/Footer'
 
@@ -14,6 +15,8 @@ const Home = () => {
       <Departments />
       <Search />
       <FactultyCard />
+
+      <Contact />
       <BecomeFaculty />
       <Footer />
     </div>

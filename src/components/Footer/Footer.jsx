@@ -3,7 +3,7 @@ import FooterCss from './Footer.module.scss'
 const Footer = () => {
   return (
     <footer className={FooterCss.footer}>
-      <div className={FooterCss.top}>
+      <div className={FooterCss.top} id="about">
         <div className={FooterCss.warp}>
           <div className={FooterCss.row}>
             <div className={FooterCss.widget_item}>

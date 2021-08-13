@@ -2,7 +2,7 @@ import React from 'react'
 import SearchCss from './Search.module.scss'
 const Search = () => {
   return (
-    <div className={SearchCss.container}>
+    <div className={SearchCss.container} id="search">
       <h2>Search your Faculty Member</h2>
       <div className={SearchCss.inside}>
         <div className={SearchCss.row}>

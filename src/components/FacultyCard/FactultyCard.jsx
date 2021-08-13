@@ -43,7 +43,7 @@ const FactultyCard = () => {
   return (
     <div className={FacultyCardCss.cards}>
       {dept.map((el) => (
-        <div className={FacultyCardCss.card}>
+        <div key={el.name} className={FacultyCardCss.card}>
           <div
             className={FacultyCardCss.img}
             style={{ backgroundImage: `url(images/${el.image})` }}

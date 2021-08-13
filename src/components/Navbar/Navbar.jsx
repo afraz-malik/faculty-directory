@@ -17,20 +17,21 @@ const Navbar = () => {
 
           <li>
             {' '}
-            <a href="#dum" alt="">
+            <a href="#faculty" alt="">
               Our Faculty{' '}
             </a>
           </li>
+
           <li>
             {' '}
-            <a href="#dum" alt="">
-              About Us{' '}
+            <a href="#contact" alt="">
+              Contact{' '}
             </a>
           </li>
           <li>
             {' '}
-            <a href="#dum" alt="">
-              Contact{' '}
+            <a href="#signup" alt="">
+              Become Faculty{' '}
             </a>
           </li>
           <li className={NavbarCss.login}>

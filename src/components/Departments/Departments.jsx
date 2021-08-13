@@ -41,7 +41,7 @@ const Departments = () => {
   ]
 
   return (
-    <div className={DepartmentsCss.container}>
+    <div className={DepartmentsCss.container} id="faculty">
       <div className={DepartmentsCss.title}>
         <h4>Our Faculty Departments</h4>
         <p>
@@ -52,7 +52,7 @@ const Departments = () => {
       </div>
       <div className={DepartmentsCss.cards}>
         {dept.map((el) => (
-          <div className={DepartmentsCss.card}>
+          <div key={el.name} className={DepartmentsCss.card}>
             <div
               className={DepartmentsCss.img}
               style={{ backgroundImage: `url(images/${el.image})` }}

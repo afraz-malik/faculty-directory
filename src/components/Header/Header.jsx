@@ -23,7 +23,7 @@ const Header = () => {
         <div className={HeaderCss.input}>
           <input type="text" placeholder="Subject" />
           <input type="text" placeholder="University" />
-          <button> Search Faculty</button>
+          <a href="#search"> Search Faculty</a>
         </div>
       </div>
     </div>

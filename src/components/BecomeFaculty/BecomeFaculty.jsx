@@ -3,7 +3,7 @@ import BecomeFacultyCss from './BecomeFaculty.module.scss'
 
 const BecomeFaculty = () => {
   return (
-    <div className={BecomeFacultyCss.container}>
+    <div className={BecomeFacultyCss.container} id="signup">
       <section className={BecomeFacultyCss.sec1}>
         <div className={BecomeFacultyCss.form}>
           <h1>Sign up to became faculy member</h1>
@@ -11,13 +11,13 @@ const BecomeFaculty = () => {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
             malesuada lorem maximus mauris scelerisque, at rutrum nulla dictum.
             Ut ac ligula sapien. Suspendisse cursus faucibus finibus.
-            <form>
-              <input type="text" placeholder="Your Name" />
-              <input type="text" placeholder="Your Name" />
-              <input type="text" placeholder="Your Name" />
-              <button>Sign Up</button>
-            </form>
           </p>
+          <form>
+            <input type="text" placeholder="Your Name" />
+            <input type="text" placeholder="Your Name" />
+            <input type="text" placeholder="Your Name" />
+            <button>Sign Up</button>
+          </form>
         </div>
         <div
           className={BecomeFacultyCss.image}

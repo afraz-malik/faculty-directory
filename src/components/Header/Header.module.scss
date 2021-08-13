@@ -34,8 +34,12 @@
         border: none;
         font-size: 14px;
       }
-      button {
-        display: inline-block;
+      a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        // display: inline-block;
         min-width: 196px;
         text-align: center;
         border: none;
