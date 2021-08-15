@@ -4,40 +4,11 @@ import FacultyCardCss from './FacultyCard.module.scss'
 const FactultyCard = () => {
   const dept = [
     {
-      name: 'Computer Scient',
-      des: 'Lorem ipsum dolor sit amet, consectetur',
-      member: '500',
-      image: '1.jpg',
-    },
-    {
-      name: 'Education',
-      des: 'Lorem ipsum dolor sit amet, consectetur',
-      member: '102',
+      name: 'AFRAZ MALIK',
+      designation: 'Software Engineer',
+      subject: 'Computer Science',
+      university: 'Virutal University of Pakistan',
       image: '2.jpg',
-    },
-    {
-      name: 'Arts',
-      des: 'Lorem ipsum dolor sit amet, consectetur',
-      member: '500',
-      image: '3.jpg',
-    },
-    {
-      name: 'Management',
-      des: 'Lorem ipsum dolor sit amet, consectetur',
-      member: '200',
-      image: '4.jpg',
-    },
-    {
-      name: 'Science & tech',
-      des: 'Lorem ipsum dolor sit amet, consectetur',
-      member: '60',
-      image: '5.jpg',
-    },
-    {
-      name: 'Cryptocurrencies',
-      des: 'Lorem ipsum dolor sit amet, consectetur',
-      member: '24',
-      image: '6.jpg',
     },
   ]
   return (
@@ -46,19 +17,21 @@ const FactultyCard = () => {
         <div key={el.name} className={FacultyCardCss.card}>
           <div
             className={FacultyCardCss.img}
-            style={{ backgroundImage: `url(images/${el.image})` }}
+            style={{ backgroundImage: `url(images/authors/${el.image})` }}
           ></div>
           <div className={FacultyCardCss.cardtext}>
             <div className={FacultyCardCss.details}>
-              <h6>{el.name}</h6>
-              <p>{el.des}</p>
-              <span>{el.member} Members</span>
-            </div>
-            <div className={FacultyCardCss.author}>
-              <img src="images/anime.png" alt="" />
-              <h5>
-                William Parker <span>Developer</span>
-              </h5>
+              <h3>{el.name}</h3>
+              <h6>{el.designation}</h6>
+              <p>
+                {' '}
+                <i class="fas fa-user-graduate"></i>
+                &nbsp; {el.subject}
+              </p>
+              <p>
+                <i class="fas fa-school"></i>
+                &nbsp; {el.university}
+              </p>
             </div>
           </div>
         </div>

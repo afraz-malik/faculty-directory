@@ -1,6 +1,6 @@
 import React from 'react'
 import BecomeFacultyCss from './BecomeFaculty.module.scss'
-
+import { Link } from 'react-router-dom'
 const BecomeFaculty = () => {
   return (
     <div className={BecomeFacultyCss.container} id="signup">
@@ -35,7 +35,7 @@ const BecomeFaculty = () => {
             </p>
           </div>
           <div className={BecomeFacultyCss.button}>
-            <button>Become Faculty Now</button>
+            <Link to="/register">Become Faculty Now</Link>
           </div>
         </div>
       </section>

@@ -1,5 +1,6 @@
 import React from 'react'
 import NavbarCss from './Navbar.module.scss'
+import { Link } from 'react-router-dom'
 const Navbar = () => {
   return (
     <nav>
@@ -21,25 +22,19 @@ const Navbar = () => {
               Our Faculty{' '}
             </a>
           </li>
-
-          <li>
-            {' '}
-            <a href="#contact" alt="">
-              Contact{' '}
-            </a>
-          </li>
           <li>
             {' '}
             <a href="#signup" alt="">
               Become Faculty{' '}
             </a>
           </li>
-          <li className={NavbarCss.login}>
+          <li>
             {' '}
-            <a href="#dum" alt="">
-              Login{' '}
-            </a>
+            <Link to="/contact">Contact </Link>
           </li>
+          <Link to="/login">
+            <li className={NavbarCss.login}>Login</li>
+          </Link>
         </ul>
       </div>
     </nav>

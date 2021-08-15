@@ -7,7 +7,7 @@ const Header = () => {
     <div
       className={HeaderCss.header}
       style={{
-        backgroundImage: `url('images/bg.jpg')`,
+        backgroundImage: `url('images/bg/bg.jpg')`,
       }}
     >
       <Navbar />

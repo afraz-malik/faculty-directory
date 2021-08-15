@@ -9,92 +9,77 @@
   grid-gap: 20px;
   .card {
     width: 300px;
-    height: 550px;
+    height: 400px;
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+      rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    // border: 1px solid lightgrey;
     color: grey;
     overflow: hidden;
+    cursor: pointer;
+
     &:hover {
       .cardtext {
         background-color: #d82a4e;
         .details {
           span,
           p,
-          h6 {
-            color: white;
-          }
-        }
-        .author {
-          span,
-          h5 {
+          h6,
+          h3 {
             color: white;
           }
         }
       }
+      .img {
+        transform: scale(1.1);
+        transition: transform 6s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+      }
     }
     .img {
       width: 100%;
-      height: 100%;
+      height: 200px;
       background-repeat: no-repeat;
-      //   background-size: cover;
-      background-position: top center;
+      background-size: 100% 100%;
+      // background-position: top center;
     }
     .cardtext {
+      // display: none;
+      height: 200px;
       transition: all 0.4s;
       position: absolute;
       width: 100%;
       bottom: 0;
       background: #edf4f6;
+      // background: #f5f6fa;
       text-align: left;
-      height: 300px;
       .details {
         padding: 10px 30px;
-        h6 {
-          font-size: 16px;
+        h3 {
+          font-size: 24px;
           margin-bottom: 10px;
           margin-top: 10px;
-          font-weight: 600;
+          font-weight: 700;
           color: #474747;
+          text-align: center;
+        }
+        h6 {
+          font-weight: 600;
+          color: #d82a4e;
+          font-size: 12px;
+          text-align: center;
+          margin: 0 0 30px 0;
         }
         p {
           margin: 0;
           // font-size: 12px;
-          margin-bottom: 20px;
+          margin-bottom: 5px;
           font-size: 14.1px;
           color: #878787;
           line-height: 2.2;
           font-weight: 500;
-        }
-        span {
-          font-size: 18px;
-          font-weight: 600;
-          color: #d82a4e;
-          font-size: 16px;
-        }
-      }
-      .author {
-        position: absolute;
-        width: 100%;
-        border-top: 1px solid lightgrey;
-        bottom: 0;
-        z-index: 5555;
-        height: 80px;
-        display: flex;
-        align-items: center;
-        padding: 0px 20px;
-        img {
-          border-radius: 25px;
-          // height: 25px;
-          width: 50px;
-          margin-right: 20px;
-        }
-        span {
-          //   font-size: 18px;
-          font-weight: 600;
-          color: #d82a4e;
-          //   font-size: 16px;
         }
       }
     }
