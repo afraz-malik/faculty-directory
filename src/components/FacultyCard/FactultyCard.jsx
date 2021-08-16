@@ -10,6 +10,48 @@ const FactultyCard = () => {
       university: 'Virutal University of Pakistan',
       image: '2.jpg',
     },
+    {
+      name: 'AFRAZ MALIK',
+      designation: 'Software Engineer',
+      subject: 'Computer Science',
+      university: 'Virutal University of Pakistan',
+      image: '2.jpg',
+    },
+    {
+      name: 'AFRAZ MALIK',
+      designation: 'Software Engineer',
+      subject: 'Computer Science',
+      university: 'Virutal University of Pakistan',
+      image: '2.jpg',
+    },
+    {
+      name: 'AFRAZ MALIK',
+      designation: 'Software Engineer',
+      subject: 'Computer Science',
+      university: 'Virutal University of Pakistan',
+      image: '2.jpg',
+    },
+    {
+      name: 'AFRAZ MALIK',
+      designation: 'Software Engineer',
+      subject: 'Computer Science',
+      university: 'Virutal University of Pakistan',
+      image: '2.jpg',
+    },
+    {
+      name: 'AFRAZ MALIK',
+      designation: 'Software Engineer',
+      subject: 'Computer Science',
+      university: 'Virutal University of Pakistan',
+      image: '2.jpg',
+    },
+    {
+      name: 'AFRAZ MALIK',
+      designation: 'Software Engineer',
+      subject: 'Computer Science',
+      university: 'Virutal University of Pakistan',
+      image: '2.jpg',
+    },
   ]
   return (
     <div className={FacultyCardCss.cards}>

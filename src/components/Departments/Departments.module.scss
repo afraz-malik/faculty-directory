@@ -25,7 +25,7 @@
     // flex-wrap: wrap;
     // align-items: center;
     grid-template-columns: auto auto auto;
-    justify-content: space-between;
+    justify-content: space-around;
     grid-gap: 40px;
     .card {
       width: 340px;
@@ -119,6 +119,136 @@
             //   font-size: 16px;
           }
         }
+      }
+    }
+  }
+}
+
+@media (min-width: 1281px) {
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .container {
+    width: 99%;
+    .cards {
+      .card {
+        width: 310px;
+      }
+    }
+  }
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .container {
+    width: 99%;
+    .cards {
+      grid-template-columns: auto auto;
+      justify-content: space-around;
+      grid-gap: 20px;
+
+      .card {
+        width: 310px;
+      }
+    }
+  }
+}
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .container {
+    width: 99%;
+
+    .cards {
+      grid-template-columns: auto auto;
+      justify-content: space-around;
+      grid-gap: 20px;
+
+      .card {
+        width: 310px;
+      }
+    }
+  }
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 600px) and (max-width: 767px) {
+  .container {
+    width: 99%;
+    .title {
+      p {
+        margin: 5px 50px;
+      }
+    }
+    .cards {
+      grid-template-columns: auto auto;
+      justify-content: space-around;
+      grid-gap: 20px;
+
+      .card {
+        width: 290px;
+      }
+    }
+  }
+}
+@media (min-width: 481px) and (max-width: 599px) {
+  .container {
+    width: 99%;
+    .title {
+      p {
+        margin: 5px 50px;
+      }
+    }
+    .cards {
+      grid-template-columns: auto auto;
+      justify-content: space-around;
+      grid-gap: 20px;
+
+      .card {
+        width: 233px;
+      }
+    }
+  }
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .container {
+    width: 99%;
+    .title {
+      p {
+        margin: 5px 50px;
+      }
+    }
+    .cards {
+      grid-template-columns: auto;
+      justify-content: space-around;
+      grid-gap: 20px;
+      justify-content: center;
+      align-items: center;
+      .card {
+        width: 300px;
       }
     }
   }
