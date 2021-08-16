@@ -5,7 +5,10 @@ const Navbar = () => {
   return (
     <nav>
       <div className={NavbarCss.rightnav}>
-        <img src="/images/cover.png" alt="" />
+        <img src="/images/profile.png" alt="" />
+        <div className={NavbarCss.switch}>
+          <i className="fa fa-bars"></i>
+        </div>
       </div>
       <div className={NavbarCss.leftnav}>
         <ul>
