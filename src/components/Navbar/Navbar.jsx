@@ -2,14 +2,14 @@ import React, { useState } from 'react'
 import NavbarCss from './Navbar.module.scss'
 import { Link } from 'react-router-dom'
 const Navbar = () => {
-  const [toggle, settoggle] = useState(false)
+  const [toggle, settoggle] = useState(true)
   const handleToggle = () => {
     settoggle(!toggle)
   }
   return (
     <nav>
       <div className={NavbarCss.rightnav}>
-        <img src="/images/profile.png" alt="" />
+        <img src="images/profile.png" alt="" />
         <div className={NavbarCss.switch} onClick={() => handleToggle()}>
           <i className="fa fa-bars"></i>
         </div>

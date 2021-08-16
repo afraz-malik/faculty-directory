@@ -8,7 +8,7 @@ import RegisterPage from './pages/RegisterPage'
 const App = () => {
   return (
     <div className="App">
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/contact" component={ContactPage} />
