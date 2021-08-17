@@ -97,3 +97,9 @@
     }
   }
 }
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .container {
+    width: 325px;
+  }
+}
