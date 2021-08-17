@@ -37,10 +37,13 @@
       padding-right: 10px;
       font-weight: 600;
       font-size: 18px;
+      &::first-letter {
+        text-transform: capitalize;
+      }
     }
   }
   .form {
-    // height: 100vh;
+    height: 100vh;
     // margin-top: 150px;
     padding-bottom: 150px;
     // background-color: pink;

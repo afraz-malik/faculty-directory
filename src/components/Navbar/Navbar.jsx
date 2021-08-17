@@ -34,9 +34,7 @@ const Navbar = () => {
           </li>
           <li>
             {' '}
-            <a href="#signup" alt="">
-              Become Faculty{' '}
-            </a>
+            <Link to="/register">Become Faculty </Link>
           </li>
           <Link to="/login">
             <li className={NavbarCss.login}>Login</li>

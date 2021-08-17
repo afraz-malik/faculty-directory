@@ -89,9 +89,7 @@ const FacultyPage = () => {
   ]
   return (
     <div>
-      <div
-        style={{ height: '350px', overflow: 'hidden', marginBottom: '100px' }}
-      >
+      <div style={{ height: '350px', overflow: '', marginBottom: '100px' }}>
         <SmallHeader bg="1" section={false} />
       </div>
       <Search />

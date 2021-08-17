@@ -1,7 +1,8 @@
 import React from 'react'
 import LoginCss from './Login.module.scss'
 import Navbar from '../Navbar/Navbar'
-const LoginBox = ({ children }) => {
+import { withRouter } from 'react-router-dom'
+const LoginBox = ({ children, match }) => {
   return (
     <div className={LoginCss.smallHeader}>
       <div
@@ -11,7 +12,7 @@ const LoginBox = ({ children }) => {
         <Navbar />
         <div className={LoginCss.site}>
           <a href="#a">Home</a>
-          <span>Contact</span>
+          <span>{match.path.substr(1)}</span>
         </div>
         <div className={LoginCss.form}>{children}</div>
       </div>
@@ -19,4 +20,4 @@ const LoginBox = ({ children }) => {
   )
 }
 
-export default LoginBox
+export default withRouter(LoginBox)

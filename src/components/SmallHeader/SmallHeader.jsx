@@ -1,7 +1,8 @@
 import React from 'react'
 import SmallHeaderCss from './SmallHeader.module.scss'
 import Navbar from '../Navbar/Navbar'
-const SmallHeader = ({ bg, section }) => {
+import { Link, withRouter } from 'react-router-dom'
+const SmallHeader = ({ bg, section, location }) => {
   return (
     <div className={SmallHeaderCss.smallHeader}>
       <div
@@ -11,25 +12,29 @@ const SmallHeader = ({ bg, section }) => {
       >
         <Navbar />
         <div className={SmallHeaderCss.site}>
-          <a href="#a">Home</a>
-          <span>Contact</span>
+          <Link to="/">Home</Link>
+          <span>{location.pathname.substr(1)}</span>
         </div>
       </div>
       {section ? (
-        <section class={SmallHeaderCss.section}>
-          <div class={SmallHeaderCss.seccontainer}>
-            <div class={SmallHeaderCss.warp}>
-              <div class={SmallHeaderCss.title}>
+        <section className={SmallHeaderCss.section}>
+          <div className={SmallHeaderCss.seccontainer}>
+            <div className={SmallHeaderCss.warp}>
+              <div className={SmallHeaderCss.title}>
                 <h2>
                   <span>Search your course</span>
                 </h2>
               </div>
-              <div class={SmallHeaderCss.row}>
-                <div class={SmallHeaderCss.col}>
-                  <form class="course-search-form">
+              <div className={SmallHeaderCss.row}>
+                <div className={SmallHeaderCss.col}>
+                  <form className="course-search-form">
                     <input type="text" placeholder="Course" />
-                    <input type="text" class="last-m" placeholder="Category" />
-                    <button class="site-btn btn-dark">Search Couse</button>
+                    <input
+                      type="text"
+                      className="last-m"
+                      placeholder="Category"
+                    />
+                    <button className="site-btn btn-dark">Search Couse</button>
                   </form>
                 </div>
               </div>
@@ -41,4 +46,4 @@ const SmallHeader = ({ bg, section }) => {
   )
 }
 
-export default SmallHeader
+export default withRouter(SmallHeader)

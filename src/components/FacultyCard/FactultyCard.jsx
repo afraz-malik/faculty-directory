@@ -16,7 +16,7 @@ const FactultyCard = ({ faculty }) => {
               <h6>{el.designation}</h6>
               <p>
                 {' '}
-                <i class="fas fa-user-graduate"></i>
+                <i className="fas fa-user-graduate"></i>
                 &nbsp; {el.subject}
               </p>
               <p>

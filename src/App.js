@@ -1,5 +1,5 @@
 import './App.css'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { HashRouter as Router, Switch, Route } from 'react-router-dom'
 // Pages
 import HomePage from './pages/HomePage'
 import ContactPage from './pages/ContactPage'
@@ -17,6 +17,9 @@ const App = () => {
           <Route exact path="/register" component={RegisterPage} />
           <Route exact path="/faculty" component={FacultyPage} />
         </Switch>
+        {/* <Route path="/">
+          <SmallHeader bg="1" section={false} />
+        </Route> */}
       </Router>
     </div>
   )
