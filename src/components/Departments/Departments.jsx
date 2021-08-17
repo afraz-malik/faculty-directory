@@ -84,7 +84,7 @@ const Departments = () => {
               <div className={DepartmentsCss.author}>
                 <img src={`images/authors/${el.authorImage}`} alt="" />
                 <h5>
-                  {el.authorName}&emsp;
+                  {el.authorName},&nbsp;
                   <span>{el.authorDesignation}</span>
                 </h5>
               </div>

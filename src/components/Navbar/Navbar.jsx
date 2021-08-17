@@ -21,26 +21,22 @@ const Navbar = () => {
         <ul>
           <li>
             {' '}
-            <a href="#dum" alt="">
-              Home{' '}
-            </a>
+            <Link to="/">Home </Link>
           </li>
 
           <li>
             {' '}
-            <a href="#faculty" alt="">
-              Our Faculty{' '}
-            </a>
+            <Link to="/contact">Contact </Link>
+          </li>
+          <li>
+            {' '}
+            <Link to="/faculty">Our Faculty </Link>
           </li>
           <li>
             {' '}
             <a href="#signup" alt="">
               Become Faculty{' '}
             </a>
-          </li>
-          <li>
-            {' '}
-            <Link to="/contact">Contact </Link>
           </li>
           <Link to="/login">
             <li className={NavbarCss.login}>Login</li>

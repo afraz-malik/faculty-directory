@@ -11,7 +11,7 @@ const ContactPage = () => {
 
   return (
     <div>
-      <SmallHeader />
+      <SmallHeader bg="bg2" section={true} />
       <Contact />
       <BecomeFaculty />
       <Footer />

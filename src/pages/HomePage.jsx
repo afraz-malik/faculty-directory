@@ -2,10 +2,10 @@ import React, { useEffect } from 'react'
 // import Header from './../components/Header/Header'
 import Header from '../components/Header/Header'
 import Departments from '../components/Departments/Departments'
-import Search from '../components/Search/Search'
-import FactultyCard from '../components/FacultyCard/FactultyCard'
+// import Search from '../components/Search/Search'
 import BecomeFaculty from '../components/BecomeFaculty/BecomeFaculty'
 import Footer from '../components/Footer/Footer'
+import TopFaculty from '../components/TopFaculty/TopFaculty'
 
 const HomePage = () => {
   useEffect(() => {
@@ -15,8 +15,8 @@ const HomePage = () => {
     <div>
       <Header />
       <Departments />
-      <Search />
-      <FactultyCard />
+      {/* <Search /> */}
+      <TopFaculty />
       <BecomeFaculty />
       <Footer />
     </div>

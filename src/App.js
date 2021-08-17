@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage'
 import ContactPage from './pages/ContactPage'
 import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
+import FacultyPage from './pages/FacultyPage'
 const App = () => {
   return (
     <div className="App">
@@ -14,6 +15,7 @@ const App = () => {
           <Route exact path="/contact" component={ContactPage} />
           <Route exact path="/login" component={LoginPage} />
           <Route exact path="/register" component={RegisterPage} />
+          <Route exact path="/faculty" component={FacultyPage} />
         </Switch>
       </Router>
     </div>

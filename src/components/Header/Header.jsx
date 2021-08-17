@@ -1,6 +1,7 @@
 import React from 'react'
 import HeaderCss from './Header.module.scss'
 import Navbar from '../Navbar/Navbar'
+import { Link } from 'react-router-dom'
 
 const Header = () => {
   return (
@@ -23,7 +24,7 @@ const Header = () => {
         <div className={HeaderCss.input}>
           <input type="text" placeholder="Subject" />
           <input type="text" placeholder="University" />
-          <a href="#search"> Search Faculty</a>
+          <Link to="/faculty#search"> Search Faculty</Link>
         </div>
       </div>
     </div>

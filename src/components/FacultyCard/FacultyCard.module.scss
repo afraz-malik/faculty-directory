@@ -1,5 +1,5 @@
 .cards {
-  margin: 100px 0;
+  margin: 100px 0 0 0;
   display: flex;
   padding: 20px;
   flex-wrap: wrap;
@@ -14,8 +14,8 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
-      rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    // box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    // rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
     // border: 1px solid lightgrey;
     color: grey;
     overflow: hidden;
@@ -43,7 +43,7 @@
       height: 200px;
       background-repeat: no-repeat;
       background-size: 100% 100%;
-      // background-position: top center;
+      background-position: top center;
     }
     .cardtext {
       // display: none;
@@ -85,6 +85,7 @@
     }
   }
 }
+
 @media (min-width: 1281px) {
 }
 

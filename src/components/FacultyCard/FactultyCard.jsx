@@ -1,61 +1,10 @@
 import React from 'react'
 import FacultyCardCss from './FacultyCard.module.scss'
 
-const FactultyCard = () => {
-  const dept = [
-    {
-      name: 'AFRAZ MALIK',
-      designation: 'Software Engineer',
-      subject: 'Computer Science',
-      university: 'Virutal University of Pakistan',
-      image: '2.jpg',
-    },
-    {
-      name: 'AFRAZ MALIK',
-      designation: 'Software Engineer',
-      subject: 'Computer Science',
-      university: 'Virutal University of Pakistan',
-      image: '2.jpg',
-    },
-    {
-      name: 'AFRAZ MALIK',
-      designation: 'Software Engineer',
-      subject: 'Computer Science',
-      university: 'Virutal University of Pakistan',
-      image: '2.jpg',
-    },
-    {
-      name: 'AFRAZ MALIK',
-      designation: 'Software Engineer',
-      subject: 'Computer Science',
-      university: 'Virutal University of Pakistan',
-      image: '2.jpg',
-    },
-    {
-      name: 'AFRAZ MALIK',
-      designation: 'Software Engineer',
-      subject: 'Computer Science',
-      university: 'Virutal University of Pakistan',
-      image: '2.jpg',
-    },
-    {
-      name: 'AFRAZ MALIK',
-      designation: 'Software Engineer',
-      subject: 'Computer Science',
-      university: 'Virutal University of Pakistan',
-      image: '2.jpg',
-    },
-    {
-      name: 'AFRAZ MALIK',
-      designation: 'Software Engineer',
-      subject: 'Computer Science',
-      university: 'Virutal University of Pakistan',
-      image: '2.jpg',
-    },
-  ]
+const FactultyCard = ({ faculty }) => {
   return (
     <div className={FacultyCardCss.cards}>
-      {dept.map((el) => (
+      {faculty.map((el) => (
         <div key={el.name} className={FacultyCardCss.card}>
           <div
             className={FacultyCardCss.img}
