@@ -33,6 +33,10 @@
         float: left;
         border: none;
         font-size: 14px;
+        outline: none;
+        &:focus {
+          border-bottom: 3px solid #d82a4e;
+        }
       }
       a {
         display: flex;

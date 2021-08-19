@@ -68,6 +68,10 @@
           border: none;
           font-size: 14px;
           background: #edf4f6;
+          outline: none;
+          &:focus {
+            border-bottom: 3px solid #d82a4e;
+          }
         }
         button {
           display: inline-block;

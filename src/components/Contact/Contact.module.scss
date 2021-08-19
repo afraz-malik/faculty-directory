@@ -63,6 +63,10 @@
               font-size: 14px;
               font-weight: 500;
               background: #edf4f6;
+              outline: none;
+              &:focus {
+                border-bottom: 3px solid #d82a4e;
+              }
             }
             textarea {
               padding-top: 23px;

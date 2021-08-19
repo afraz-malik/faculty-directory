@@ -13,7 +13,10 @@ const SmallHeader = ({ bg, section, location }) => {
       <div
         className={SmallHeaderCss.container}
         // style={{backgroundImage: `url`}}
-        style={{ backgroundImage: `url(images/bg/${bg}.jpg)` }}
+        style={{
+          backgroundImage: `url(images/bg/${bg}.jpg)`,
+          height: !section ? '300px' : '443px',
+        }}
       >
         <Navbar />
         <div className={SmallHeaderCss.site}>

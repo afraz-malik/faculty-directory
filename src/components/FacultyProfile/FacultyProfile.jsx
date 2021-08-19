@@ -2,10 +2,39 @@ import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import FacultyProfileCss from './FacultyProfile.module.scss'
 const FacultyProfile = ({ match }) => {
-  console.log(match)
+  window.onscroll = function () {
+    myFunction()
+  }
+  const [state, setstate] = React.useState(false)
+
+  function myFunction() {
+    if (window.pageYOffset >= 300) {
+      setstate(true)
+    } else {
+      setstate(false)
+    }
+  }
   return (
     <div className={FacultyProfileCss.container}>
-      <div className={FacultyProfileCss.section}>
+      <div
+        className={`${FacultyProfileCss.head}`}
+        style={
+          state
+            ? {
+                position: 'fixed',
+                top: 0,
+                boxShadow: '0 2px 5px 0 rgb(0 0 0 / 16%)',
+              }
+            : { position: 'unset', boxShadow: 'unset' }
+        }
+      >
+        {match.params.id}
+      </div>
+
+      <div
+        className={FacultyProfileCss.section}
+        style={state ? { marginTop: '150px' } : null}
+      >
         <div className={FacultyProfileCss.left}>
           <div className={FacultyProfileCss.img}>
             <img src="images/authors/8.jpg" alt="" />

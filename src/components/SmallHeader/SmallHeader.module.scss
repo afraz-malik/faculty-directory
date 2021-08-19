@@ -8,7 +8,7 @@
     padding-top: 20px;
     position: relative;
     .site {
-      margin: 100px;
+      margin: 100px 50px;
 
       // position: absolute;
       // top: 0;
@@ -21,6 +21,7 @@
         font-weight: 600;
         font-size: 18px;
         text-decoration: none;
+        text-transform: capitalize;
         background-color: transparent;
         &::after {
           position: absolute;
@@ -119,6 +120,10 @@
                 font-family: inherit;
                 font-size: inherit;
                 line-height: inherit;
+                outline: none;
+                &:focus {
+                  // border-bottom: 3px solid #d82a4e;
+                }
               }
               button {
                 display: inline-block;
