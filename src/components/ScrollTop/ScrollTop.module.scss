@@ -1,0 +1,17 @@
+.container {
+  position: fixed;
+  right: 35px;
+  bottom: 40px;
+  z-index: 99999999;
+  transition: all 0.4s;
+  button {
+    /* padding: 22px; */
+    font-size: 47px;
+    border-radius: 62px;
+    /* background: purple; */
+    color: #d82a4e;
+    cursor: pointer;
+    border: white;
+    outline: none;
+  }
+}

@@ -6,6 +6,13 @@ const Navbar = () => {
   const handleToggle = () => {
     settoggle(!toggle)
   }
+  // window.addEventListener('resize', function () {
+  //   if (window.matchMedia('(min-width: 768px)').matches) {
+  //     settoggle(true)
+  //   } else {
+  //     settoggle(false)
+  //   }
+  // })
   return (
     <nav>
       <div className={NavbarCss.rightnav}>

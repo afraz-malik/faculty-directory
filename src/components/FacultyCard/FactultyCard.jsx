@@ -1,11 +1,16 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom'
 import FacultyCardCss from './FacultyCard.module.scss'
 
-const FactultyCard = ({ faculty }) => {
+const FactultyCard = ({ faculty, history }) => {
   return (
     <div className={FacultyCardCss.cards}>
-      {faculty.map((el) => (
-        <div key={el.name} className={FacultyCardCss.card}>
+      {faculty.map((el, i) => (
+        <div
+          key={i}
+          className={FacultyCardCss.card}
+          onClick={() => history.push(`/faculty/${el.name.toLowerCase()}`)}
+        >
           <div
             className={FacultyCardCss.img}
             style={{ backgroundImage: `url(images/authors/${el.image})` }}
@@ -20,7 +25,7 @@ const FactultyCard = ({ faculty }) => {
                 &nbsp; {el.subject}
               </p>
               <p>
-                <i class="fas fa-school"></i>
+                <i className="fas fa-school"></i>
                 &nbsp; {el.university}
               </p>
             </div>
@@ -31,4 +36,4 @@ const FactultyCard = ({ faculty }) => {
   )
 }
 
-export default FactultyCard
+export default withRouter(FactultyCard)

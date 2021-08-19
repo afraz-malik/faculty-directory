@@ -26,7 +26,7 @@ const TopFaculty = () => {
       image: '3.jpg',
     },
     {
-      name: 'NAHAL MALIK',
+      name: 'NAHAL BUTT',
       designation: 'Software Engineer',
       subject: 'Computer Science',
       university: 'Virutal University of Pakistan',

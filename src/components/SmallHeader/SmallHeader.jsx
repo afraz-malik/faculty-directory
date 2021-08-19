@@ -3,6 +3,11 @@ import SmallHeaderCss from './SmallHeader.module.scss'
 import Navbar from '../Navbar/Navbar'
 import { Link, withRouter } from 'react-router-dom'
 const SmallHeader = ({ bg, section, location }) => {
+  var loc = location.pathname
+  var start = loc.indexOf('/')
+  var end = loc.lastIndexOf('/')
+  var nloc1 = loc.substr(start + 1, end - 1)
+  var nloc2 = loc.substr(end + 1)
   return (
     <div className={SmallHeaderCss.smallHeader}>
       <div
@@ -13,7 +18,14 @@ const SmallHeader = ({ bg, section, location }) => {
         <Navbar />
         <div className={SmallHeaderCss.site}>
           <Link to="/">Home</Link>
-          <span>{location.pathname.substr(1)}</span>
+          {nloc1 === '' ? (
+            <span>{nloc2}</span>
+          ) : (
+            <>
+              <Link to={'/' + nloc1}>{nloc1}</Link>
+              <span>{nloc2}</span>
+            </>
+          )}{' '}
         </div>
       </div>
       {section ? (
