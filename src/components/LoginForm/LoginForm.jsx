@@ -1,7 +1,7 @@
 import React from 'react'
 import LoginFormCss from './LoginForm.module.scss'
-import { Link } from 'react-router-dom'
-const LoginForm = () => {
+import { Link, withRouter } from 'react-router-dom'
+const LoginForm = ({ history }) => {
   return (
     <div className={LoginFormCss.container}>
       <form>
@@ -11,7 +11,11 @@ const LoginForm = () => {
         <a href="#af" alt="">
           Forget password?
         </a>
-        <input type="submit" value="Sign in" />
+        <input
+          type="submit"
+          value="Sign in"
+          onClick={() => history.push('/dashboard')}
+        />
         <p>
           Don't have an account? <Link to="/register"> Sign up</Link>{' '}
         </p>
@@ -30,4 +34,4 @@ const LoginForm = () => {
     </div>
   )
 }
-export default LoginForm
+export default withRouter(LoginForm)

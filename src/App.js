@@ -1,5 +1,5 @@
 import './App.css'
-import { HashRouter as Router, Switch, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 // Pages
 import HomePage from './pages/HomePage'
 import ContactPage from './pages/ContactPage'
@@ -7,6 +7,7 @@ import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
 import FacultyPage from './pages/FacultyPage'
 import ScrollTop from './components/ScrollTop/ScrollTop'
+import FacultyDashboard from './pages/FacultyDashboard'
 const App = () => {
   return (
     <div className="App">
@@ -18,6 +19,7 @@ const App = () => {
           <Route exact path="/login" component={LoginPage} />
           <Route exact path="/register" component={RegisterPage} />
           <Route path="/faculty" component={FacultyPage} />
+          <Route path="/dashboard" component={FacultyDashboard} />
         </Switch>
       </Router>
     </div>

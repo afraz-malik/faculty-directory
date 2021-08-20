@@ -1,0 +1,24 @@
+.container {
+  margin: 50px;
+  ul {
+    margin: 0;
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-gap: 50px;
+    width: 100%;
+    font-weight: bold;
+    li {
+      cursor: pointer;
+      a {
+        text-decoration: none;
+        color: #000;
+        &:hover {
+          border-bottom: 5px solid #d82a4e;
+          color: #d82a4e;
+        }
+      }
+    }
+  }
+}

@@ -1,7 +1,7 @@
 import React from 'react'
 import LoginCss from './Login.module.scss'
 import Navbar from '../Navbar/Navbar'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 const LoginBox = ({ children, match }) => {
   return (
     <div className={LoginCss.smallHeader}>
@@ -11,7 +11,7 @@ const LoginBox = ({ children, match }) => {
       >
         <Navbar />
         <div className={LoginCss.site}>
-          <a href="#a">Home</a>
+          <Link to="/">Home</Link>
           <span>{match.path.substr(1)}</span>
         </div>
         <div className={LoginCss.form}>{children}</div>
