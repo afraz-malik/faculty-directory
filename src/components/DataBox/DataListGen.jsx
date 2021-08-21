@@ -12,7 +12,7 @@ const DataListGen = ({ data, title, index }) => {
   // const dispatch = useDispatch()
   const [editBox, setEditBox] = useState(false)
   const toggleEditBox = () => {
-    // setEditBox(!editBox)
+    setEditBox(!editBox)
   }
   const manageDelete = () => {
     const result = window.confirm('Are you sure you want to delete?')
