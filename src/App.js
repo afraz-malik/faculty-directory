@@ -7,7 +7,7 @@ import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
 import FacultyPage from './pages/FacultyPage'
 import ScrollTop from './components/ScrollTop/ScrollTop'
-import FacultyDashboard from './pages/FacultyDashboard'
+import Dashboard from './pages/Dashboard'
 const App = () => {
   return (
     <div className="App">
@@ -19,7 +19,7 @@ const App = () => {
           <Route exact path="/login" component={LoginPage} />
           <Route exact path="/register" component={RegisterPage} />
           <Route path="/faculty" component={FacultyPage} />
-          <Route path="/dashboard" component={FacultyDashboard} />
+          <Route path="/dashboard" component={Dashboard} />
         </Switch>
       </Router>
     </div>

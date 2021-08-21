@@ -1,0 +1,183 @@
+.outerbox {
+  position: fixed;
+  background: rgba(67, 70, 74, 0.7);
+  //   height: 100vw;
+  right: 0;
+  left: 0;
+  top: 0px;
+  //   padding: 50px 50px;
+  bottom: 0;
+  overflow: scroll;
+  .box {
+    position: sticky;
+    //   z-index: 15;
+    top: 50%;
+    bottom: 10%;
+    //   left: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+    margin: auto;
+    .head {
+      background: linear-gradient(
+        180deg,
+        #e14eca 0%,
+        #c053ef 100%,
+        #ba54f5 100%
+      );
+      border-radius: 6px 6px 0px 0px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      // width: 50px;
+      h2 {
+        font-family: Poppins;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 15px;
+        /* identical to box height */
+
+        color: #ffffff;
+      }
+    }
+    .body {
+      background: #ffffff;
+      border-radius: 6px;
+      // height: 500px;
+      padding: 30px 50px;
+      form {
+        display: flex;
+        flex-direction: column;
+        label {
+          text-align: left;
+          font-family: Poppins;
+          font-style: normal;
+          font-weight: 600;
+          font-size: 11px;
+          line-height: 22px;
+          /* identical to box height */
+          // text-align: right;
+          letter-spacing: 0.075px;
+
+          color: #030303;
+        }
+        select, input {
+          margin-bottom: 20px;
+          border: 1px solid #2b3553;
+          box-sizing: border-box;
+          border-radius: 3px;
+          height: 30px;
+          font-family: Poppins;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 12px;
+          line-height: 13px;
+          /* identical to box height, or 93% */
+          color: #101010;
+          mix-blend-mode: normal;
+          opacity: 0.8;
+          padding: 5px;
+        }
+        select {
+          cursor: pointer;
+          color:  #e14eca;
+        }
+        .buttons {
+          // text-align: left;
+          margin: 20px 0px;
+          .addbtn {
+            background: linear-gradient(360deg, #ba54f5 0%, #e14eca 100%);
+            border-radius: 6px;
+            border: 1px solid transparent;
+            padding: 10px 20px;
+            color: white;
+            cursor: pointer;
+            margin-right: 20px;
+          }
+          .cancel {
+            background: white;
+            border-radius: 6px;
+            border: 1px solid red;
+            padding: 10px 20px;
+            color: red;
+            cursor: pointer;
+            &:hover {
+              background-color: red;
+              color: white;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1281px) {
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .outerbox {
+    .box {
+      width: 50%;
+    }
+  }
+}
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .outerbox {
+    .box {
+      width: 50%;
+    }
+  }
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 600px) and (max-width: 767px) {
+  .outerbox {
+    .box {
+      width: 50%;
+    }
+  }
+}
+@media (min-width: 481px) and (max-width: 599px) {
+  .outerbox {
+    .box {
+      width: 60%;
+    }
+  }
+}
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .outerbox {
+    .box {
+      width: 70%;
+    }
+  }
+}

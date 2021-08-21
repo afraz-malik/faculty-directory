@@ -1,9 +1,10 @@
 import React from 'react'
-import Dashboard from '../components/Dashboard/Dashboard'
+import AdminDashboard from '../components/AdminDashboard/AdminDashboard'
+import FacultyDashboard from '../components/FacultyDashboard/FacultyDashboard'
 import Footer from '../components/Footer/Footer'
 import SmallHeader from '../components/SmallHeader/SmallHeader'
 
-const AdminDashboard = () => {
+const Dashboard = () => {
   React.useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
@@ -11,10 +12,11 @@ const AdminDashboard = () => {
   return (
     <div>
       <SmallHeader section={false} bg="bg3" />
-      <Dashboard />
+      {true ? <AdminDashboard /> : <FacultyDashboard />}
+
       <Footer />
     </div>
   )
 }
 
-export default AdminDashboard
+export default Dashboard

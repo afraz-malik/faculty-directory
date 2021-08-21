@@ -2,8 +2,8 @@ import React from 'react'
 import { Link, Route, withRouter } from 'react-router-dom'
 import DashboardProfile from '../DashboardProfile/DashboardProfile'
 import Form from '../Form/Form'
-import DashboardCss from './Dashboard.module.scss'
-const Dashboard = ({ match }) => {
+import FacultyDashboardCSs from './FacultyDashboard.module.scss'
+const FacultyDashboard = ({ match }) => {
   let profile = false
   let edit = false
 
@@ -13,7 +13,7 @@ const Dashboard = ({ match }) => {
     profile = true
   }
   return (
-    <div className={DashboardCss.container}>
+    <div className={FacultyDashboardCSs.container}>
       <nav>
         <ul>
           <li>
@@ -54,4 +54,4 @@ const Dashboard = ({ match }) => {
   )
 }
 
-export default withRouter(Dashboard)
+export default withRouter(FacultyDashboard)
