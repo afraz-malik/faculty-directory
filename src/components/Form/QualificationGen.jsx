@@ -3,7 +3,7 @@ import FormCss from './Form.module.css'
 
 const QualificationGen = ({ qual, handleQual, index, handleRemoved }) => {
   return (
-    <div className={FormCss.qualid}>
+    <div className={FormCss.col50}>
       {index > 0 ? (
         <div className={FormCss.addless}>
           <span className="span" style={{ color: 'lightgrey' }}></span>
@@ -16,22 +16,23 @@ const QualificationGen = ({ qual, handleQual, index, handleRemoved }) => {
           <hr className={FormCss.hr} />
         </div>
       ) : null}
-      <div className={FormCss.row1}>
-        <label htmlFor="institute">
-          <i className="fa fa-institution"></i> Institute Attended
-        </label>
-        <input
-          type="text"
-          id="institute"
-          name="institute_attended"
-          placeholder="Institute name ..."
-          value={qual.institute_attended}
-          onChange={(e) => handleQual(e, index)}
-          required
-        />
-      </div>
-      <div className={FormCss.row}>
-        <div className={FormCss.col50}>
+      <div className={FormCss.col3}>
+        <div>
+          <label htmlFor="institute">
+            <i className="fa fa-institution"></i> Institute Attended
+          </label>
+          <input
+            type="text"
+            id="institute"
+            name="institute_attended"
+            placeholder="Institute name ..."
+            value={qual.institute_attended}
+            onChange={(e) => handleQual(e, index)}
+            required
+          />
+        </div>
+
+        <div>
           <label htmlFor="egree">
             <i className="fa fa-graduation-cap" aria-hidden="true"></i> Degree
             Title
@@ -46,7 +47,7 @@ const QualificationGen = ({ qual, handleQual, index, handleRemoved }) => {
             required
           />
         </div>
-        <div className={FormCss.col50}>
+        <div>
           <label htmlFor="year">
             <i className="fa fa-calendar" aria-hidden="true"></i> Year of
             Passing

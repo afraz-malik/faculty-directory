@@ -12,7 +12,7 @@ const Dashboard = () => {
   return (
     <div>
       <SmallHeader section={false} bg="bg3" />
-      {true ? <AdminDashboard /> : <FacultyDashboard />}
+      {false ? <AdminDashboard /> : <FacultyDashboard />}
 
       <Footer />
     </div>

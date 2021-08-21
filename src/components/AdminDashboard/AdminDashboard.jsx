@@ -1,10 +1,8 @@
 import React from 'react'
 import { Link, Route, withRouter } from 'react-router-dom'
-import Boxmodel from '../Boxmodel/Boxmodel'
+import AdminDashboardCss from './AdminDashboard.module.scss'
 import DashboardProfile from '../DashboardProfile/DashboardProfile'
 import DataBox from '../DataBox/DataBox'
-import Form from '../Form/Form'
-import AdminDashboardCss from './AdminDashboard.module.scss'
 const AdminDashboard = ({ match }) => {
   let profile = false
   let manage = false

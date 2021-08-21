@@ -1,57 +1,32 @@
 import React from 'react'
-import { Link, Route, withRouter } from 'react-router-dom'
-import DashboardProfile from '../DashboardProfile/DashboardProfile'
-import Form from '../Form/Form'
 import FacultyDashboardCSs from './FacultyDashboard.module.scss'
-const FacultyDashboard = ({ match }) => {
-  let profile = false
-  let edit = false
-
-  if (window.location.href.indexOf('edit-faculty') > -1) {
-    edit = true
-  } else if (window.location.href.indexOf('dashboard') > -1) {
-    profile = true
+import { MultiStepForm, Step } from 'react-multi-form'
+import Form1 from '../Form/Form1'
+import Form2 from '../Form/Form2'
+import Form3 from '../Form/Form3'
+const FacultyDashboard = () => {
+  const [state, setstate] = React.useState(1)
+  const incState = () => {
+    setstate(state + 1)
+  }
+  const decState = () => {
+    setstate(state - 1)
   }
   return (
     <div className={FacultyDashboardCSs.container}>
-      <nav>
-        <ul>
-          <li>
-            <Link
-              to={`${match.path}`}
-              style={
-                profile
-                  ? {
-                      color: '#d82a4e',
-                      borderBottom: '5px solid #d82a4e',
-                    }
-                  : null
-              }
-            >
-              Profile
-            </Link>
-          </li>
-          <li>
-            <Link
-              to={`${match.path}/edit-faculty`}
-              style={
-                edit
-                  ? {
-                      color: '#d82a4e',
-                      borderBottom: '5px solid #d82a4e',
-                    }
-                  : null
-              }
-            >
-              Edit Faculty Details
-            </Link>
-          </li>
-        </ul>
-      </nav>
-      <Route exact path={`${match.path}`} component={DashboardProfile} />
-      <Route exact path={`${match.path}/edit-faculty`} component={Form} />
+      <MultiStepForm activeStep={state} accentColor={'#d82a4e'}>
+        <Step label="Personal">
+          <Form1 incState={incState} decState={decState} state={state} />
+        </Step>
+        <Step label="Qualification">
+          <Form2 incState={incState} decState={decState} state={state} />
+        </Step>
+        <Step label="Faculty">
+          <Form3 incState={incState} decState={decState} state={state} />
+        </Step>
+      </MultiStepForm>
     </div>
   )
 }
 
-export default withRouter(FacultyDashboard)
+export default FacultyDashboard

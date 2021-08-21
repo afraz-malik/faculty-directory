@@ -15,7 +15,7 @@ import DashboardProfileCss from './DashboardProfile.module.scss'
 // })
 const DashboardProfile = ({ user, isLoading }) => {
   // const dispatch = useDispatch()
-  const [showBox, manageBox] = useState(false)
+  // const [showBox, manageBox] = useState(false)
   const [usercredentials, setUsercredentials] = useState({
     uid: '',
     displayName: '',
@@ -29,12 +29,12 @@ const DashboardProfile = ({ user, isLoading }) => {
     imgurl: '',
   })
   const [images, setimages] = useState([])
-  const showBoxFunction = () => {
-    manageBox(true)
-  }
-  const hideBoxFunction = () => {
-    manageBox(false)
-  }
+  // const showBoxFunction = () => {
+  //   manageBox(true)
+  // }
+  // const hideBoxFunction = () => {
+  //   manageBox(false)
+  // }
   const handleChange = (event) => {
     setUsercredentials({
       ...usercredentials,
@@ -54,7 +54,7 @@ const DashboardProfile = ({ user, isLoading }) => {
     event.preventDefault()
     // console.log(usercredentials)
     // dispatch(updateUser({ images, usercredentials }))
-    // if (images == null) return
+    if (images == null) return
     // dispatch(imageUpload(images))
   }
   // console.log(user)
@@ -163,7 +163,7 @@ const DashboardProfile = ({ user, isLoading }) => {
             </div>
             <span className={DashboardProfileCss.changepassword}>
               PASSWORD:
-              <span onClick={() => showBoxFunction()}>Change Password</span>
+              <span>Change Password</span>
             </span>
             <button type="submit">SAVE</button>
           </form>
