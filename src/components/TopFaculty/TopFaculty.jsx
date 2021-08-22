@@ -1,38 +1,18 @@
 import React from 'react'
 import TopFacultyCss from './TopFaculty.module.scss'
-import FactultyCard from '../FacultyCard/FactultyCard'
+import FacultyCard from '../FacultyCards/FacultyCard'
 import { Link } from 'react-router-dom'
-const TopFaculty = () => {
-  const faculty = [
-    {
-      name: 'AFRAZ MALIK',
-      designation: 'Software Engineer',
-      subject: 'Computer Science',
-      university: 'Virutal University of Pakistan',
-      image: '1.jpg',
-    },
-    {
-      name: 'MATHEW PAUREN',
-      designation: 'Software Engineer',
-      subject: 'Computer Science',
-      university: 'Virutal University of Pakistan',
-      image: '2.jpg',
-    },
-    {
-      name: 'PAUL PHENIX',
-      designation: 'Software Engineer',
-      subject: 'Computer Science',
-      university: 'Virutal University of Pakistan',
-      image: '3.jpg',
-    },
-    {
-      name: 'NAHAL BUTT',
-      designation: 'Software Engineer',
-      subject: 'Computer Science',
-      university: 'Virutal University of Pakistan',
-      image: '4.jpg',
-    },
-  ]
+import { connect } from 'react-redux'
+
+import { topFacultySelector } from '../../redux/selector'
+
+const mapStateToProps = (state) => {
+  return {
+    faculty: topFacultySelector(state),
+  }
+}
+
+const TopFaculty = ({ faculty }) => {
   return (
     <div className={TopFacultyCss.container}>
       <div className={TopFacultyCss.title}>
@@ -44,7 +24,9 @@ const TopFaculty = () => {
         </p>
       </div>
       <div className={TopFacultyCss.faculty}>
-        <FactultyCard faculty={faculty} />
+        {faculty.map((el, i) => (
+          <FacultyCard key={i} el={el} />
+        ))}
       </div>
       <Link to="/faculty" className={TopFacultyCss.more}>
         <span>See All &#x2192;</span>
@@ -53,4 +35,4 @@ const TopFaculty = () => {
   )
 }
 
-export default TopFaculty
+export default connect(mapStateToProps, null)(TopFaculty)

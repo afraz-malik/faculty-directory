@@ -1,12 +1,51 @@
 import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import FacultyProfileCss from './FacultyProfile.module.scss'
+import { connect } from 'react-redux'
 
-const FacultyProfile = ({ match }) => {
+import { facultySelectorByParam } from '../../redux/selector'
+
+const mapStateToProps = (state, ownProps) => {
+  return {
+    facultySelector: facultySelectorByParam(ownProps.match.params.id)(state),
+  }
+}
+
+const FacultyProfile = ({ match, history, facultySelector }) => {
   window.onscroll = function () {
     myFunction()
   }
+  React.useEffect(() => {
+    if (facultySelector.length > 0) {
+      history.push(`/faculty/${facultySelector[0].personal.fm_name}`)
+      const { personal, qualification, faculty } = facultySelector[0]
+      setF({
+        name: personal.fm_name,
+        department: faculty.fm_department,
+        designation: faculty.fm_designation,
+        city: faculty.fm_city,
+        country: faculty.fm_country,
+        phone: personal.fm_phone,
+        email: personal.fm_email,
+        university: faculty.fm_university,
+        image: personal.imgurl,
+        institute: qualification[0].institute_attended,
+      })
+    }
+    // eslint-disable-next-line
+  }, [])
   const [state, setstate] = React.useState(false)
+  const [f, setF] = React.useState({
+    name: 'null',
+    department: 'null',
+    designation: 'null',
+    city: 'null',
+    country: 'null',
+    phone: 'null',
+    email: 'null',
+    image: 'null',
+    institute: 'null',
+  })
 
   function myFunction() {
     if (window.pageYOffset >= 300) {
@@ -29,7 +68,7 @@ const FacultyProfile = ({ match }) => {
             : { position: 'unset', boxShadow: 'unset' }
         }
       >
-        {match.params.id}
+        {f.name}
       </div>
 
       <div
@@ -38,16 +77,19 @@ const FacultyProfile = ({ match }) => {
       >
         <div className={FacultyProfileCss.left}>
           <div className={FacultyProfileCss.img}>
-            <img src="images/authors/8.jpg" alt="" />
+            <img src={f.image} alt="" />
           </div>
           <div className={FacultyProfileCss.info}>
             <h3>CONTACT INFO</h3>
             <hr className={FacultyProfileCss.hr} />
-            <p> 6th Floor,</p>
-            <p> Arfa Software Technology Park,</p>
-            <p> Lahore</p>
-            <p> Ph: +92-324-8205435</p>
-            <p> Email: afrazmalik321@gmail.com</p>
+            <p> {f.department}</p>
+            <p> {f.university}</p>
+            <p>
+              {' '}
+              {f.city}, {f.country}
+            </p>
+            <p> Ph: {f.phone}</p>
+            <p> Email: {f.email}</p>
             <div className={FacultyProfileCss.button}>
               <Link to="/contact">Contact</Link>
             </div>
@@ -55,13 +97,9 @@ const FacultyProfile = ({ match }) => {
         </div>
         <div className={FacultyProfileCss.right}>
           <div className={FacultyProfileCss.header}>
-            <h2>{match.params.id}</h2>
-            <div className={FacultyProfileCss.desg}>
-              Assistant Professor and Dean of Business and Management
-            </div>
-            <div className={FacultyProfileCss.deg}>
-              PhD - Entrepreneurship, University of Exeter, UK
-            </div>
+            <h2>{f.name}</h2>
+            <div className={FacultyProfileCss.desg}>{f.designation}</div>
+            <div className={FacultyProfileCss.deg}>{f.institute}</div>
           </div>
           <div className={FacultyProfileCss.row}>
             <h3>RESEARCH INTERESTS</h3>
@@ -101,4 +139,4 @@ const FacultyProfile = ({ match }) => {
   )
 }
 
-export default withRouter(FacultyProfile)
+export default withRouter(connect(mapStateToProps, null)(FacultyProfile))

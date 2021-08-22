@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, withRouter } from 'react-router-dom'
 import BecomeFaculty from '../components/BecomeFaculty/BecomeFaculty'
-import FactultyCard from '../components/FacultyCard/FactultyCard'
+import FacultyCards from '../components/FacultyCards/FacultyCards'
 import Footer from '../components/Footer/Footer'
 import Search from '../components/Search/Search'
 import SmallHeader from '../components/SmallHeader/SmallHeader'
@@ -20,7 +20,7 @@ const FacultyPage = ({ match }) => {
             <SmallHeader bg="1" section={false} />
           </div>
           <Search />
-          <FactultyCard />
+          <FacultyCards />
           <BecomeFaculty />
           <Footer />
         </div>

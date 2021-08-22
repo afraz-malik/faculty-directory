@@ -43,9 +43,11 @@ const Navbar = () => {
             {' '}
             <Link to="/register">Become Faculty </Link>
           </li>
-          <Link to="/login">
-            <li className={NavbarCss.login}>Login</li>
-          </Link>
+          <li>
+            <Link to="/login" className={NavbarCss.login}>
+              Login
+            </Link>
+          </li>
         </ul>
       </div>
     </nav>

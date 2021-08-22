@@ -1,4 +1,5 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom'
 import FormCss from './Form.module.css'
 
 const initialState = {
@@ -41,7 +42,12 @@ class Form1 extends React.Component {
     const result = await window.confirm(
       'Are you sure you have verified all record and want to proceed? (Strict Action will be taken against false information)'
     )
-    if (result) this.props.submitForm()
+    if (result) {
+      this.props.submitForm()
+      alert('Saved Sucessfully')
+      this.props.history.push('/faculty')
+    }
+    // console.log(this.props.history.push('/dashboard'))
   }
 
   render() {
@@ -186,4 +192,4 @@ class Form1 extends React.Component {
   }
 }
 
-export default Form1
+export default withRouter(Form1)

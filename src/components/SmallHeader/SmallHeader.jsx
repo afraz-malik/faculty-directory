@@ -37,18 +37,14 @@ const SmallHeader = ({ bg, section, location }) => {
             <div className={SmallHeaderCss.warp}>
               <div className={SmallHeaderCss.title}>
                 <h2>
-                  <span>Search your course</span>
+                  <span>Search your faculty</span>
                 </h2>
               </div>
               <div className={SmallHeaderCss.row}>
                 <div className={SmallHeaderCss.col}>
                   <form className="course-search-form">
-                    <input type="text" placeholder="Course" />
-                    <input
-                      type="text"
-                      className="last-m"
-                      placeholder="Category"
-                    />
+                    <input type="text" placeholder="Subject" />
+                    <input type="text" placeholder="University" />
                     <button className="site-btn btn-dark">Search Couse</button>
                   </form>
                 </div>

@@ -18,6 +18,7 @@
     "react-scripts": "4.0.3",
     "redux-core": "^0.1.1",
     "redux-logger": "^3.0.6",
+    "reselect": "^4.0.0",
     "sass": "^1.37.5",
     "sass-loader": "^12.1.0",
     "web-vitals": "^1.1.2"

@@ -30,23 +30,20 @@ nav {
         }
       }
       .login {
-        min-width: 196px;
+        min-width: 95px;
         text-align: center;
         border: none;
-        padding: 15px 10px;
+        padding: 16px 45px;
         font-weight: 600;
         font-size: 16px;
         position: relative;
         color: #fff;
         cursor: pointer;
-        margin-left: 122px;
-        background: #d82a4e;
+        margin-left: 50px;
         margin-right: 50px;
-        text-decoration: none;
-        a {
-          &:hover {
-            color: white;
-          }
+        background: #d82a4e;
+        &:hover {
+          color: #fff;
         }
       }
     }

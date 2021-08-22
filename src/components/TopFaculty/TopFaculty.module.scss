@@ -19,6 +19,16 @@
       margin: 5px 125px;
     }
   }
+  .faculty {
+    margin: 100px 0 0 0;
+    display: flex;
+    padding: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+    //   grid-template-columns: auto auto auto;
+    justify-content: center;
+    grid-gap: 20px;
+  }
   .more {
     text-align: right;
     // font-style: italic;
@@ -91,6 +101,12 @@
         margin: 5px 50px;
       }
     }
+    .faculty {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      overflow-x: auto;
+      justify-content: unset;
+    }
   }
 }
 @media (min-width: 481px) and (max-width: 599px) {
@@ -100,6 +116,12 @@
       p {
         margin: 5px 50px;
       }
+    }
+    .faculty {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      overflow-x: auto;
+      justify-content: unset;
     }
   }
 }
@@ -117,7 +139,7 @@
         margin: 5px 50px;
       }
     }
-    .faculty > * {
+    .faculty {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr 1fr;
       overflow-x: auto;
