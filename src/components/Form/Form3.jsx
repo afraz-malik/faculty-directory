@@ -31,17 +31,17 @@ class Form1 extends React.Component {
     this.setState({ ...this.state, [event.target.name]: event.target.value })
   }
 
-  handleSubmit = (event) => {
+  handleSubmit = async (event) => {
     event.preventDefault()
     // this.props.oldUser
     //   ? this.props.updateUser(this.state)
     //   : this.props.addUser(this.state)
-    console.log(this.state)
-    // this.props.incState()
-    const result = window.confirm(
+    // console.log(this.state)
+    await this.props.collectData({ faculty: this.state })
+    const result = await window.confirm(
       'Are you sure you have verified all record and want to proceed? (Strict Action will be taken against false information)'
     )
-    if (result) alert('Added Successfully')
+    if (result) this.props.submitForm()
   }
 
   render() {

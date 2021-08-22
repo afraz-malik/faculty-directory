@@ -109,6 +109,8 @@
 }
 .container input[type='email'],
 .container input[type='text'],
+select,
+.container input[type='date'],
 .container input[type='number'] {
   width: 100%;
   margin-bottom: 20px;

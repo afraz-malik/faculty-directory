@@ -69,7 +69,7 @@ class Form1 extends React.Component {
     // this.props.oldUser
     //   ? this.props.updateUser(this.state)
     //   : this.props.addUser(this.state)
-    console.log(this.state)
+    this.props.collectData({ qualification: this.state.qualification })
     this.props.incState()
   }
   addCounter = () => {

@@ -1,9 +1,9 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux'
 import { createLogger } from 'redux-logger'
 
-import { userReducer } from './reducer.js'
+import { FacultyReducer } from './reducer.js'
 
-const rootReducers = combineReducers({ userReducer })
+const rootReducers = combineReducers({ FacultyReducer })
 
 const logger = createLogger()
 

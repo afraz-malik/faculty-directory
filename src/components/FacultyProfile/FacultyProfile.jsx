@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import FacultyProfileCss from './FacultyProfile.module.scss'
+
 const FacultyProfile = ({ match }) => {
   window.onscroll = function () {
     myFunction()

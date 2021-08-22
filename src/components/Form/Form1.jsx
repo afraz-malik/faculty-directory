@@ -1,13 +1,15 @@
 import React from 'react'
 import FormCss from './Form.module.css'
-
 const initialState = {
   fm_name: '',
   fm_email: '',
   fm_phone: '',
+  fm_gender: 1,
+  fm_dob: '',
   imgurl: 'images/authors/9.png',
   images: [],
 }
+
 class Form1 extends React.Component {
   constructor(props) {
     super(props)
@@ -22,7 +24,8 @@ class Form1 extends React.Component {
   }
   handleSubmit = (event) => {
     event.preventDefault()
-    console.log(this.state)
+    // console.log(this.state)
+    this.props.collectData({ personal: this.state })
     this.props.incState()
   }
   handleImage = (event) => {
@@ -104,6 +107,38 @@ class Form1 extends React.Component {
                       />
                     </div>
                   </div>
+                </div>
+              </div>
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <div style={{ width: '52%' }}>
+                  <label htmlFor="fm_dob">
+                    <i className="fa fa-user"></i> DOB
+                  </label>
+                  <input
+                    type="date"
+                    id="fm_dob"
+                    name="fm_dob"
+                    placeholder="Enter Your Name"
+                    value={this.state.fm_dob}
+                    onChange={this.handleChange}
+                    required
+                  />
+                </div>
+                <div style={{ width: '40%' }}>
+                  <label htmlFor="fm_gender">
+                    <i className="fa fa-user"></i> Gender
+                  </label>
+                  <select
+                    name="fm_gender"
+                    id="fm_gender"
+                    // value={this.state.fm_gender}
+                    onChange={this.handleChange}
+                    required
+                  >
+                    <option value="1">Male</option>
+                    <option value="2">Female</option>
+                    <option value="3">Other</option>
+                  </select>
                 </div>
               </div>
             </div>
