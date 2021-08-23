@@ -26,7 +26,7 @@ const DashboardProfile = ({ user, isLoading }) => {
     gender: '',
     country: '',
     city: '',
-    imgurl: '',
+    imgurl: 'images/authors/9.png',
   })
   const [images, setimages] = useState([])
   // const showBoxFunction = () => {
@@ -44,7 +44,10 @@ const DashboardProfile = ({ user, isLoading }) => {
   const handleImage = (event) => {
     setUsercredentials({
       ...usercredentials,
-      imgurl: URL.createObjectURL(event.target.files[0]),
+      imgurl:
+        event.target.files.length > 0
+          ? URL.createObjectURL(event.target.files[0])
+          : usercredentials.imgurl,
     })
     setimages({
       images: event.target.files[0],
@@ -63,10 +66,15 @@ const DashboardProfile = ({ user, isLoading }) => {
       <div className={DashboardProfileCss.body}>
         <div className={DashboardProfileCss.top}>
           {/* <img alt="" src="images\john.png" /> */}
-          <div className={DashboardProfileCss.img}>
-            <img alt="" src={usercredentials.imgurl} />
+          <div className={DashboardProfileCss.imgblock}>
+            <div className={DashboardProfileCss.img}>
+              <img alt="" src={usercredentials.imgurl} />
+            </div>
+            <input type="file" id="img" name="img" onChange={handleImage} />
+            <label htmlFor="img" className={DashboardProfileCss.imglabel}>
+              <i className="fas fa-camera"></i>
+            </label>
           </div>
-          <input type="file" name="img" onChange={handleImage} />
           <h3>PROFILE PICTURE</h3>
           <form onSubmit={handleSubmit}>
             <div className={DashboardProfileCss.row}>

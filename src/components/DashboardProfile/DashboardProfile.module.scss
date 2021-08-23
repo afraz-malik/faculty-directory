@@ -30,23 +30,50 @@
       // height: 347px;
       width: 100%;
 
-      .img {
-        margin: 25px 0px 10px 0px;
-        // width: 100px;
-        border: 1px solid grey;
-        border-radius: 1225px;
-        overflow: hidden;
-        width: 200px;
-        height: 199px;
-        img {
+      .imgblock {
+        position: relative;
+        .img {
+          margin: 25px 0px 10px 0px;
+          // width: 100px;
+          border: 1px solid grey;
+          border-radius: 1225px;
+          overflow: hidden;
+          width: 200px;
           height: 199px;
-          // width: 100%;
+          img {
+            height: 199px;
+            // width: 100%;
+          }
+        }
+        input[type='file'] {
+          display: none;
+        }
+        .imglabel {
+          position: absolute;
+          z-index: 999999;
+          bottom: 12px;
+          right: 22px;
+          background: white;
+          border-radius: 58px;
+          width: 43px;
+          display: flex;
+          height: 34px;
+          align-items: center;
+          justify-content: center;
+
+          i {
+            background: white;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 25px;
+          }
         }
       }
       h3 {
         margin: 0px;
         font-size: 10px;
         font-weight: 600;
+        // cursor: pointer;
       }
       form {
         width: 100%;
@@ -99,6 +126,7 @@
           font-weight: 600;
           font-size: 12px;
           font-family: 'Open Sans', sans-serif;
+          text-align: left;
           span {
             cursor: pointer;
             text-decoration: underline;
