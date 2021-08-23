@@ -49,6 +49,48 @@
       form {
         display: flex;
         flex-direction: column;
+        .imgblock {
+          position: relative;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          .img {
+            margin: 25px 0px 10px 0px;
+            // width: 100px;
+            border: 1px solid grey;
+            border-radius: 1225px;
+            overflow: hidden;
+            width: 200px;
+            height: 199px;
+            img {
+              height: 199px;
+              width: 100%;
+            }
+          }
+          input[type='file'] {
+            display: none;
+          }
+          .imglabel {
+            position: absolute;
+            z-index: 999999;
+            bottom: 12px;
+            right: 70px;
+            background: white;
+            border-radius: 58px;
+            width: 43px;
+            display: flex;
+            height: 34px;
+            align-items: center;
+            justify-content: center;
+
+            i {
+              background: white;
+              border-radius: 25px;
+              cursor: pointer;
+              font-size: 25px;
+            }
+          }
+        }
         label {
           text-align: left;
           font-family: Poppins;
@@ -62,7 +104,8 @@
 
           color: #030303;
         }
-        select, input {
+        select,
+        input {
           margin-bottom: 20px;
           border: 1px solid #2b3553;
           box-sizing: border-box;
@@ -81,7 +124,7 @@
         }
         select {
           cursor: pointer;
-          color:  #e14eca;
+          color: #e14eca;
         }
         .buttons {
           // text-align: left;

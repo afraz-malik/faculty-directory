@@ -3,6 +3,7 @@ import { Link, Route, withRouter } from 'react-router-dom'
 import AdminDashboardCss from './AdminDashboard.module.scss'
 import DashboardProfile from '../DashboardProfile/DashboardProfile'
 import DataBox from '../DataBox/DataBox'
+import facultyRequests from '../facultyRequests/facultyRequests'
 const AdminDashboard = ({ match }) => {
   let profile = false
   let manage = false
@@ -68,7 +69,11 @@ const AdminDashboard = ({ match }) => {
       </nav>
       <Route exact path={`${match.path}`} component={DashboardProfile} />
       <Route exact path={`${match.path}/manage-faculty`} component={DataBox} />
-      <Route exact path={`${match.path}/manage-requests`} component={DataBox} />
+      <Route
+        exact
+        path={`${match.path}/manage-requests`}
+        component={facultyRequests}
+      />
     </div>
   )
 }

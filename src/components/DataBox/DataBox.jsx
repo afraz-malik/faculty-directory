@@ -2,120 +2,13 @@
 import React from 'react'
 import DataBoxCss from './DataBox.module.scss'
 import DataListGen from './DataListGen'
+import { connect } from 'react-redux'
 
+const mapStateToProps = (state) => ({
+  faculty: state.FacultyReducer.faculty,
+})
 // Components
-const initialUserState = {
-  clients: [
-    {
-      fname: '1Esther',
-      lname: 'Howard',
-      email: 'jessica.hansaon@example.com',
-      company: 'Binford Ltd.',
-      phone: '(505)555-0125',
-      roles: 'Admin',
-      password: '',
-    },
-    {
-      fname: '2Theresa',
-      lname: 'Webb',
-      email: 'michelle.rivera@example.com',
-      company: 'Biffco Enterprises Ltd.',
-      phone: '(217) 555-0113',
-      roles: 'Admin',
-      password: '',
-    },
-    {
-      fname: '3Jacob',
-      lname: 'Jones',
-      email: 'dolores.chambers@example.com',
-      company: 'Acme Co.',
-      phone: '(208) 555-0112',
-      roles: 'Admin',
-      password: '',
-    },
-    {
-      fname: '4Esther',
-      lname: 'Howard',
-      email: 'jessica.hansaon@example.com',
-      company: 'Binford Ltd.',
-      phone: '(505)555-0125',
-      roles: 'Admin',
-      password: '',
-    },
-    {
-      fname: '5Theresa',
-      lname: 'Webb',
-      email: 'michelle.rivera@example.com',
-      company: 'Biffco Enterprises Ltd.',
-      phone: '(217) 555-0113',
-      roles: 'Admin',
-      password: '',
-    },
-    {
-      fname: '6Jacob',
-      lname: 'Jones',
-      email: 'dolores.chambers@example.com',
-      company: 'Acme Co.',
-      phone: '(208) 555-0112',
-      roles: 'Admin',
-      password: '',
-    },
-    {
-      fname: '7&Esther',
-      lname: 'Howard',
-      email: 'jessica.hansaon@example.com',
-      company: 'Binford Ltd.',
-      phone: '(505)555-0125',
-      roles: 'Admin',
-      password: '',
-    },
-    {
-      fname: '82Theresa',
-      lname: 'Webb',
-      email: 'michelle.rivera@example.com',
-      company: 'Biffco Enterprises Ltd.',
-      phone: '(217) 555-0113',
-      roles: 'Admin',
-      password: '',
-    },
-    {
-      fname: '93Jacob',
-      lname: 'Jones',
-      email: 'dolores.chambers@example.com',
-      company: 'Acme Co.',
-      phone: '(208) 555-0112',
-      roles: 'Admin',
-      password: '',
-    },
-    {
-      fname: '104Esther',
-      lname: 'Howard',
-      email: 'jessica.hansaon@example.com',
-      company: 'Binford Ltd.',
-      phone: '(505)555-0125',
-      roles: 'Admin',
-      password: '',
-    },
-    {
-      fname: '115Theresa',
-      lname: 'Webb',
-      email: 'michelle.rivera@example.com',
-      company: 'Biffco Enterprises Ltd.',
-      phone: '(217) 555-0113',
-      roles: 'Admin',
-      password: '',
-    },
-    {
-      fname: '126Jacob',
-      lname: 'Jones',
-      email: 'dolores.chambers@example.com',
-      company: 'Acme Co.',
-      phone: '(208) 555-0112',
-      roles: 'Admin',
-      password: '',
-    },
-  ],
-}
+
 class DataBox extends React.Component {
   constructor(props) {
     super(props)
@@ -123,6 +16,7 @@ class DataBox extends React.Component {
       searchValue: '',
       pageNumber: 1,
     }
+    console.log(this.props.faculty)
   }
   totalPages = 1
   handlePage = (value) => {
@@ -147,15 +41,15 @@ class DataBox extends React.Component {
     return array.slice((page_number - 1) * page_size, page_number * page_size)
   }
   render() {
-    const { title } = this.props
+    const { faculty } = this.props
     const { searchValue, pageNumber } = this.state
-    const filteredData = initialUserState.clients.filter((data) => {
-      return (
-        data.fname.toLowerCase().includes(searchValue.toLowerCase()) ||
-        data.lname.toLowerCase().includes(searchValue.toLowerCase()) ||
-        // data.company.toLowerCase().includes(searchValue.toLowerCase()) ||
-        data.email.toLowerCase().includes(searchValue.toLowerCase())
-      )
+    const filteredData = faculty.filter((data) => {
+      return data.personal.fm_name
+        .toLowerCase()
+        .includes(searchValue.toLowerCase())
+      // data.lname.toLowerCase().includes(searchValue.toLowerCase()) ||
+      // data.company.toLowerCase().includes(searchValue.toLowerCase()) ||
+      // data.email.toLowerCase().includes(searchValue.toLowerCase())
     })
     if (this.state.pageNumber > this.totalPages)
       this.setState({ ...this.state, pageNumber: 1 })
@@ -170,7 +64,7 @@ class DataBox extends React.Component {
       <div className={DataBoxCss.database}>
         <div className={DataBoxCss.top}>
           <div className={DataBoxCss.text}>
-            <h3>List of {title}s</h3>
+            <h3>List of all Faculties</h3>
           </div>
           <div className={DataBoxCss.gear}>
             <img alt="" src="images/gear.svg" />
@@ -181,7 +75,7 @@ class DataBox extends React.Component {
             <img alt="" src="images/search2.svg" />
             <input
               type="text"
-              placeholder="Search for usernames, company..."
+              placeholder="Search for name, university, email..."
               onChange={this.handleChange}
               value={searchValue}
             />
@@ -200,15 +94,17 @@ class DataBox extends React.Component {
             <thead>
               <tr>
                 <th>NAME</th>
-                <th>COMPANY</th>
-                <th>PHONE NUMBER</th>
                 <th>EMAIL</th>
+                <th>PH #</th>
+                <th>UNIVERSITY</th>
+                <th>DEPARTMENT</th>
+                <th>COURSE</th>
                 <th>ACTIONS</th>
               </tr>
             </thead>
             <tbody>
               {currentPageData.map((data, j) => (
-                <DataListGen key={j} title={title} index={j} data={data} />
+                <DataListGen key={j} index={j} data={data} />
               ))}
             </tbody>
           </table>
@@ -257,4 +153,4 @@ class NumberGen extends React.Component {
     )
   }
 }
-export default DataBox
+export default connect(mapStateToProps)(DataBox)

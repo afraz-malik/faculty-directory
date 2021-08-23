@@ -8,6 +8,7 @@ const SignupForm = () => {
         <h4>Become Faculty Member</h4>
         <input type="text" placeholder="Full Name" />
         <input type="email" placeholder="Email" />
+        <input type="email" placeholder="University you are teaching in" />
         <input type="password" placeholder="Password" />
         <input type="password" placeholder="Confirm Password" />
         <div className={SignupCss.check}>

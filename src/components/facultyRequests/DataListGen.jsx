@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import EditBox from '../EditBox/EditBox'
-import DataBoxCss from './DataBox.module.scss'
+import facultyRequestsCss from './facultyRequests.module.scss'
 
 // Redux
 // import { useDispatch } from 'react-redux'
@@ -24,18 +24,23 @@ const DataListGen = ({ data, title, index }) => {
   }
   return (
     <tr>
-      <td>{data.personal.fm_name}</td>
-      <td>{data.personal.fm_email}</td>
-      <td>{data.personal.fm_phone}</td>
-      <td>{data.faculty.fm_university}</td>
-      <td>{data.faculty.fm_department}</td>
-      <td>{data.faculty.fm_courses}</td>
       <td>
-        <div className={DataBoxCss.actions}>
+        {data.fname} {data.lname}
+      </td>
+      <td>{data.company}</td>
+      <td>{data.phone}</td>
+      <td>{data.email}</td>
+      <td>
+        <div className={facultyRequestsCss.actions}>
           <img alt="" src="images/edit.svg" onClick={() => toggleEditBox()} />
           <img alt="" src="images/delete.svg" onClick={() => manageDelete()} />
           {editBox ? (
-            <EditBox toggleEditBox={toggleEditBox} data={data} index={index} />
+            <EditBox
+              toggleEditBox={toggleEditBox}
+              data={data}
+              index={index}
+              title={title}
+            />
           ) : null}
         </div>
       </td>
