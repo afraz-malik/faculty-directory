@@ -1,14 +1,16 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
 import FormCss from './Form.module.css'
+import { TagsInput } from 'react-tag-input-component'
 
 const initialState = {
   fm_university: '',
   fm_designation: '',
   fm_department: '',
-  fm_courses: '',
-  fm_experties: '',
-  fm_interests: '',
+  fm_courses: [],
+  fm_experties: [],
+  fm_interests:
+    'The focus of Dr. Sara’s Doctoral Research was the Development of Social Networks in an Entrepreneurial Setting. Using Constructivist Grounded Theory Method, she constructed a substantive theory that conceptualizes development of these networks, factors influencing their development and changes occurring over time. Her other research interests include the impact of different cultural dispositions on the development of the entrepreneur’s social network, the research methodologies used in the field of Entrepreneurship and Entrepreneurship Education.',
   fm_country: '',
   fm_city: '',
 }
@@ -31,7 +33,12 @@ class Form1 extends React.Component {
   handleChange = (event) => {
     this.setState({ ...this.state, [event.target.name]: event.target.value })
   }
-
+  handleCourses = (event) => {
+    this.setState({ ...this.state, fm_courses: event })
+  }
+  handleExperties = (event) => {
+    this.setState({ ...this.state, fm_experties: event })
+  }
   handleSubmit = async (event) => {
     event.preventDefault()
     // this.props.oldUser
@@ -43,6 +50,7 @@ class Form1 extends React.Component {
       'Are you sure you have verified all record and want to proceed? (Strict Action will be taken against false information)'
     )
     if (result) {
+      // console.log(this.state)
       this.props.submitForm()
       alert('Saved Sucessfully')
       this.props.history.push('/faculty')
@@ -100,7 +108,7 @@ class Form1 extends React.Component {
               <label htmlFor="fm_courses">
                 <i className="fas fa-book"></i> Courses
               </label>
-              <input
+              {/* <input
                 type="text"
                 id="fm_courses"
                 name="fm_courses"
@@ -108,30 +116,42 @@ class Form1 extends React.Component {
                 value={this.state.fm_courses}
                 onChange={this.handleChange}
                 required
+              /> */}
+              <TagsInput
+                value={this.state.fm_courses}
+                onChange={this.handleCourses}
+                name="fm_courses"
+                // seprators="Space"
+                onExisting={() => alert('Already Exist')}
+                placeHolder="Tag your courses. Press Enter to add tag"
+                required
               />
               <label htmlFor="fm_experties">
                 <i className="far fa-file-export"></i> Area of Experties
               </label>
-              <input
-                type="text"
-                id="fm_experties"
-                name="fm_experties"
-                placeholder="Tag your experties"
+              <TagsInput
                 value={this.state.fm_experties}
-                onChange={this.handleChange}
+                onChange={this.handleExperties}
+                name="fm_experties"
+                // seprators="Space"
+                onExisting={() => alert('Already Exist')}
+                placeHolder="Tag your experties. Press Enter to add tag"
                 required
               />
+
               <label htmlFor="fm_interests">
                 <i className="fas fa-user-tie"></i> Professional Interests
               </label>
-              <input
-                type="text"
+              <textarea
+                type="textarea"
                 id="fm_interests"
                 name="fm_interests"
                 placeholder="Type your professional interests"
                 value={this.state.fm_interests}
                 onChange={this.handleChange}
                 required
+                rows="4"
+                cols="50"
               />
 
               <label htmlFor="fm_country">

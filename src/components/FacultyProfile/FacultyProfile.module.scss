@@ -137,6 +137,72 @@
       }
       .row {
         text-align: left;
+        // margin: 20px 0
+        margin-bottom: 45px;
+        .tags {
+          display: flex;
+          flex-wrap: wrap;
+          grid-gap: 10px;
+
+          margin: 20px 0px 5px 0;
+          // width: 350px;
+          // max-width: 100px;
+          span {
+            padding: 10px;
+            background: #d82a4e;
+            color: white;
+            border-radius: 17.5px;
+            // height: 35px;
+            font-size: 12px;
+            // margin-left: 10px;
+            // float: left;
+            padding: 10px 15px;
+          }
+        }
+        table {
+          // border: 1px solid #ccc;
+          border-collapse: collapse;
+          margin: 0;
+          margin: 20px 0;
+          width: 100%;
+          // table-layout: fixed;
+          tr {
+            // background-color: #f8f8f8;
+            padding: 0.35em;
+          }
+          th,
+          td {
+            border-bottom: 1px solid #ddd;
+            padding: 0.625em;
+            text-align: center;
+            font-size: 0.8em;
+            text-align: left;
+            &:nth-child(1) {
+              width: 40%;
+              // background-color: pink;
+            }
+            &:nth-child(2) {
+              width: 40%;
+              // background-color: pink;
+            }
+            &:nth-child(3) {
+              width: 20%;
+              // background-color: pink;
+              text-align: center;
+            }
+          }
+          td {
+            padding-top: 10px;
+            padding-bottom: 10px;
+          }
+          th {
+            // text-align: center;
+            // display: none;
+            font-size: 0.8em;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+          }
+        }
         h3 {
           font-family: 'poppins', sans-serif;
           color: #111111;
@@ -189,6 +255,57 @@
   .container {
     .section {
       padding: 0;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    .section {
+      .right {
+        .row {
+          // table {
+          //   line-height: 1.25;
+
+          //   border: 0;
+          //   thead {
+          //     border: none;
+          //     // clip: rect(0 0 0 0);
+          //     height: 1px;
+          //     margin: -1px;
+          //     overflow: hidden;
+          //     padding: 0;
+          //     position: absolute;
+          //     width: 1px;
+          //     tr {
+          //       border-bottom: 3px solid #ddd;
+          //       display: block;
+          //       margin-bottom: 0.625em;
+          //     }
+          //     td {
+          //       border-bottom: 1px solid #ddd;
+          //       display: block;
+          //       font-size: 0.8em;
+          //       text-align: right;
+          //       &::before {
+          //         /*
+          //         * aria-label has no advantage, it won't be read inside a table
+          //         content: attr(aria-label);
+          //         */
+          //         content: attr(data-label);
+          //         float: left;
+          //         font-weight: bold;
+          //         text-transform: uppercase;
+          //       }
+
+          //       &:last-child {
+          //         border-bottom: 0;
+          //       }
+          //     }
+          //   }
+          // }
+        }
+      }
     }
   }
 }

@@ -107,7 +107,9 @@
 .container input[type='email'],
 .container input[type='text'],
 .container select,
+.container textarea,
 .container input[type='date'],
+.container input[type='textarea'],
 .container input[type='number'] {
   width: 100%;
   margin-bottom: 20px;

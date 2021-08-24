@@ -15,6 +15,7 @@ const FacultyProfile = ({ match, history, facultySelector }) => {
   window.onscroll = function () {
     myFunction()
   }
+  console.log(facultySelector[0])
   React.useEffect(() => {
     if (facultySelector.length > 0) {
       history.push(`/faculty/${facultySelector[0].personal.fm_name}`)
@@ -29,7 +30,10 @@ const FacultyProfile = ({ match, history, facultySelector }) => {
         email: personal.fm_email,
         university: faculty.fm_university,
         image: personal.imgurl,
-        institute: qualification[0].institute_attended,
+        qualification: qualification,
+        courses: faculty.fm_courses,
+        experties: faculty.fm_experties,
+        interests: faculty.fm_interests,
       })
     }
     // eslint-disable-next-line
@@ -44,7 +48,10 @@ const FacultyProfile = ({ match, history, facultySelector }) => {
     phone: 'null',
     email: 'null',
     image: 'null',
-    institute: 'null',
+    courses: [],
+    experties: [],
+    qualification: [],
+    interests: '',
   })
 
   function myFunction() {
@@ -82,7 +89,7 @@ const FacultyProfile = ({ match, history, facultySelector }) => {
           <div className={FacultyProfileCss.info}>
             <h3>CONTACT INFO</h3>
             <hr className={FacultyProfileCss.hr} />
-            <p> {f.department}</p>
+            <p>Dept. {f.department},</p>
             <p> {f.university}</p>
             <p>
               {' '}
@@ -98,25 +105,58 @@ const FacultyProfile = ({ match, history, facultySelector }) => {
         <div className={FacultyProfileCss.right}>
           <div className={FacultyProfileCss.header}>
             <h2>{f.name}</h2>
-            <div className={FacultyProfileCss.desg}>{f.designation}</div>
-            <div className={FacultyProfileCss.deg}>{f.institute}</div>
+            <div className={FacultyProfileCss.desg}>
+              {f.designation} in {f.university}
+            </div>
+            {/* <div className={FacultyProfileCss.deg}>{f.institute}</div> */}
+          </div>
+          <div className={FacultyProfileCss.row}>
+            <h3>Qualification </h3>
+            <hr className={FacultyProfileCss.hr} />
+            <table>
+              <thead>
+                <tr>
+                  <th>Degree Title</th>
+                  <th>institute</th>
+                  <th>Year Of Passing</th>
+                </tr>
+              </thead>
+              {f.qualification.map((qual, i) => (
+                <tbody key={i}>
+                  <tr>
+                    <td>{qual.degree_tittle}</td>
+                    <td>{qual.institute_attended}</td>
+                    <td>{qual.year_of_passing}</td>
+                  </tr>
+                </tbody>
+              ))}
+            </table>
+          </div>
+          <div className={FacultyProfileCss.row}>
+            <h3>Courses in proffessional</h3>
+            <hr className={FacultyProfileCss.hr} />
+            <div className={FacultyProfileCss.tags}>
+              {f.courses.map((course, j) => (
+                <span key={j}>{course}</span>
+              ))}
+            </div>
+          </div>
+          <div className={FacultyProfileCss.row}>
+            <h3>Area of Experties</h3>
+            <hr className={FacultyProfileCss.hr} />
+            <div className={FacultyProfileCss.tags}>
+              {f.experties.map((course, j) => (
+                <span key={j}>{course}</span>
+              ))}
+            </div>
           </div>
           <div className={FacultyProfileCss.row}>
             <h3>RESEARCH INTERESTS</h3>
             <hr className={FacultyProfileCss.hr} />
-            <p>
-              The focus of Dr. Sara’s Doctoral Research was the Development of
-              Social Networks in an Entrepreneurial Setting. Using
-              Constructivist Grounded Theory Method, she constructed a
-              substantive theory that conceptualizes development of these
-              networks, factors influencing their development and changes
-              occurring over time. Her other research interests include the
-              impact of different cultural dispositions on the development of
-              the entrepreneur’s social network, the research methodologies used
-              in the field of Entrepreneurship and Entrepreneurship Education.
-            </p>
+            <p>{f.interests}</p>
           </div>
-          <div className={FacultyProfileCss.row}>
+
+          {/* <div className={FacultyProfileCss.row}>
             <h3>BIOGRAPHY</h3>
             <hr className={FacultyProfileCss.hr} />
             <p>
@@ -132,7 +172,7 @@ const FacultyProfile = ({ match, history, facultySelector }) => {
               has been involved in advisory roles for students as well as
               startups both in Pakistan and United Kingdom.
             </p>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

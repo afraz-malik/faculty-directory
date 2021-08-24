@@ -8,11 +8,15 @@ const Dashboard = () => {
   React.useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
-
+  const isAdmin = () => {
+    const admin = window.confirm('You Admin??')
+    console.log(admin)
+    return admin
+  }
   return (
     <div>
       <SmallHeader section={false} bg="bg3" />
-      {true ? <AdminDashboard /> : <FacultyDashboard />}
+      {isAdmin() ? <AdminDashboard /> : <FacultyDashboard />}
 
       <Footer />
     </div>
