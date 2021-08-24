@@ -8,11 +8,23 @@ import EditBoxCss from './EditBox.module.scss'
 
 const EditBox = ({ toggleEditBox, data, index, title }) => {
   // const dispatch = useDispatch()
-  const [newData, setNewData] = useState(data)
-  const handleChange = (event) => {
-    setNewData({ ...newData, [event.target.name]: event.target.value })
+  const [personal, setPersonal] = useState(data.personal)
+  const [faculty, setFaculty] = useState(data.faculty)
+  const [qualification, setQualification] = useState(data.qualification)
+
+  const handlePersonal = (event) => {
+    setPersonal({ ...personal, [event.target.name]: event.target.value })
   }
-  const [images, setimages] = useState([])
+  const handleFaculty = (event) => {
+    setFaculty({ ...faculty, [event.target.name]: event.target.value })
+  }
+  // eslint-disable-next-line
+  const handleQualification = (event) => {
+    setQualification({
+      ...qualification,
+      [event.target.name]: event.target.value,
+    })
+  }
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -22,56 +34,49 @@ const EditBox = ({ toggleEditBox, data, index, title }) => {
     toggleEditBox()
   }
   const handleImage = (event) => {
-    setNewData({
-      ...newData,
+    setPersonal({
+      ...personal,
       imgurl:
         event.target.files.length > 0
           ? URL.createObjectURL(event.target.files[0])
-          : newData.imgurl,
-    })
-    setimages({
+          : personal.imgurl,
       images: event.target.files[0],
     })
+    // setFaculty({})
   }
-  console.log(data)
+  console.log(personal)
   return (
     <div className={EditBoxCss.outerbox}>
       <div className={EditBoxCss.box}>
         <div className={EditBoxCss.head}>
-          <h2>Edit {title} details</h2>
+          <h2>Edit faculty details</h2>
         </div>
         <div className={EditBoxCss.body}>
           <form onSubmit={handleSubmit}>
-            <div className={EditBoxCss.imgblock}>
-              <div className={EditBoxCss.img}>
-                <img alt="" src={newData.personal.imgurl} />
+            <div className={EditBoxCss.imgblocktop}>
+              <div className={EditBoxCss.imgblock}>
+                <div className={EditBoxCss.img}>
+                  <img alt="" src={personal.imgurl} />
+                </div>
+                <input type="file" id="img" name="img" onChange={handleImage} />
+                <label htmlFor="img" className={EditBoxCss.imglabel}>
+                  <i className="fas fa-camera"></i>
+                </label>
               </div>
-              <input type="file" id="img" name="img" onChange={handleImage} />
-              <label htmlFor="img" className={EditBoxCss.imglabel}>
-                <i className="fas fa-camera"></i>
-              </label>
             </div>
             <label>Name</label>
             <input
               type="text"
-              name="fname"
-              onChange={handleChange}
-              value={newData.personal.fm_name}
+              name="fm_name"
+              onChange={handlePersonal}
+              value={personal.fm_name}
             />
             <label>Gender</label>
             <select
-              name="roles"
-              value={newData.personal.fm_gender}
-              onChange={handleChange}
+              name="fm_gender"
+              value={personal.fm_gender}
+              onChange={handlePersonal}
             >
-              <option
-                disabled
-                defaultValue
-                selected
-                style={{ display: 'none' }}
-              >
-                {' '}
-              </option>
               <option value="1">Male</option>
               <option value="2">Female</option>
               <option value="3">Other</option>
@@ -80,81 +85,81 @@ const EditBox = ({ toggleEditBox, data, index, title }) => {
             <label>DOB</label>
             <input
               type="date"
-              name="email"
-              onChange={handleChange}
-              value={newData.personal.fm_dob}
+              name="fm_dob"
+              onChange={handlePersonal}
+              value={personal.fm_dob}
             />
 
             <label>Email</label>
             <input
               type="text"
-              name="email"
-              onChange={handleChange}
-              value={newData.personal.fm_email}
+              name="fm_email"
+              onChange={handlePersonal}
+              value={personal.fm_email}
             />
 
             <label>Phone Number</label>
             <input
               type="text"
-              name="company"
-              onChange={handleChange}
-              value={newData.personal.fm_phone}
+              name="fm_phone"
+              onChange={handlePersonal}
+              value={personal.fm_phone}
             />
             <label>University</label>
             <input
               type="text"
-              name="company"
-              onChange={handleChange}
-              value={newData.faculty.fm_university}
+              name="fm_university"
+              onChange={handleFaculty}
+              value={faculty.fm_university}
             />
             <label>Department</label>
             <input
               type="text"
-              name="company"
-              onChange={handleChange}
-              value={newData.faculty.fm_department}
+              name="fm_department"
+              onChange={handleFaculty}
+              value={faculty.fm_department}
             />
             <label>Designation</label>
             <input
               type="text"
-              name="company"
-              onChange={handleChange}
-              value={newData.faculty.fm_designation}
+              name="fm_designation"
+              onChange={handleFaculty}
+              value={faculty.fm_designation}
             />
             <label>Courses</label>
             <input
               type="text"
-              name="company"
-              onChange={handleChange}
-              value={newData.faculty.fm_courses}
+              name="fm_courses"
+              onChange={handleFaculty}
+              value={faculty.fm_courses}
             />
             <label>Proffessional Interests</label>
             <input
               type="text"
-              name="company"
-              onChange={handleChange}
-              value={newData.faculty.fm_interests}
+              name="fm_interests"
+              onChange={handleFaculty}
+              value={faculty.fm_interests}
             />
             <label>Experties</label>
             <input
               type="text"
-              name="company"
-              onChange={handleChange}
-              value={newData.faculty.fm_experties}
+              name="fm_experties"
+              onChange={handleFaculty}
+              value={faculty.fm_experties}
             />
             <label>City</label>
             <input
               type="text"
-              name="company"
-              onChange={handleChange}
-              value={newData.faculty.fm_city}
+              name="fm_city"
+              onChange={handleFaculty}
+              value={faculty.fm_city}
             />
             <label>Country</label>
             <input
               type="text"
-              name="company"
-              onChange={handleChange}
-              value={newData.faculty.fm_country}
+              name="fm_country"
+              onChange={handleFaculty}
+              value={faculty.fm_country}
             />
 
             {/* <input

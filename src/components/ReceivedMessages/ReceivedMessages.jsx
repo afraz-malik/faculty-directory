@@ -1,6 +1,6 @@
 // import { render } from '@testing-library/react'
 import React from 'react'
-import FacultyRequestsCss from './FacultyRequests.module.scss'
+import ReceivedMessagesCss from './ReceivedMessages.module.scss'
 import DataListGen from './DataListGen'
 
 // Components
@@ -116,7 +116,7 @@ const initialUserState = {
     },
   ],
 }
-class FacultyRequests extends React.Component {
+class ReceivedMessages extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -167,17 +167,17 @@ class FacultyRequests extends React.Component {
     const currentPageData = this.paginate(filteredData, 5, pageNumber)
 
     return (
-      <div className={FacultyRequestsCss.database}>
-        <div className={FacultyRequestsCss.top}>
-          <div className={FacultyRequestsCss.text}>
+      <div className={ReceivedMessagesCss.database}>
+        <div className={ReceivedMessagesCss.top}>
+          <div className={ReceivedMessagesCss.text}>
             <h3>Pending Faculty Requests</h3>
           </div>
-          <div className={FacultyRequestsCss.gear}>
+          <div className={ReceivedMessagesCss.gear}>
             <img alt="" src="images/gear.svg" />
           </div>
         </div>
-        <div className={FacultyRequestsCss.action}>
-          <div className={FacultyRequestsCss.search}>
+        <div className={ReceivedMessagesCss.action}>
+          <div className={ReceivedMessagesCss.search}>
             <img alt="" src="images/search2.svg" />
             <input
               type="text"
@@ -186,24 +186,24 @@ class FacultyRequests extends React.Component {
               value={searchValue}
             />
           </div>
-          <div className={FacultyRequestsCss.filter}>
+          <div className={ReceivedMessagesCss.filter}>
             <img alt="" src="images/filter.svg" />
             <h5>Filter</h5>
           </div>
-          <div className={FacultyRequestsCss.export}>
+          <div className={ReceivedMessagesCss.export}>
             <img alt="" src="images/export.svg" />
             <h5>Export</h5>
           </div>
         </div>
-        <div className={FacultyRequestsCss.table}>
+        <div className={ReceivedMessagesCss.table}>
           <table>
             <thead>
               <tr>
                 <th>NAME</th>
-                <th>UNIVERSITY</th>
-                <th>PHONE NUMBER</th>
                 <th>EMAIL</th>
-                <th>ACTIONS</th>
+                <th>Subject</th>
+                <th>Message</th>
+                <th>ACTION</th>
               </tr>
             </thead>
             <tbody>
@@ -213,9 +213,9 @@ class FacultyRequests extends React.Component {
             </tbody>
           </table>
         </div>
-        <div className={FacultyRequestsCss.pages}>
+        <div className={ReceivedMessagesCss.pages}>
           <div
-            className={FacultyRequestsCss.back}
+            className={ReceivedMessagesCss.back}
             onClick={() => this.handlePage('back')}
           >
             &lt;
@@ -229,7 +229,7 @@ class FacultyRequests extends React.Component {
             />
           ))}
           <div
-            className={FacultyRequestsCss.front}
+            className={ReceivedMessagesCss.front}
             onClick={() => this.handlePage('forward')}
           >
             &gt;
@@ -244,7 +244,7 @@ class NumberGen extends React.Component {
     const { counter, handlePage, pageNumber } = this.props
     return (
       <div
-        className={FacultyRequestsCss.numbers}
+        className={ReceivedMessagesCss.numbers}
         onClick={() => handlePage(counter)}
         style={
           counter === pageNumber
@@ -257,4 +257,4 @@ class NumberGen extends React.Component {
     )
   }
 }
-export default FacultyRequests
+export default ReceivedMessages

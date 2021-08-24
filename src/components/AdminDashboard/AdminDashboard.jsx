@@ -3,16 +3,20 @@ import { Link, Route, withRouter } from 'react-router-dom'
 import AdminDashboardCss from './AdminDashboard.module.scss'
 import DashboardProfile from '../DashboardProfile/DashboardProfile'
 import DataBox from '../DataBox/DataBox'
-import facultyRequests from '../facultyRequests/facultyRequests'
+import FacultyRequests from '../FacultyRequests/FacultyRequests'
+import ReceivedMessages from '../ReceivedMessages/ReceivedMessages'
 const AdminDashboard = ({ match }) => {
   let profile = false
   let manage = false
   let requests = false
+  let messages = false
 
   if (window.location.href.indexOf('manage-faculty') > -1) {
     manage = true
   } else if (window.location.href.indexOf('requests') > -1) {
     requests = true
+  } else if (window.location.href.indexOf('messages') > -1) {
+    messages = true
   } else if (window.location.href.indexOf('dashboard') > -1) {
     profile = true
   }
@@ -65,6 +69,21 @@ const AdminDashboard = ({ match }) => {
               Pending Faculty Requests
             </Link>
           </li>
+          <li>
+            <Link
+              to={`${match.path}/received-messages`}
+              style={
+                messages
+                  ? {
+                      color: '#d82a4e',
+                      borderBottom: '5px solid #d82a4e',
+                    }
+                  : null
+              }
+            >
+              Recived Messages
+            </Link>
+          </li>
         </ul>
       </nav>
       <Route exact path={`${match.path}`} component={DashboardProfile} />
@@ -72,7 +91,12 @@ const AdminDashboard = ({ match }) => {
       <Route
         exact
         path={`${match.path}/manage-requests`}
-        component={facultyRequests}
+        component={FacultyRequests}
+      />
+      <Route
+        exact
+        path={`${match.path}/received-messages`}
+        component={ReceivedMessages}
       />
     </div>
   )

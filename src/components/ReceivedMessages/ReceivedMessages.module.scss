@@ -102,25 +102,9 @@
           align-items: center;
           //   width: 25px;
           //   height: 25px;
-          span {
-            // display: flex;
-            // justify-content: space-between;
-            // align-items: center;
-            border: 1px solid lightgrey;
-            border-radius: 5px;
-            padding: 5px;
-
-            cursor: pointer;
-            &:hover {
-              background-color: #ba54f5;
-              color: white;
-              &:last-child {
-                background-color: red;
-              }
-            }
-          }
           img {
             width: 17px;
+            cursor: pointer;
           }
         }
       }
