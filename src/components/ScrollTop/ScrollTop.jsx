@@ -24,11 +24,11 @@ const ScrollTop = () => {
   return (
     <div
       className={ScrollTopCss.container}
-      style={{ right: visible ? '35px' : '-200px' }}
+      style={{ right: visible ? '20px' : '-200px' }}
     >
-      <button onClick={scrollToTop}>
-        <i className="fas fa-arrow-alt-circle-up"></i>
-      </button>
+      {/* <button onClick={scrollToTop}> */}
+      <i onClick={scrollToTop} className="fas fa-arrow-alt-circle-up"></i>
+      {/* </button> */}
     </div>
   )
 }

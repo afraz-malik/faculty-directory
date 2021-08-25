@@ -44,7 +44,6 @@ const EditBox = ({ toggleEditBox, data, index, title }) => {
     })
     // setFaculty({})
   }
-  console.log(personal)
   return (
     <div className={EditBoxCss.outerbox}>
       <div className={EditBoxCss.box}>

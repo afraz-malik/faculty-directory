@@ -15,7 +15,6 @@ const FacultyProfile = ({ match, history, facultySelector }) => {
   window.onscroll = function () {
     myFunction()
   }
-  console.log(facultySelector[0])
   React.useEffect(() => {
     if (facultySelector.length > 0) {
       history.push(`/faculty/${facultySelector[0].personal.fm_name}`)

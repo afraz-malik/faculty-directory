@@ -9,9 +9,12 @@
     font-size: 47px;
     border-radius: 62px;
     /* background: purple; */
-    color: #d82a4e;
-    cursor: pointer;
     border: white;
     outline: none;
+  }
+  i {
+    cursor: pointer;
+    font-size: 30px;
+    color: #d82a4e;
   }
 }

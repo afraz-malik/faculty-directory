@@ -16,7 +16,6 @@ class DataBox extends React.Component {
       searchValue: '',
       pageNumber: 1,
     }
-    console.log(this.props.faculty)
   }
   totalPages = 1
   handlePage = (value) => {

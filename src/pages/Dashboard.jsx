@@ -10,7 +10,6 @@ const Dashboard = () => {
   React.useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
-  console.log(isAdmin)
   return (
     <div>
       <SmallHeader section={false} bg="bg3" />

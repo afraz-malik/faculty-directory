@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import ForgetPassword from '../ForgetPassword/ForgetPassword'
 import DashboardProfileCss from './DashboardProfile.module.scss'
 // Redux
 // import { connect, useDispatch } from 'react-redux'
@@ -15,6 +16,10 @@ import DashboardProfileCss from './DashboardProfile.module.scss'
 // })
 const DashboardProfile = ({ user, isLoading }) => {
   // const dispatch = useDispatch()
+  const [editBox, setEditBox] = useState(false)
+  const toggleEditBox = () => {
+    setEditBox(!editBox)
+  }
   // const [showBox, manageBox] = useState(false)
   const [usercredentials, setUsercredentials] = useState({
     uid: '',
@@ -171,7 +176,13 @@ const DashboardProfile = ({ user, isLoading }) => {
             </div>
             <span className={DashboardProfileCss.changepassword}>
               PASSWORD:
-              <span>Change Password</span>
+              <span onClick={() => toggleEditBox()}>Change Password</span>
+              {editBox ? (
+                <ForgetPassword
+                  toggleEditBox={toggleEditBox}
+                  email={usercredentials.email}
+                />
+              ) : null}
             </span>
             <button type="submit">SAVE</button>
           </form>

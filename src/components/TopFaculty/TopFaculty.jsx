@@ -1,6 +1,6 @@
 import React from 'react'
 import TopFacultyCss from './TopFaculty.module.scss'
-import FacultyCard from '../FacultyCards/FacultyCard'
+import FacultyCard from '../FacultyCard/FacultyCard'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 

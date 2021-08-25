@@ -4,7 +4,7 @@ import { MultiStepForm, Step } from 'react-multi-form'
 import Form1 from '../Form/Form1'
 import Form2 from '../Form/Form2'
 import Form3 from '../Form/Form3'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { addFaculty } from '../../redux/action'
 const FacultyDashboard = () => {
   const dispatch = useDispatch()
@@ -22,8 +22,7 @@ const FacultyDashboard = () => {
   const submitForm = () => {
     dispatch(addFaculty(faculty))
   }
-  const getFaculty = useSelector((state) => state.FacultyReducer.faculty)
-  console.log(getFaculty)
+  // const getFaculty = useSelector((state) => state.FacultyReducer.faculty)
   return (
     <div className={FacultyDashboardCSs.container}>
       <MultiStepForm activeStep={state} accentColor={'#d82a4e'}>
