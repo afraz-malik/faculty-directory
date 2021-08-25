@@ -253,6 +253,7 @@ const initialState = {
       },
     },
   ],
+  isAdmin: false,
 }
 export const FacultyReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -260,7 +261,11 @@ export const FacultyReducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         faculty: [...state.faculty, action.payload],
       })
-
+    case 'IS_ADMIN': {
+      return Object.assign({}, state, {
+        isAdmin: action.payload,
+      })
+    }
     default:
       return state
   }

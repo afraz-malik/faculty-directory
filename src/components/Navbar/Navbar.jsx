@@ -89,7 +89,7 @@ const Navbar = () => {
             {' '}
             <Link to="/register">Become Faculty </Link>
           </li>
-          {false ? (
+          {true ? (
             <li>
               <Link to="/login" className={NavbarCss.login}>
                 Login
