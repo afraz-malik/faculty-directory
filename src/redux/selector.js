@@ -15,3 +15,32 @@ export const topFacultySelector = createSelector(
   [facultySelectorList],
   (faculty) => faculty.slice(0, 4)
 )
+const universities = []
+export const getUniversities = createSelector(
+  [facultySelectorList],
+  (faculty) => {
+    faculty.map((f) => universities.push(f.faculty.fm_university))
+    return universities
+  }
+)
+
+const departments = []
+export const getDepartments = createSelector(
+  [facultySelectorList],
+  (faculty) => {
+    faculty.map((f) => departments.push(f.faculty.fm_department))
+    return departments
+  }
+)
+
+var courses = []
+export const getCourses = createSelector([facultySelectorList], (faculty) => {
+  faculty.map((f) => (courses = [...courses, ...f.faculty.fm_courses]))
+  return courses
+})
+
+var experties = []
+export const getExperties = createSelector([facultySelectorList], (faculty) => {
+  faculty.map((f) => (experties = [...experties, ...f.faculty.fm_experties]))
+  return experties
+})

@@ -125,8 +125,12 @@
                   // border-bottom: 3px solid #d82a4e;
                 }
               }
-              button {
-                display: inline-block;
+              a {
+                text-decoration: none;
+                // display: none;
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 min-width: 196px;
                 text-align: center;
                 border: none;

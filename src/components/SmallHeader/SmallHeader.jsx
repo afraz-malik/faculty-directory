@@ -8,6 +8,11 @@ const SmallHeader = ({ bg, section, location }) => {
   var end = loc.lastIndexOf('/')
   var nloc1 = loc.substr(start + 1, end - 1)
   var nloc2 = loc.substr(end + 1)
+
+  const [state, setstate] = React.useState({
+    course: '',
+    university: '',
+  })
   return (
     <div className={SmallHeaderCss.smallHeader}>
       <div
@@ -43,9 +48,23 @@ const SmallHeader = ({ bg, section, location }) => {
               <div className={SmallHeaderCss.row}>
                 <div className={SmallHeaderCss.col}>
                   <form className="course-search-form">
-                    <input type="text" placeholder="Subject" />
-                    <input type="text" placeholder="University" />
-                    <button className="site-btn btn-dark">Search Couse</button>
+                    <input
+                      type="text"
+                      placeholder="Course"
+                      onChange={(e) =>
+                        setstate({ ...state, course: e.target.value })
+                      }
+                    />
+                    <input
+                      type="text"
+                      placeholder="University"
+                      onChange={(e) =>
+                        setstate({ ...state, university: e.target.value })
+                      }
+                    />
+                    <Link to={`/faculty?${state.course}#${state.university}`}>
+                      Search Couse
+                    </Link>
                   </form>
                 </div>
               </div>

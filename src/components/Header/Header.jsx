@@ -4,6 +4,10 @@ import Navbar from '../Navbar/Navbar'
 import { Link } from 'react-router-dom'
 
 const Header = () => {
+  const [state, setstate] = React.useState({
+    course: '',
+    university: '',
+  })
   return (
     <div
       className={HeaderCss.header}
@@ -22,9 +26,22 @@ const Header = () => {
           </p>
         </div>
         <div className={HeaderCss.input}>
-          <input type="text" placeholder="Subject" />
-          <input type="text" placeholder="University" />
-          <Link to="/faculty#search"> Search Faculty</Link>
+          <input
+            type="text"
+            placeholder="Course"
+            value={state.course}
+            onChange={(e) => setstate({ ...state, course: e.target.value })}
+          />
+          <input
+            type="text"
+            placeholder="University"
+            value={state.university}
+            onChange={(e) => setstate({ ...state, university: e.target.value })}
+          />
+          <Link to={`/faculty?${state.course}#${state.university}`}>
+            {' '}
+            Search Faculty
+          </Link>
         </div>
       </div>
     </div>

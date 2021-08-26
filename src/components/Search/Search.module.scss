@@ -76,7 +76,8 @@
           cursor: pointer;
           background: #d82a4e;
         }
-        input {
+        input,
+        select {
           height: 52px;
           width: 100%;
           padding: 0 30px;
@@ -145,7 +146,7 @@
   }
 }
 .cards {
-  margin: 100px 0 0 0;
+  // margin: 100px 0 0 0;
   display: flex;
   padding: 20px;
   flex-wrap: wrap;
@@ -153,6 +154,24 @@
   //   grid-template-columns: auto auto auto;
   justify-content: center;
   grid-gap: 20px;
+}
+.tags {
+  // background-color: pink;
+  height: 10px;
+  margin: 50px;
+  span {
+    padding: 10px;
+    background: #d82a4e;
+    color: white;
+    border-radius: 17.5px;
+    font-size: 12px;
+    padding: 10px 15px;
+    .span {
+      // color: yellow;
+      cursor: pointer;
+      padding: 0;
+    }
+  }
 }
 @media (min-width: 1281px) {
 }
