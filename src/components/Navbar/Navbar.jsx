@@ -1,7 +1,12 @@
 import React, { useState } from 'react'
 import NavbarCss from './Navbar.module.scss'
 import { Link } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+import { signOutStart } from '../../redux/user/user.action'
+
 const Navbar = () => {
+  const currentUser = useSelector((state) => state.userReducer.currentUser)
+  const dispatch = useDispatch()
   const [toggle, settoggle] = useState(false)
   const handleToggle = () => {
     settoggle(!toggle)
@@ -13,6 +18,7 @@ const Navbar = () => {
   //     settoggle(false)
   //   }
   // })
+
   return (
     <nav>
       <div className={NavbarCss.rightnav}>
@@ -45,7 +51,7 @@ const Navbar = () => {
             {' '}
             <Link to="/register">Become Faculty </Link>
           </li>
-          {true ? (
+          {!currentUser ? (
             <li>
               <Link to="/login" className={NavbarCss.login}>
                 Login
@@ -55,11 +61,14 @@ const Navbar = () => {
             <li>
               <div className={NavbarCss.dropdown}>
                 <Link to="/login" className={NavbarCss.login}>
-                  Afraz
+                  {currentUser.displayName}
                 </Link>
                 <div className={NavbarCss.dropdownContent}>
                   <Link to="/">Change Password</Link>
-                  <Link to="/"> Log out</Link>
+                  <Link to="/" onClick={() => dispatch(signOutStart())}>
+                    {' '}
+                    Log out
+                  </Link>
                 </div>
               </div>
             </li>
@@ -89,7 +98,7 @@ const Navbar = () => {
             {' '}
             <Link to="/register">Become Faculty </Link>
           </li>
-          {true ? (
+          {!currentUser ? (
             <li>
               <Link to="/login" className={NavbarCss.login}>
                 Login
@@ -99,11 +108,14 @@ const Navbar = () => {
             <li>
               <div className={NavbarCss.dropdown}>
                 <Link to="/login" className={NavbarCss.login}>
-                  Afraz
+                  {currentUser.displayName}
                 </Link>
                 <div className={NavbarCss.dropdownContent}>
                   <Link to="/">Change Password</Link>
-                  <Link to="/"> Log out</Link>
+                  <Link to="/" onClick={() => dispatch(signOutStart())}>
+                    {' '}
+                    Log out
+                  </Link>
                 </div>
               </div>
             </li>

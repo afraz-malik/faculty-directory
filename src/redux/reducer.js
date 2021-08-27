@@ -193,7 +193,6 @@ const initialState = {
       },
     },
   ],
-  isAdmin: false,
 }
 export const FacultyReducer = (state = initialState, action) => {
   switch (action.type) {
