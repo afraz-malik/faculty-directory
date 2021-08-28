@@ -290,7 +290,7 @@ const Search = ({ location }) => {
       </div>
       <div className={SearchCss.tags}>
         {state.keyword ? (
-          <>
+          <div className={SearchCss.tagrow}>
             Name:{' '}
             <span>
               {state.keyword}&emsp;{' '}
@@ -303,10 +303,10 @@ const Search = ({ location }) => {
                 X
               </span>
             </span>{' '}
-          </>
+          </div>
         ) : null}
         {state.university ? (
-          <>
+          <div className={SearchCss.tagrow}>
             University:{' '}
             <span>
               {state.university}&emsp;{' '}
@@ -319,10 +319,10 @@ const Search = ({ location }) => {
                 X
               </span>
             </span>{' '}
-          </>
+          </div>
         ) : null}
         {state.department ? (
-          <>
+          <div className={SearchCss.tagrow}>
             Department:{' '}
             <span>
               {state.department}&emsp;{' '}
@@ -335,10 +335,10 @@ const Search = ({ location }) => {
                 X
               </span>
             </span>{' '}
-          </>
+          </div>
         ) : null}
         {state.course ? (
-          <>
+          <div className={SearchCss.tagrow}>
             Course:{' '}
             <span>
               {state.course}&emsp;{' '}
@@ -351,10 +351,10 @@ const Search = ({ location }) => {
                 X
               </span>
             </span>{' '}
-          </>
+          </div>
         ) : null}
         {state.experty ? (
-          <>
+          <div className={SearchCss.tagrow}>
             Experties:{' '}
             <span>
               {state.experty}&emsp;{' '}
@@ -367,10 +367,10 @@ const Search = ({ location }) => {
                 X
               </span>
             </span>{' '}
-          </>
+          </div>
         ) : null}
         {state.professional ? (
-          <>
+          <div className={SearchCss.tagrow}>
             Professional Interests:{' '}
             <span>
               {state.professional}&emsp;{' '}
@@ -383,7 +383,7 @@ const Search = ({ location }) => {
                 X
               </span>
             </span>{' '}
-          </>
+          </div>
         ) : null}
       </div>
       <div className={SearchCss.cards}>

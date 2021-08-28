@@ -2,6 +2,7 @@ const InitialState = {
   currentUser: null,
   error: null,
   isSigningIn: false,
+  users: [],
 }
 
 export const userReducer = (state = InitialState, action) => {
@@ -40,6 +41,8 @@ export const userReducer = (state = InitialState, action) => {
       return Object.assign({}, state, {
         error: null,
       })
+    case 'GETTING_USERS':
+      return Object.assign([], state, { users: action.payload })
     default:
       return state
   }

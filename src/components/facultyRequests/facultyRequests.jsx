@@ -2,120 +2,13 @@
 import React from 'react'
 import FacultyRequestsCss from './FacultyRequests.module.scss'
 import DataListGen from './DataListGen'
+import { connect } from 'react-redux'
 
 // Components
-const initialUserState = {
-  clients: [
-    {
-      fname: '1Esther',
-      lname: 'Howard',
-      email: 'jessica.hansaon@example.com',
-      company: 'Binford Ltd.',
-      phone: '(505)555-0125',
-      roles: 'Admin',
-      password: '',
-    },
-    {
-      fname: '2Theresa',
-      lname: 'Webb',
-      email: 'michelle.rivera@example.com',
-      company: 'Biffco Enterprises Ltd.',
-      phone: '(217) 555-0113',
-      roles: 'Admin',
-      password: '',
-    },
-    {
-      fname: '3Jacob',
-      lname: 'Jones',
-      email: 'dolores.chambers@example.com',
-      company: 'Acme Co.',
-      phone: '(208) 555-0112',
-      roles: 'Admin',
-      password: '',
-    },
-    {
-      fname: '4Esther',
-      lname: 'Howard',
-      email: 'jessica.hansaon@example.com',
-      company: 'Binford Ltd.',
-      phone: '(505)555-0125',
-      roles: 'Admin',
-      password: '',
-    },
-    {
-      fname: '5Theresa',
-      lname: 'Webb',
-      email: 'michelle.rivera@example.com',
-      company: 'Biffco Enterprises Ltd.',
-      phone: '(217) 555-0113',
-      roles: 'Admin',
-      password: '',
-    },
-    {
-      fname: '6Jacob',
-      lname: 'Jones',
-      email: 'dolores.chambers@example.com',
-      company: 'Acme Co.',
-      phone: '(208) 555-0112',
-      roles: 'Admin',
-      password: '',
-    },
-    {
-      fname: '7&Esther',
-      lname: 'Howard',
-      email: 'jessica.hansaon@example.com',
-      company: 'Binford Ltd.',
-      phone: '(505)555-0125',
-      roles: 'Admin',
-      password: '',
-    },
-    {
-      fname: '82Theresa',
-      lname: 'Webb',
-      email: 'michelle.rivera@example.com',
-      company: 'Biffco Enterprises Ltd.',
-      phone: '(217) 555-0113',
-      roles: 'Admin',
-      password: '',
-    },
-    {
-      fname: '93Jacob',
-      lname: 'Jones',
-      email: 'dolores.chambers@example.com',
-      company: 'Acme Co.',
-      phone: '(208) 555-0112',
-      roles: 'Admin',
-      password: '',
-    },
-    {
-      fname: '104Esther',
-      lname: 'Howard',
-      email: 'jessica.hansaon@example.com',
-      company: 'Binford Ltd.',
-      phone: '(505)555-0125',
-      roles: 'Admin',
-      password: '',
-    },
-    {
-      fname: '115Theresa',
-      lname: 'Webb',
-      email: 'michelle.rivera@example.com',
-      company: 'Biffco Enterprises Ltd.',
-      phone: '(217) 555-0113',
-      roles: 'Admin',
-      password: '',
-    },
-    {
-      fname: '126Jacob',
-      lname: 'Jones',
-      email: 'dolores.chambers@example.com',
-      company: 'Acme Co.',
-      phone: '(208) 555-0112',
-      roles: 'Admin',
-      password: '',
-    },
-  ],
-}
+const mapStateToProps = (state) => ({
+  users: state.userReducer.users,
+})
+
 class FacultyRequests extends React.Component {
   constructor(props) {
     super(props)
@@ -146,16 +39,14 @@ class FacultyRequests extends React.Component {
   paginate = (array, page_size, page_number) => {
     return array.slice((page_number - 1) * page_size, page_number * page_size)
   }
+  filteredData = () => {}
   render() {
+    const { users } = this.props
+    const pendingUsers = users.filter((user) => user.approve === false)
     const { title } = this.props
     const { searchValue, pageNumber } = this.state
-    const filteredData = initialUserState.clients.filter((data) => {
-      return (
-        data.fname.toLowerCase().includes(searchValue.toLowerCase()) ||
-        data.lname.toLowerCase().includes(searchValue.toLowerCase()) ||
-        // data.company.toLowerCase().includes(searchValue.toLowerCase()) ||
-        data.email.toLowerCase().includes(searchValue.toLowerCase())
-      )
+    const filteredData = pendingUsers.filter((data) => {
+      return data
     })
     if (this.state.pageNumber > this.totalPages)
       this.setState({ ...this.state, pageNumber: 1 })
@@ -201,7 +92,6 @@ class FacultyRequests extends React.Component {
               <tr>
                 <th>NAME</th>
                 <th>UNIVERSITY</th>
-                <th>PHONE NUMBER</th>
                 <th>EMAIL</th>
                 <th>ACTIONS</th>
               </tr>
@@ -257,4 +147,4 @@ class NumberGen extends React.Component {
     )
   }
 }
-export default FacultyRequests
+export default connect(mapStateToProps)(FacultyRequests)

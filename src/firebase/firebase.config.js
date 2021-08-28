@@ -8,7 +8,16 @@ import {
   signOut,
   onAuthStateChanged,
 } from 'firebase/auth'
-import { doc, getFirestore, setDoc, getDoc } from 'firebase/firestore'
+import {
+  doc,
+  getFirestore,
+  collection,
+  setDoc,
+  getDoc,
+  getDocs,
+  updateDoc,
+  deleteDoc,
+} from 'firebase/firestore'
 
 const firebaseConfig = {
   apiKey: 'AIzaSyBOJUy4VK4wCMvDZvUgepgKNcZcrljUIEo',
@@ -37,10 +46,14 @@ export const logout = signOut(auth)
 
 export const isUserAuthenticated = () => {
   return new Promise((res, rej) => {
-    const unsub = auth.onAuthStateChanged((user) => {
-      unsub()
-      res(user)
-    }, rej)
+    const unsub = onAuthStateChanged(
+      auth,
+      (user) => {
+        unsub()
+        res(user)
+      },
+      rej
+    )
   })
 }
 export const createUserInFirestore = async (user, additionalData) => {
@@ -63,6 +76,8 @@ export const createUserInFirestore = async (user, additionalData) => {
         email,
         createdAt,
         isAdmin: false,
+        approve: false,
+        id: user.uid,
         ...additionalData,
       })
       // return dbUser
@@ -71,6 +86,25 @@ export const createUserInFirestore = async (user, additionalData) => {
     console.log('eoorr', error.message)
   }
   return docRef
+}
+export const fetchingUsers = async () => {
+  const dataRef = await getDocs(collection(db, 'users'))
+  let users = []
+  dataRef.forEach((doc) => {
+    // doc.data() is never undefined for query doc snapshots
+    users.push(doc.data())
+  })
+  return users
+}
+export const approveDbUser = async ({ payload }) => {
+  const userRef = await doc(db, 'users', `${payload.id}`)
+  if (payload.manage) {
+    await updateDoc(userRef, {
+      approve: true,
+    })
+  } else {
+    await deleteDoc(doc(db, 'users', `${payload.id}`))
+  }
 }
 
 // Firebase User till up

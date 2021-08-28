@@ -157,19 +157,27 @@
 }
 .tags {
   // background-color: pink;
-  height: 10px;
-  margin: 50px;
-  span {
-    padding: 10px;
-    background: #d82a4e;
-    color: white;
-    border-radius: 17.5px;
-    font-size: 12px;
-    padding: 10px 15px;
-    .span {
-      // color: yellow;
-      cursor: pointer;
-      padding: 0;
+  // height: 10px;
+  margin: 50px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-gap: 20px;
+  flex-wrap: wrap;
+  // flex-direction: column;
+  .tagrow {
+    span {
+      padding: 10px;
+      background: #d82a4e;
+      color: white;
+      border-radius: 17.5px;
+      font-size: 12px;
+      padding: 10px 15px;
+      .span {
+        // color: yellow;
+        cursor: pointer;
+        padding: 0;
+      }
     }
   }
 }
@@ -217,9 +225,6 @@
 
     .inside {
       .row {
-        flex-direction: column;
-        input {
-        }
       }
     }
   }
@@ -229,11 +234,12 @@
     width: 95%;
 
     .inside {
-      .row {
-        &:nth-child(1) {
-          flex-direction: column;
-        }
-        input {
+      .col {
+        flex-direction: column;
+        .row {
+          &:nth-child(1) {
+            flex-direction: column;
+          }
         }
       }
     }
@@ -250,11 +256,12 @@
     width: 99%;
 
     .inside {
-      .row {
-        &:nth-child(1) {
-          flex-direction: column;
-        }
-        input {
+      .col {
+        flex-direction: column;
+        .row {
+          &:nth-child(1) {
+            flex-direction: column;
+          }
         }
       }
     }

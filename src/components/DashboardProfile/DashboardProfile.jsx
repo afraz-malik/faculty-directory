@@ -23,11 +23,11 @@ const DashboardProfile = ({ user, isLoading }) => {
   // const [showBox, manageBox] = useState(false)
   const [usercredentials, setUsercredentials] = useState({
     uid: '',
-    displayName: '',
-    email: '',
-    zip: '',
-    mobile: '',
-    username: '',
+    displayName: 'Admin',
+    email: 'Admin',
+    zip: '35002',
+    mobile: '+92 324 8205435',
+    username: 'Admin123',
     gender: '',
     country: '',
     city: '',

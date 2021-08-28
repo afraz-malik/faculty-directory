@@ -5,7 +5,15 @@ import DashboardProfile from '../DashboardProfile/DashboardProfile'
 import DataBox from '../DataBox/DataBox'
 import FacultyRequests from '../FacultyRequests/FacultyRequests'
 import ReceivedMessages from '../ReceivedMessages/ReceivedMessages'
+import { useDispatch } from 'react-redux'
+import { getUsersStart } from '../../redux/user/user.action'
 const AdminDashboard = ({ match }) => {
+  const dispatch = useDispatch()
+  React.useEffect(() => {
+    dispatch(getUsersStart())
+  }, [])
+  // dispatch(getUsersStart())
+
   let profile = false
   let manage = false
   let requests = false

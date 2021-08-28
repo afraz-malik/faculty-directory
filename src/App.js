@@ -1,7 +1,7 @@
 import React from 'react'
 import './App.css'
 import {
-  BrowserRouter as Router,
+  // BrowserRouter as Router,
   Switch,
   Route,
   Redirect,
@@ -25,39 +25,37 @@ const App = () => {
   }, [])
   return (
     <div className="App">
-      <button onClick={() => dispatch(isUserAuthenticated())}>Hello</button>
-      <Router basename={process.env.PUBLIC_URL}>
-        <ScrollTop />
-        <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route exact path="/contact" component={ContactPage} />
-          <Route
-            exact
-            path="/login"
-            render={() =>
-              currentUser ? <Redirect to={`/dashboard`} /> : <LoginPage />
-            }
-          />
-          <Route
-            exact
-            path="/register"
-            render={() =>
-              currentUser ? <Redirect to={`/dashboard`} /> : <RegisterPage />
-            }
-          />
-          <Route path="/faculty" component={FacultyPage} />
-          <Route
-            path="/dashboard"
-            render={() =>
-              !currentUser ? (
-                <Redirect to={`/login`} />
-              ) : (
-                <Dashboard user={currentUser} />
-              )
-            }
-          />
-        </Switch>
-      </Router>
+      {/* <button onClick={() => dispatch(isUserAuthenticated())}>Hello</button> */}
+      <ScrollTop />
+      <Switch>
+        <Route exact path="/" component={HomePage} />
+        <Route exact path="/contact" component={ContactPage} />
+        <Route
+          exact
+          path="/login"
+          render={() =>
+            currentUser ? <Redirect to={`/dashboard`} /> : <LoginPage />
+          }
+        />
+        <Route
+          exact
+          path="/register"
+          render={() =>
+            currentUser ? <Redirect to={`/dashboard`} /> : <RegisterPage />
+          }
+        />
+        <Route path="/faculty" component={FacultyPage} />
+        <Route
+          path="/dashboard"
+          render={() =>
+            !currentUser ? (
+              <Redirect to={`/login`} />
+            ) : (
+              <Dashboard user={currentUser} />
+            )
+          }
+        />
+      </Switch>
     </div>
   )
 }

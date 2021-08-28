@@ -6,6 +6,8 @@ import {
   settingUserPersistenceStart,
   signOut,
   signUp,
+  gettingUsersStart,
+  approveUserStart,
 } from './user/users.sagas'
 
 export default function* rootSaga() {
@@ -15,5 +17,7 @@ export default function* rootSaga() {
     call(signInWithEmailStart),
     call(signOut),
     call(signUp),
+    call(gettingUsersStart),
+    call(approveUserStart),
   ])
 }

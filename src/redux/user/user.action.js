@@ -2,6 +2,18 @@
 //     type: 'SET_CURRENT_USER',
 //     payload: user
 // })
+export const getUsers = (payload) => ({
+  type: 'GETTING_USERS',
+  payload,
+})
+export const getUsersStart = () => ({
+  type: 'GETTING_USERS_START',
+})
+export const approveUser = (payload) => ({
+  type: 'APPROVE_USER',
+  payload: payload,
+})
+
 export const isUserAuthenticated = () => ({
   type: 'CHECKING_USER_PERSISTENCE',
 })

@@ -7,11 +7,14 @@ import {
   logout,
   getdoc,
   emailSignIn,
+  approveDbUser,
+  fetchingUsers,
 } from '../../firebase/firebase.config'
 import {
   signInSuccess,
   signInFailed,
   signOutSuccess,
+  getUsers,
   signOutFailed,
 } from './user.action'
 
@@ -35,7 +38,14 @@ export function* signInWithGoogle() {
     const docRef = yield createUserInFirestore(user)
     const docSnap = yield getdoc(docRef)
     const dbUser = yield docSnap.data()
-    yield put(signInSuccess(dbUser))
+    if (dbUser.approve) {
+      yield put(signInSuccess(dbUser))
+    } else {
+      alert(
+        'You have successfully registerd ! Wait for Administrator to approve your registration. After approval you will be able to sign in'
+      )
+      yield signOutStart()
+    }
   } catch (err) {
     yield put(signInFailed(err.message))
   }
@@ -51,7 +61,14 @@ export function* signInWithEmail({ payload }) {
     const docRef = yield createUserInFirestore(user)
     const docSnap = yield getdoc(docRef)
     const dbUser = yield docSnap.data()
-    yield put(signInSuccess(dbUser))
+    if (dbUser.approve) {
+      yield put(signInSuccess(dbUser))
+    } else {
+      alert(
+        'You have successfully registerd ! Wait for Administrator to approve your registration. After approval you will be able to sign in'
+      )
+      yield signOut()
+    }
   } catch (error) {
     yield put(signInFailed(error.message))
   }
@@ -90,4 +107,24 @@ export function* signUpStart({ payload }) {
 }
 export function* signUp() {
   yield takeLatest('SIGN_UP_START', signUpStart)
+}
+
+export function* gettingUsers() {
+  const data = yield fetchingUsers()
+  yield put(getUsers(data))
+}
+export function* gettingUsersStart() {
+  yield takeLatest('GETTING_USERS_START', gettingUsers)
+}
+
+export function* approveUser(payload) {
+  try {
+    yield approveDbUser(payload)
+    yield gettingUsers()
+  } catch (e) {
+    console.log(e)
+  }
+}
+export function* approveUserStart() {
+  yield takeLatest('APPROVE_USER', approveUser)
 }
