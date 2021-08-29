@@ -61,7 +61,7 @@ const LoginForm = () => {
       <div className={LoginFormCss.sociallinks}>
         <p>Sign in with</p>
         <span>
-          <div className={LoginFormCss.img}>
+          <div className={LoginFormCss.img} style={{ display: 'none' }}>
             <img
               src="images/google.svg"
               alt=""

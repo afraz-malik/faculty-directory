@@ -4,7 +4,7 @@ import FacultyCard from '../FacultyCard/FacultyCard'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
-import { topFacultySelector } from '../../redux/selector'
+import { topFacultySelector } from '../../redux/data/data.selectors'
 
 const mapStateToProps = (state) => {
   return {

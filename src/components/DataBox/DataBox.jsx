@@ -5,7 +5,7 @@ import DataListGen from './DataListGen'
 import { connect } from 'react-redux'
 
 const mapStateToProps = (state) => ({
-  faculty: state.FacultyReducer.faculty,
+  faculty: state.dataReducer.faculties,
 })
 // Components
 

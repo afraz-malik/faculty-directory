@@ -11,7 +11,12 @@ import {
   forgetPasswordStart,
   changePasswordStart,
 } from './user/users.sagas'
-import { sendingMessageStart, deleteMessageStart } from './data/data.sagas'
+import {
+  sendingMessageStart,
+  deleteMessageStart,
+  gettingFacultiesStart,
+  addFacultyStart,
+} from './data/data.sagas'
 
 export default function* rootSaga() {
   yield all([
@@ -26,5 +31,7 @@ export default function* rootSaga() {
     call(changePasswordStart),
     call(sendingMessageStart),
     call(deleteMessageStart),
+    call(addFacultyStart),
+    call(gettingFacultiesStart),
   ])
 }

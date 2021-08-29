@@ -3,7 +3,7 @@ import { Link, withRouter } from 'react-router-dom'
 import FacultyProfileCss from './FacultyProfile.module.scss'
 import { connect } from 'react-redux'
 
-import { facultySelectorByParam } from '../../redux/selector'
+import { facultySelectorByParam } from '../../redux/data/data.selectors'
 
 const mapStateToProps = (state, ownProps) => {
   return {

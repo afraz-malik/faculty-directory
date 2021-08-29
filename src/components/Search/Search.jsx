@@ -6,14 +6,15 @@ import {
   getDepartments,
   getCourses,
   getExperties,
-} from '../../redux/selector'
+  facultySelectorList,
+} from '../../redux/data/data.selectors'
 
 import { filter } from 'smart-array-filter'
 import FacultyCard from '../FacultyCard/FacultyCard'
 import { withRouter } from 'react-router-dom'
 
 const Search = ({ location }) => {
-  const faculty = useSelector((state) => state.FacultyReducer.faculty)
+  const faculty = useSelector((state) => facultySelectorList(state))
   const universities = useSelector((state) => getUniversities(state)).sort()
   const departments = useSelector((state) => getDepartments(state)).sort()
   const courses = useSelector((state) => getCourses(state)).sort()

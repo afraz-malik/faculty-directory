@@ -3,17 +3,6 @@ import { withRouter } from 'react-router-dom'
 import FormCss from './Form.module.css'
 import { TagsInput } from 'react-tag-input-component'
 
-const initialState = {
-  fm_university: '',
-  fm_designation: '',
-  fm_department: '',
-  fm_courses: [],
-  fm_experties: [],
-  fm_interests:
-    'The focus of Dr. Sara’s Doctoral Research was the Development of Social Networks in an Entrepreneurial Setting. Using Constructivist Grounded Theory Method, she constructed a substantive theory that conceptualizes development of these networks, factors influencing their development and changes occurring over time. Her other research interests include the impact of different cultural dispositions on the development of the entrepreneur’s social network, the research methodologies used in the field of Entrepreneurship and Entrepreneurship Education.',
-  fm_country: '',
-  fm_city: '',
-}
 class Form1 extends React.Component {
   constructor(props) {
     super(props)
@@ -25,10 +14,32 @@ class Form1 extends React.Component {
     //   }
     // } else {
     // }
-    this.state = initialState
+    this.state = {
+      fm_university: '',
+      fm_designation: '',
+      fm_department: '',
+      fm_courses: [],
+      fm_experties: [],
+      fm_interests:
+        'The focus of Dr. Sara’s Doctoral Research was the Development of Social Networks in an Entrepreneurial Setting. Using Constructivist Grounded Theory Method, she constructed a substantive theory that conceptualizes development of these networks, factors influencing their development and changes occurring over time. Her other research interests include the impact of different cultural dispositions on the development of the entrepreneur’s social network, the research methodologies used in the field of Entrepreneurship and Entrepreneurship Education.',
+      fm_country: '',
+      fm_city: '',
+    }
   }
   componentDidMount() {
     window.scrollTo(0, 0)
+    if (this.props.currentFaculty) {
+      this.setState({
+        fm_university: this.props.currentFaculty.fm_name,
+        fm_designation: this.props.currentFaculty.fm_designation,
+        fm_department: this.props.currentFaculty.fm_department,
+        fm_courses: this.props.currentFaculty.fm_courses,
+        fm_experties: this.props.currentFaculty.fm_experties,
+        fm_interests: this.props.currentFaculty.fm_interests,
+        fm_country: this.props.currentFaculty.fm_country,
+        fm_city: this.props.currentFaculty.fm_city,
+      })
+    }
   }
   handleChange = (event) => {
     this.setState({ ...this.state, [event.target.name]: event.target.value })
@@ -59,10 +70,6 @@ class Form1 extends React.Component {
   }
 
   render() {
-    if (this.props.success) {
-      this.props.toggleDatabase()
-      this.setState(initialState)
-    }
     return (
       <div className={FormCss.container}>
         <form onSubmit={this.handleSubmit}>

@@ -8,6 +8,7 @@ const Navbar = () => {
   const currentUser = useSelector((state) => state.userReducer.currentUser)
   const dispatch = useDispatch()
   const [toggle, settoggle] = useState(false)
+  const [profile, setprofile] = useState(false)
 
   const handleToggle = () => {
     settoggle(!toggle)
@@ -53,20 +54,24 @@ const Navbar = () => {
             </li>
           ) : (
             <li>
-              <div className={NavbarCss.dropdown}>
-                <Link to="/login" className={NavbarCss.login}>
-                  {currentUser.displayName}
-                </Link>
-                <div className={NavbarCss.dropdownContent}>
-                  <div
-                    className={NavbarCss.a}
-                    onClick={() => dispatch(signOutStart())}
-                  >
-                    {' '}
-                    Log out
-                  </div>
+              <Link to="/dashboard">Dashboard</Link>
+              <Link to="/login" onClick={() => dispatch(signOutStart())}>
+                Logout
+              </Link>
+              {/* <div className={NavbarCss.dropdown}>
+                <div
+                  className={NavbarCss.a}
+                  onClick={() => dispatch(signOutStart())}
+                >
+                  {' '}
+                  Log out
                 </div>
-              </div>
+                Welcome
+                <Link to="/login" className={NavbarCss.login}>
+                  {currentUser.displayName}!
+                </Link>
+                <div className={NavbarCss.dropdownContent}></div>
+              </div> */}
             </li>
           )}
         </ul>
@@ -103,10 +108,21 @@ const Navbar = () => {
           ) : (
             <li>
               <div className={NavbarCss.dropdown}>
-                <Link to="/login" className={NavbarCss.login}>
-                  {currentUser.displayName}
-                </Link>
-                <div className={NavbarCss.dropdownContent}>
+                <div className={NavbarCss.profile}>
+                  <img
+                    src="images/authors/9.png"
+                    alt=""
+                    onClick={() => setprofile(!profile)}
+                  />
+                </div>
+                <div
+                  className={NavbarCss.dropdownContent}
+                  style={{ display: profile ? 'block' : 'none' }}
+                >
+                  <Link to="/dashboard" className={NavbarCss.a}>
+                    {' '}
+                    Dashboard
+                  </Link>
                   <div
                     className={NavbarCss.a}
                     onClick={() => dispatch(signOutStart())}

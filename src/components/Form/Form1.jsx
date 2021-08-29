@@ -2,16 +2,7 @@ import React from 'react'
 import FormCss from './Form.module.css'
 import ForgetPassword from '../ForgetPassword/ForgetPassword'
 import { connect } from 'react-redux'
-const initialState = {
-  fm_name: '',
-  fm_email: '',
-  fm_phone: '',
-  fm_gender: 1,
-  fm_dob: '',
-  imgurl: 'images/authors/9.png',
-  images: [],
-  editBox: false,
-}
+
 const mapStateToProps = (state) => ({
   currentUser: state.userReducer.currentUser,
 })
@@ -19,11 +10,38 @@ const mapStateToProps = (state) => ({
 class Form1 extends React.Component {
   constructor(props) {
     super(props)
-    this.state = initialState
+    this.state = {
+      fm_name: this.props.currentUser.displayName
+        ? this.props.currentUser.displayName
+        : '',
+      fm_email: this.props.currentUser.email
+        ? this.props.currentUser.email
+        : '',
+      fm_phone: '',
+      fm_gender: 1,
+      fm_dob: '',
+      imgurl: 'images/authors/9.png',
+      images: [],
+      editBox: false,
+    }
   }
   componentDidMount() {
     window.scrollTo(0, 0)
+
+    if (this.props.currentFaculty) {
+      console.log(this.props.currentFaculty)
+      this.setState({
+        fm_name: this.props.currentFaculty.fm_name,
+        fm_email: this.props.currentFaculty.fm_email,
+        fm_phone: this.props.currentFaculty.fm_phone,
+        fm_gender: this.props.currentFaculty.fm_gender,
+        fm_dob: this.props.currentFaculty.fm_dob,
+        imgurl: this.props.currentFaculty.imgurl,
+        images: this.props.currentFaculty.images,
+      })
+    }
   }
+
   toggleEditBox = () => {
     this.setState({ ...this.state, editBox: !this.state.editBox })
   }
@@ -48,10 +66,6 @@ class Form1 extends React.Component {
     })
   }
   render() {
-    if (this.props.success) {
-      this.props.toggleDatabase()
-      this.setState(initialState)
-    }
     return (
       <div className={FormCss.container}>
         <form method="post" onSubmit={this.handleSubmit}>

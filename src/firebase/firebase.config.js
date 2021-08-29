@@ -153,70 +153,16 @@ export const deleteDbMessage = async (id) => {
 }
 // Firebase User till up
 
-// export const addCollAndDocToFirebase = async (collectionName, objectToAdd) =>{
-//   const collectionRef = firestore.collection(collectionName);
-//   const batch = firestore.batch();
-//   objectToAdd.forEach(obj => {
-//     const docRef = collectionRef.doc(`${obj.id}`);
-//     batch.set(docRef, obj)
-//     console.log(obj.id)
-//   });
-//   return await batch.commit().then(resp => console.log(resp))
-// }
-// export const getShopDataFromFirestore = async () => {
-//   const collRef = collection(`shopData`)
-//   const snapShot = await collRef.get()
-//   const convertedColl = snapShot.docs.map((doc) => {
-//     const { title, items, imgUrl } = doc.data()
-//     return {
-//       routeName: encodeURI(title.toLowerCase()),
-//       id: doc.id,
-//       title,
-//       items,
-//       imgUrl,
-//     }
-//   })
-//   const convertedCollToObj = convertedColl.reduce((acc, coll) => {
-//     acc[coll.title.toLowerCase()] = coll
-//     return acc
-//   }, {})
-//   return convertedCollToObj
-// }
-
-// export const addItemInFirestore = async (ref, collectionToAdd, itemToAdd) => {
-//   const dbRef = collection('shopData').doc(ref.toString())
-//   if (collectionToAdd) {
-//     await dbRef
-//       .set({
-//         title: collectionToAdd.collectionName,
-//         imgUrl: collectionToAdd.collectionImageUrl,
-//         items: [
-//           {
-//             id: 1,
-//             name: itemToAdd.name,
-//             imageUrl: itemToAdd.imageUrl,
-//             price: itemToAdd.price,
-//           },
-//         ],
-//       })
-//       .then(() => {
-//         console.log('Document successfully written!')
-//       })
-//       .catch((error) => {
-//         console.error('Error writing document: ', error)
-//       })
-//   } else {
-//     await dbRef
-//       .update({
-//         items: firebase.firestore.FieldValue.arrayUnion(itemToAdd),
-//       })
-//       .then(() => {
-//         console.log('data saved successfully')
-//       })
-//       .catch((error) => {
-//         console.error('data saved failed', error)
-//       })
-//   }
-// }
-
-export default firebase
+export const addFacultyInDb = async (payload) => {
+  const docRef = doc(db, 'faculty', `${payload.id}`)
+  await setDoc(docRef, payload)
+}
+export const gettingFacultiesFromDb = async () => {
+  const dataRef = await getDocs(collection(db, 'faculty'))
+  let faculty = []
+  dataRef.forEach((doc) => {
+    // doc.data() is never undefined for query doc snapshots
+    faculty.push(doc.data())
+  })
+  return faculty
+}

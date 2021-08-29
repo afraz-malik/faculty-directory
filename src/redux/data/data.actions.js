@@ -16,3 +16,21 @@ export const commingAllMessages = (payload) => ({
   type: 'COMMING_MESSAGES',
   payload,
 })
+export const addFaculty = (payload) => {
+  return { type: 'ADD_FACULTY', payload }
+}
+
+export const addFacultySuccess = (payload) => {
+  return { type: 'ADD_FACULTY_SUCESS', payload }
+}
+export const gettingFacultiesStart = () => {
+  return {
+    type: 'GETTING_FACULTY_START',
+  }
+}
+export const gettingFacultiesSuccess = (payload) => {
+  return {
+    type: 'GETTING_FACULTY_SUCCESS',
+    payload,
+  }
+}
