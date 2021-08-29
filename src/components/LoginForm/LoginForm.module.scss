@@ -30,11 +30,12 @@
       cursor: pointer;
       margin: 35px 0 10px 0;
     }
-    a {
+    .a {
       margin-top: 10px;
       text-decoration: none;
       color: black;
       font-size: 12px;
+      cursor: pointer;
       font-weight: 600;
       &:hover {
         text-decoration: underline;

@@ -1,9 +1,13 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { signUp } from '../../redux/user/user.action'
 import SignupCss from './SignupForm.module.scss'
+import { Loading } from '../../redux/user/user.selector'
+import { Spinner } from '../spinner/spinner'
 const SignupForm = () => {
+  const loading = useSelector((s) => Loading(s))
+
   const dispatch = useDispatch()
   const [state, setstate] = React.useState({
     name: '',
@@ -19,6 +23,7 @@ const SignupForm = () => {
     event.preventDefault()
     if (state.password === state.cpassword) {
       dispatch(signUp(state))
+      setstate({ ...state, password: '', cpassword: '' })
     } else {
       alert('Password not matched')
     }
@@ -32,15 +37,18 @@ const SignupForm = () => {
           name="name"
           placeholder="Full Name"
           onChange={handleChange}
+          value={state.name}
         />
         <input
           type="email"
           name="email"
+          value={state.email}
           placeholder="Email"
           onChange={handleChange}
         />
         <input
           type="text"
+          value={state.university}
           name="university"
           placeholder="University you are teaching in"
           onChange={handleChange}
@@ -48,12 +56,14 @@ const SignupForm = () => {
         <input
           type="password"
           name="password"
+          value={state.password}
           placeholder="Password"
           onChange={handleChange}
         />
         <input
           type="password"
           name="cpassword"
+          value={state.cpassword}
           placeholder="Confirm Password"
           onChange={handleChange}
         />
@@ -80,6 +90,7 @@ const SignupForm = () => {
           </div>
         </span>
       </div>
+      {loading ? <Spinner /> : null}
     </div>
   )
 }

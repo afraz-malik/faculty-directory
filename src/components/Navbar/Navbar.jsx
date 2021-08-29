@@ -8,16 +8,10 @@ const Navbar = () => {
   const currentUser = useSelector((state) => state.userReducer.currentUser)
   const dispatch = useDispatch()
   const [toggle, settoggle] = useState(false)
+
   const handleToggle = () => {
     settoggle(!toggle)
   }
-  // window.addEventListener('resize', function () {
-  //   if (window.matchMedia('(min-width: 768px)').matches) {
-  //     settoggle(true)
-  //   } else {
-  //     settoggle(false)
-  //   }
-  // })
 
   return (
     <nav>
@@ -64,11 +58,13 @@ const Navbar = () => {
                   {currentUser.displayName}
                 </Link>
                 <div className={NavbarCss.dropdownContent}>
-                  <Link to="/">Change Password</Link>
-                  <Link to="/" onClick={() => dispatch(signOutStart())}>
+                  <div
+                    className={NavbarCss.a}
+                    onClick={() => dispatch(signOutStart())}
+                  >
                     {' '}
                     Log out
-                  </Link>
+                  </div>
                 </div>
               </div>
             </li>
@@ -111,11 +107,13 @@ const Navbar = () => {
                   {currentUser.displayName}
                 </Link>
                 <div className={NavbarCss.dropdownContent}>
-                  <Link to="/">Change Password</Link>
-                  <Link to="/" onClick={() => dispatch(signOutStart())}>
+                  <div
+                    className={NavbarCss.a}
+                    onClick={() => dispatch(signOutStart())}
+                  >
                     {' '}
                     Log out
-                  </Link>
+                  </div>
                 </div>
               </div>
             </li>

@@ -13,7 +13,14 @@ export const approveUser = (payload) => ({
   type: 'APPROVE_USER',
   payload: payload,
 })
-
+export const forgetPassword = (payload) => ({
+  type: 'FORGET_PASSWORD',
+  payload,
+})
+export const changePassword = (payload) => ({
+  type: 'CHANGE_PASSWORD',
+  payload,
+})
 export const isUserAuthenticated = () => ({
   type: 'CHECKING_USER_PERSISTENCE',
 })

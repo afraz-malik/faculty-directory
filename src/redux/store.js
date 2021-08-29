@@ -5,19 +5,21 @@ import { persistReducer } from 'redux-persist'
 
 import { FacultyReducer } from './reducer.js'
 import { userReducer } from './user/user.reducer.js'
+import { dataReducer } from './data/data.reducers'
 import createSagaMiddleware from 'redux-saga'
 import rootSaga from './root.sagas.js'
 import storage from 'redux-persist/lib/storage'
 
+const rootReducers = combineReducers({
+  FacultyReducer,
+  userReducer,
+  dataReducer,
+})
 const persistConfig = {
   key: 'root',
   storage,
   whitelist: ['userReducer'],
 }
-const rootReducers = combineReducers({
-  FacultyReducer,
-  userReducer,
-})
 const pReducer = persistReducer(persistConfig, rootReducers)
 
 const logger = createLogger()

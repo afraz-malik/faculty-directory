@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { changePassword } from '../../redux/user/user.action'
 import ForgetPasswordCss from './ForgetPassword.module.scss'
 
 // Redux
@@ -7,7 +9,8 @@ import ForgetPasswordCss from './ForgetPassword.module.scss'
 // import { EditUserAction } from '../../redux/users/users.actions'
 
 const ForgetPassword = ({ toggleEditBox, email }) => {
-  const [state, setstate] = useState({ oldp: '', newp: '', cnewp: '' })
+  const [state, setstate] = useState({ newp: '', cnewp: '' })
+  const dispatch = useDispatch()
   const handleChange = (event) => {
     setstate({ ...state, [event.target.name]: event.target.value })
   }
@@ -15,9 +18,10 @@ const ForgetPassword = ({ toggleEditBox, email }) => {
   const handleSubmit = (event) => {
     // event.preventDefault()
     if (state.newp === state.cnewp) {
+      dispatch(changePassword(state.newp))
       toggleEditBox()
     } else {
-      alert('New Password Not Matched!')
+      alert('Password Not Matched!')
     }
     // alert()
     // title === 'Client'
@@ -34,14 +38,6 @@ const ForgetPassword = ({ toggleEditBox, email }) => {
         <div className={ForgetPasswordCss.body}>
           <h4>For {email}</h4>
           <div className={ForgetPasswordCss.form}>
-            <input
-              type="password"
-              name="oldp"
-              onChange={handleChange}
-              value={state.oldp}
-              required
-              placeholder="Old Password"
-            />
             <input
               type="password"
               name="newp"

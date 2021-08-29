@@ -9,7 +9,11 @@ import {
   emailSignIn,
   approveDbUser,
   fetchingUsers,
+  passwordForget,
+  passwordChange,
+  fetchingMessages,
 } from '../../firebase/firebase.config'
+import { commingAllMessages } from '../data/data.actions'
 import {
   signInSuccess,
   signInFailed,
@@ -48,6 +52,7 @@ export function* signInWithGoogle() {
     }
   } catch (err) {
     yield put(signInFailed(err.message))
+    alert(err.message)
   }
 }
 export function* signInWithGoogleStart() {
@@ -64,13 +69,14 @@ export function* signInWithEmail({ payload }) {
     if (dbUser.approve) {
       yield put(signInSuccess(dbUser))
     } else {
-      alert(
+      yield alert(
         'You have successfully registerd ! Wait for Administrator to approve your registration. After approval you will be able to sign in'
       )
-      yield signOut()
+      yield signOutStart()
     }
   } catch (error) {
     yield put(signInFailed(error.message))
+    alert(error.message)
   }
 }
 export function* signInWithEmailStart() {
@@ -84,6 +90,7 @@ export function* signOutStart() {
     // const
   } catch (err) {
     yield put(signOutFailed(err.message))
+    alert(err.message)
   }
 }
 export function* signOut() {
@@ -100,9 +107,17 @@ export function* signUpStart({ payload }) {
     })
     const docSnap = yield getdoc(docRef)
     const dbUser = yield docSnap.data()
-    yield put(signInSuccess(dbUser))
+    if (dbUser.approve) {
+      yield put(signInSuccess(dbUser))
+    } else {
+      alert(
+        'You have successfully registerd ! Wait for Administrator to approve your registration. After approval you will be able to sign in'
+      )
+      yield signOutStart()
+    }
   } catch (err) {
     yield put(signInFailed(err.message))
+    alert(err.message)
   }
 }
 export function* signUp() {
@@ -110,8 +125,10 @@ export function* signUp() {
 }
 
 export function* gettingUsers() {
-  const data = yield fetchingUsers()
-  yield put(getUsers(data))
+  const users = yield fetchingUsers()
+  yield put(getUsers(users))
+  const messages = yield fetchingMessages()
+  yield put(commingAllMessages(messages))
 }
 export function* gettingUsersStart() {
   yield takeLatest('GETTING_USERS_START', gettingUsers)
@@ -121,10 +138,32 @@ export function* approveUser(payload) {
   try {
     yield approveDbUser(payload)
     yield gettingUsers()
-  } catch (e) {
-    console.log(e)
+  } catch (err) {
+    alert(err.message)
   }
 }
 export function* approveUserStart() {
   yield takeLatest('APPROVE_USER', approveUser)
+}
+
+export function* forgetPassword(payload) {
+  try {
+    yield passwordForget(payload)
+  } catch (err) {
+    alert(err.message)
+  }
+}
+export function* forgetPasswordStart() {
+  yield takeLatest('FORGET_PASSWORD', forgetPassword)
+}
+
+export function* changePassword(payload) {
+  try {
+    yield passwordChange(payload)
+  } catch (err) {
+    alert(err.message)
+  }
+}
+export function* changePasswordStart() {
+  yield takeLatest('CHANGE_PASSWORD', changePassword)
 }

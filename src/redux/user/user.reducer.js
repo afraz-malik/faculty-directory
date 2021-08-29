@@ -1,11 +1,11 @@
-const InitialState = {
+const initialState = {
   currentUser: null,
   error: null,
   isSigningIn: false,
   users: [],
 }
 
-export const userReducer = (state = InitialState, action) => {
+export const userReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'SET_CURRENT_USER':
       return Object.assign({}, state, { currentUser: action.payload })
@@ -32,6 +32,7 @@ export const userReducer = (state = InitialState, action) => {
       return Object.assign({}, state, {
         currentUser: null,
         error: null,
+        isSigningIn: false,
       })
     case 'SIGN_OUT_FAILED':
       return Object.assign({}, state, {

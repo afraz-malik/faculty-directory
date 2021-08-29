@@ -1,7 +1,26 @@
 import React from 'react'
 import ContactCss from './Contact.module.scss'
-
+import { useDispatch, useSelector } from 'react-redux'
+import { sendMessage } from '../../redux/data/data.actions'
+import { Loading } from '../../redux/data/data.selectors'
+import { Spinner } from '../spinner/spinner'
 const Contact = () => {
+  const dispatch = useDispatch()
+  const loading = useSelector((s) => Loading(s))
+  const [state, setstate] = React.useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
+  })
+  const handleChange = (event) => {
+    setstate({ ...state, [event.target.name]: event.target.value })
+  }
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    dispatch(sendMessage(state))
+    setstate({ name: '', email: '', subject: '', message: '' })
+  }
   return (
     <section className={ContactCss.section}>
       <div className={ContactCss.container} id="contact">
@@ -16,12 +35,41 @@ const Contact = () => {
                   dictum. Ut ac ligula sapien.{' '}
                 </p>
               </div>
-              <form>
-                <input type="text" placeholder="Your Name" />
-                <input type="text" placeholder="Your E-mail" />
-                <input type="text" placeholder="Subject" />
-                <textarea placeholder="Message"></textarea>
-                <button className={ContactCss.site}>Sent Message</button>
+              <form onSubmit={handleSubmit}>
+                <input
+                  type="text"
+                  name="name"
+                  value={state.name}
+                  required
+                  onChange={handleChange}
+                  placeholder="Your Name"
+                />
+                <input
+                  type="text"
+                  name="email"
+                  value={state.email}
+                  required
+                  onChange={handleChange}
+                  placeholder="Your E-mail"
+                />
+                <input
+                  type="text"
+                  value={state.subject}
+                  name="subject"
+                  required
+                  onChange={handleChange}
+                  placeholder="Subject"
+                />
+                <textarea
+                  name="message"
+                  value={state.message}
+                  required
+                  onChange={handleChange}
+                  placeholder="Message"
+                ></textarea>
+                <button type="submit" className={ContactCss.site}>
+                  Sent Message
+                </button>
               </form>
             </div>
           </div>
@@ -71,6 +119,7 @@ const Contact = () => {
           </div>
         </div>
       </div>
+      {loading ? <Spinner /> : null}
     </section>
   )
 }

@@ -8,7 +8,10 @@ import {
   signUp,
   gettingUsersStart,
   approveUserStart,
+  forgetPasswordStart,
+  changePasswordStart,
 } from './user/users.sagas'
+import { sendingMessageStart, deleteMessageStart } from './data/data.sagas'
 
 export default function* rootSaga() {
   yield all([
@@ -19,5 +22,9 @@ export default function* rootSaga() {
     call(signUp),
     call(gettingUsersStart),
     call(approveUserStart),
+    call(forgetPasswordStart),
+    call(changePasswordStart),
+    call(sendingMessageStart),
+    call(deleteMessageStart),
   ])
 }

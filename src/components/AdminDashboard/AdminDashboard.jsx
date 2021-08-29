@@ -11,7 +11,7 @@ const AdminDashboard = ({ match }) => {
   const dispatch = useDispatch()
   React.useEffect(() => {
     dispatch(getUsersStart())
-  }, [])
+  }, [dispatch])
   // dispatch(getUsersStart())
 
   let profile = false

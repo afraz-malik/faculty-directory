@@ -1,5 +1,7 @@
 import React from 'react'
 import FormCss from './Form.module.css'
+import ForgetPassword from '../ForgetPassword/ForgetPassword'
+import { connect } from 'react-redux'
 const initialState = {
   fm_name: '',
   fm_email: '',
@@ -8,7 +10,11 @@ const initialState = {
   fm_dob: '',
   imgurl: 'images/authors/9.png',
   images: [],
+  editBox: false,
 }
+const mapStateToProps = (state) => ({
+  currentUser: state.userReducer.currentUser,
+})
 
 class Form1 extends React.Component {
   constructor(props) {
@@ -18,7 +24,9 @@ class Form1 extends React.Component {
   componentDidMount() {
     window.scrollTo(0, 0)
   }
-
+  toggleEditBox = () => {
+    this.setState({ ...this.state, editBox: !this.state.editBox })
+  }
   handleChange = (event) => {
     this.setState({ ...this.state, [event.target.name]: event.target.value })
   }
@@ -143,6 +151,19 @@ class Form1 extends React.Component {
               </div>
             </div>
           </div>
+          <div
+            className={FormCss.row}
+            style={{
+              marginLeft: '1px',
+              fontSize: '14px',
+              cursor: 'pointer',
+              textDecoration: 'underline',
+              marginBottom: '10px',
+            }}
+            onClick={() => this.toggleEditBox()}
+          >
+            Change your password
+          </div>
           <div className={FormCss.cancel}>
             {this.props.state > 1 ? (
               <button
@@ -161,10 +182,15 @@ class Form1 extends React.Component {
             />
           </div>
         </form>
-        {/* {this.props.isLoading ? <Spinner /> : null} */}
+        {this.state.editBox ? (
+          <ForgetPassword
+            toggleEditBox={this.toggleEditBox}
+            email={this.props.currentUser.email}
+          />
+        ) : null}
       </div>
     )
   }
 }
 
-export default Form1
+export default connect(mapStateToProps)(Form1)

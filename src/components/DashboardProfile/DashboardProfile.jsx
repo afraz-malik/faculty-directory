@@ -1,20 +1,11 @@
 import React, { useState } from 'react'
 import ForgetPassword from '../ForgetPassword/ForgetPassword'
 import DashboardProfileCss from './DashboardProfile.module.scss'
-// Redux
-// import { connect, useDispatch } from 'react-redux'
-// import { updateUser } from '../../redux/user/user.actions'
-// Components
-// import BoxModel from '../boxModel/boxModel'
-// import Button from '../button/button'
-// import { Spinner } from '../spinner/spinner'
-// import { SingleForgetBox } from '../ForgetPasswordBox/ForgetPasswordBox'
+import { useSelector } from 'react-redux'
 
-// const mapStateToProps = (state) => ({
-//   user: state.setUser.user,
-//   isLoading: state.setUser.loading,
-// })
-const DashboardProfile = ({ user, isLoading }) => {
+const DashboardProfile = () => {
+  const currentUser = useSelector((state) => state.userReducer.currentUser)
+
   // const dispatch = useDispatch()
   const [editBox, setEditBox] = useState(false)
   const toggleEditBox = () => {
@@ -22,9 +13,9 @@ const DashboardProfile = ({ user, isLoading }) => {
   }
   // const [showBox, manageBox] = useState(false)
   const [usercredentials, setUsercredentials] = useState({
-    uid: '',
-    displayName: 'Admin',
-    email: 'Admin',
+    uid: currentUser ? currentUser.id : '',
+    displayName: currentUser ? currentUser.displayName : 'Admin',
+    email: currentUser ? currentUser.email : 'admin@gmail.com',
     zip: '35002',
     mobile: '+92 324 8205435',
     username: 'Admin123',

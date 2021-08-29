@@ -7,6 +7,8 @@ import {
   signInWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
+  sendPasswordResetEmail,
+  updatePassword,
 } from 'firebase/auth'
 import {
   doc,
@@ -96,6 +98,15 @@ export const fetchingUsers = async () => {
   })
   return users
 }
+export const fetchingMessages = async () => {
+  const dataRef = await getDocs(collection(db, 'visitors'))
+  let messsages = []
+  dataRef.forEach((doc) => {
+    // doc.data() is never undefined for query doc snapshots
+    messsages.push(doc.data())
+  })
+  return messsages
+}
 export const approveDbUser = async ({ payload }) => {
   const userRef = await doc(db, 'users', `${payload.id}`)
   if (payload.manage) {
@@ -106,7 +117,40 @@ export const approveDbUser = async ({ payload }) => {
     await deleteDoc(doc(db, 'users', `${payload.id}`))
   }
 }
-
+export const passwordForget = async ({ payload }) => {
+  sendPasswordResetEmail(auth, payload)
+    .then(() => {
+      alert('Password Reset Email Sent Check your mail')
+    })
+    .catch((error) => {
+      // ..
+    })
+}
+export const passwordChange = async ({ payload }) => {
+  const user = auth.currentUser
+  if (user) {
+    updatePassword(user, payload)
+      .then(() => {
+        alert('Password Changed Successfully')
+      })
+      .catch((error) => {
+        // An error ocurred
+        alert('error')
+        // ...
+      })
+  } else {
+    alert('Sign in again to change password')
+  }
+}
+export const sendMessageInDb = async (payload) => {
+  // doc.data() will be undefined in this case
+  const rand = Math.floor(Math.random() * 2.5 * 10)
+  const docRef = doc(db, 'visitors', `${rand}`)
+  await setDoc(docRef, { id: rand, ...payload })
+}
+export const deleteDbMessage = async (id) => {
+  await deleteDoc(doc(db, 'visitors', `${id}`))
+}
 // Firebase User till up
 
 // export const addCollAndDocToFirebase = async (collectionName, objectToAdd) =>{
