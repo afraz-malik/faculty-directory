@@ -21,23 +21,22 @@ class Form1 extends React.Component {
       fm_gender: 1,
       fm_dob: '',
       imgurl: 'images/authors/9.png',
-      images: [],
       editBox: false,
+      images: [],
     }
   }
   componentDidMount() {
     window.scrollTo(0, 0)
 
     if (this.props.currentFaculty) {
-      console.log(this.props.currentFaculty)
       this.setState({
-        fm_name: this.props.currentFaculty.fm_name,
-        fm_email: this.props.currentFaculty.fm_email,
-        fm_phone: this.props.currentFaculty.fm_phone,
-        fm_gender: this.props.currentFaculty.fm_gender,
-        fm_dob: this.props.currentFaculty.fm_dob,
-        imgurl: this.props.currentFaculty.imgurl,
-        images: this.props.currentFaculty.images,
+        fm_name: this.props.currentFaculty.personal.fm_name,
+        fm_email: this.props.currentFaculty.personal.fm_email,
+        fm_phone: this.props.currentFaculty.personal.fm_phone,
+        fm_gender: this.props.currentFaculty.personal.fm_gender,
+        fm_dob: this.props.currentFaculty.personal.fm_dob,
+        imgurl: this.props.currentFaculty.personal.imgurl,
+        images: this.props.currentFaculty.personal.images,
       })
     }
   }
@@ -51,7 +50,17 @@ class Form1 extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault()
     // console.log(this.state)
-    this.props.collectData({ personal: this.state })
+    this.props.collectData({
+      personal: {
+        fm_name: this.state.fm_name,
+        fm_email: this.state.fm_email,
+        fm_phone: this.state.fm_phone,
+        fm_gender: this.state.fm_gender,
+        fm_dob: this.state.fm_dob,
+        imgurl: this.state.imgurl,
+      },
+      images: this.state.images,
+    })
     this.props.incState()
   }
   handleImage = (event) => {

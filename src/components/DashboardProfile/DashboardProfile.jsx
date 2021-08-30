@@ -53,6 +53,8 @@ const DashboardProfile = () => {
     event.preventDefault()
     // console.log(usercredentials)
     // dispatch(updateUser({ images, usercredentials }))
+    alert('updated')
+
     if (images == null) return
     // dispatch(imageUpload(images))
   }

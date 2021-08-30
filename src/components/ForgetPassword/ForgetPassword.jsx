@@ -19,6 +19,8 @@ const ForgetPassword = ({ toggleEditBox, email }) => {
     // event.preventDefault()
     if (state.newp === state.cnewp) {
       dispatch(changePassword(state.newp))
+      setstate({ newp: '', cnewp: '' })
+
       toggleEditBox()
     } else {
       alert('Password Not Matched!')

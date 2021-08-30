@@ -16,6 +16,7 @@ import {
   deleteMessageStart,
   gettingFacultiesStart,
   addFacultyStart,
+  deleteFacultyStart,
 } from './data/data.sagas'
 
 export default function* rootSaga() {
@@ -33,5 +34,6 @@ export default function* rootSaga() {
     call(deleteMessageStart),
     call(addFacultyStart),
     call(gettingFacultiesStart),
+    call(deleteFacultyStart),
   ])
 }

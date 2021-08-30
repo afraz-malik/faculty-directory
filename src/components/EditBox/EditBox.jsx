@@ -1,17 +1,18 @@
 import React, { useState } from 'react'
 import EditBoxCss from './EditBox.module.scss'
+import { TagsInput } from 'react-tag-input-component'
 
 // Redux
-// import { useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
+import { addFaculty } from '../../redux/data/data.actions'
+
 // import { EditClientAction } from '../../redux/clients/clients.actions'
 // import { EditUserAction } from '../../redux/users/users.actions'
 
-const EditBox = ({ toggleEditBox, data, index, title }) => {
-  // const dispatch = useDispatch()
+const EditBox = ({ toggleEditBox, data }) => {
+  const dispatch = useDispatch()
   const [personal, setPersonal] = useState(data.personal)
   const [faculty, setFaculty] = useState(data.faculty)
-  const [qualification, setQualification] = useState(data.qualification)
-
   const handlePersonal = (event) => {
     setPersonal({ ...personal, [event.target.name]: event.target.value })
   }
@@ -19,20 +20,23 @@ const EditBox = ({ toggleEditBox, data, index, title }) => {
     setFaculty({ ...faculty, [event.target.name]: event.target.value })
   }
   // eslint-disable-next-line
-  const handleQualification = (event) => {
-    setQualification({
-      ...qualification,
-      [event.target.name]: event.target.value,
-    })
-  }
 
   const handleSubmit = (event) => {
     event.preventDefault()
     // title === 'Client'
     //   ? dispatch(EditClientAction({ newClient: newData, index }))
     //   : dispatch(EditUserAction({ newUser: newData, index }))
+    dispatch(
+      addFaculty({
+        id: data.id,
+        faculty: faculty,
+        qualification: data.qualification,
+        personal: personal,
+      })
+    )
     toggleEditBox()
   }
+
   const handleImage = (event) => {
     setPersonal({
       ...personal,
@@ -44,6 +48,7 @@ const EditBox = ({ toggleEditBox, data, index, title }) => {
     })
     // setFaculty({})
   }
+
   return (
     <div className={EditBoxCss.outerbox}>
       <div className={EditBoxCss.box}>
@@ -104,6 +109,7 @@ const EditBox = ({ toggleEditBox, data, index, title }) => {
               onChange={handlePersonal}
               value={personal.fm_phone}
             />
+
             <label>University</label>
             <input
               type="text"
@@ -126,13 +132,24 @@ const EditBox = ({ toggleEditBox, data, index, title }) => {
               value={faculty.fm_designation}
             />
             <label>Courses</label>
-            <input
+            <TagsInput
+              value={faculty.fm_courses}
+              onChange={(value) =>
+                setFaculty({ ...faculty, fm_courses: value })
+              }
+              name="fm_courses"
+              // seprators="Space"
+              onExisting={() => alert('Already Exist')}
+              placeHolder="Tag your courses. Press Enter to add tag"
+            />
+            {/* <input
               type="text"
               name="fm_courses"
               onChange={handleFaculty}
               value={faculty.fm_courses}
-            />
+            /> */}
             <label>Proffessional Interests</label>
+
             <input
               type="text"
               name="fm_interests"
@@ -140,12 +157,16 @@ const EditBox = ({ toggleEditBox, data, index, title }) => {
               value={faculty.fm_interests}
             />
             <label>Experties</label>
-            <input
-              type="text"
-              name="fm_experties"
-              onChange={handleFaculty}
+            <TagsInput
               value={faculty.fm_experties}
+              onChange={(value) =>
+                setFaculty({ ...faculty, fm_experties: value })
+              }
+              name="fm_experties"
+              onExisting={() => alert('Already Exist')}
+              placeHolder="Tag your courses. Press Enter to add tag"
             />
+
             <label>City</label>
             <input
               type="text"

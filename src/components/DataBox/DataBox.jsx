@@ -3,12 +3,26 @@ import React from 'react'
 import DataBoxCss from './DataBox.module.scss'
 import DataListGen from './DataListGen'
 import { connect } from 'react-redux'
-
+import {
+  Success,
+  Loading,
+  facultySelectorList,
+} from '../../redux/data/data.selectors'
+import {
+  clearSuccess,
+  gettingFacultiesStart,
+} from '../../redux/data/data.actions'
+import { Spinner } from '../spinner/spinner'
 const mapStateToProps = (state) => ({
-  faculty: state.dataReducer.faculties,
+  faculty: facultySelectorList(state),
+  success: Success(state),
+  loading: Loading(state),
 })
-// Components
 
+const mapDisptachToProps = (dispatch) => ({
+  clearSuccess: () => dispatch(clearSuccess()),
+  gettingFacultiesStart: () => dispatch(gettingFacultiesStart()),
+})
 class DataBox extends React.Component {
   constructor(props) {
     super(props)
@@ -40,6 +54,10 @@ class DataBox extends React.Component {
     return array.slice((page_number - 1) * page_size, page_number * page_size)
   }
   render() {
+    if (this.props.success) {
+      this.props.clearSuccess()
+      this.props.gettingFacultiesStart()
+    }
     const { faculty } = this.props
     const { searchValue, pageNumber } = this.state
     const filteredData = faculty.filter((data) => {
@@ -130,6 +148,7 @@ class DataBox extends React.Component {
             &gt;
           </div>
         </div>
+        {this.props.loading ? <Spinner /> : null}
       </div>
     )
   }
@@ -152,4 +171,4 @@ class NumberGen extends React.Component {
     )
   }
 }
-export default connect(mapStateToProps)(DataBox)
+export default connect(mapStateToProps, mapDisptachToProps)(DataBox)

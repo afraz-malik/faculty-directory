@@ -3,13 +3,14 @@ import EditBox from '../EditBox/EditBox'
 import DataBoxCss from './DataBox.module.scss'
 
 // Redux
-// import { useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
+import { deleteFaculty } from '../../redux/data/data.actions'
 // import { DeleteClientAction } from '../../redux/clients/clients.actions'
 // import { DeleteUserAction } from '../../redux/users/users.actions'
 // Components
 
-const DataListGen = ({ data, title, index }) => {
-  // const dispatch = useDispatch()
+const DataListGen = ({ data, index }) => {
+  const dispatch = useDispatch()
   const [editBox, setEditBox] = useState(false)
   const toggleEditBox = () => {
     setEditBox(!editBox)
@@ -17,9 +18,7 @@ const DataListGen = ({ data, title, index }) => {
   const manageDelete = () => {
     const result = window.confirm('Are you sure you want to delete?')
     if (result) {
-      // title === 'Client'
-      //   ? dispatch(DeleteClientAction(index))
-      //   : dispatch(DeleteUserAction(index))
+      dispatch(deleteFaculty(data.id))
     }
   }
   return (

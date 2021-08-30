@@ -20,6 +20,7 @@ import {
   updateDoc,
   deleteDoc,
 } from 'firebase/firestore'
+import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage'
 
 const firebaseConfig = {
   apiKey: 'AIzaSyBOJUy4VK4wCMvDZvUgepgKNcZcrljUIEo',
@@ -151,11 +152,23 @@ export const sendMessageInDb = async (payload) => {
 export const deleteDbMessage = async (id) => {
   await deleteDoc(doc(db, 'visitors', `${id}`))
 }
+export const deleteDbFaculty = async (id) => {
+  await deleteDoc(doc(db, 'faculty', `${id}`))
+}
 // Firebase User till up
 
+const storage = getStorage()
 export const addFacultyInDb = async (payload) => {
   const docRef = doc(db, 'faculty', `${payload.id}`)
-  await setDoc(docRef, payload)
+  await setDoc(docRef, { id: payload.id, ...payload.faculty })
+  const storageRef = ref(storage, `${payload.id}`)
+  uploadBytes(storageRef, payload.images).then((snapshot) => {
+    getDownloadURL(snapshot.ref).then(async (downloadURL) => {
+      await updateDoc(docRef, {
+        'personal.imgurl': downloadURL,
+      })
+    })
+  })
 }
 export const gettingFacultiesFromDb = async () => {
   const dataRef = await getDocs(collection(db, 'faculty'))

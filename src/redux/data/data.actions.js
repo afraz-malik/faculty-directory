@@ -6,6 +6,10 @@ export const deleteMessage = (payload) => ({
   type: 'DELETE_MESSAGE_START',
   payload,
 })
+export const deleteFaculty = (payload) => ({
+  type: 'DELETE_FACULTY_START',
+  payload,
+})
 export const sendMessageSuccess = () => ({
   type: 'SEND_MESSAGE_SUCCESS',
 })
@@ -19,9 +23,15 @@ export const commingAllMessages = (payload) => ({
 export const addFaculty = (payload) => {
   return { type: 'ADD_FACULTY', payload }
 }
+export const clearSuccess = () => {
+  return { type: 'CLEAR_SUCCESS' }
+}
 
 export const addFacultySuccess = (payload) => {
-  return { type: 'ADD_FACULTY_SUCESS', payload }
+  return { type: 'ADD_FACULTY_SUCCESS', payload }
+}
+export const addFacultyFailed = (payload) => {
+  return { type: 'ADD_FACULTY_FAILED', payload }
 }
 export const gettingFacultiesStart = () => {
   return {

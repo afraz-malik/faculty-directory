@@ -1,6 +1,7 @@
 import { takeLatest, put } from 'redux-saga/effects'
 import {
   addFacultyInDb,
+  deleteDbFaculty,
   deleteDbMessage,
   gettingFacultiesFromDb,
   sendMessageInDb,
@@ -11,6 +12,7 @@ import {
   sendMessageFailed,
   addFacultySuccess,
   gettingFacultiesSuccess,
+  addFacultyFailed,
 } from './data.actions'
 
 export function* gettingFaculties() {
@@ -51,13 +53,26 @@ export function* deleteMessage({ payload }) {
 export function* deleteMessageStart() {
   yield takeLatest('DELETE_MESSAGE_START', deleteMessage)
 }
-
+export function* deleteFaculty({ payload }) {
+  try {
+    yield deleteDbFaculty(payload)
+    yield alert('Deleted')
+    yield gettingFaculties()
+  } catch (e) {
+    alert(e.message)
+  }
+}
+export function* deleteFacultyStart() {
+  yield takeLatest('DELETE_FACULTY_START', deleteFaculty)
+}
 export function* addFaculty({ payload }) {
   try {
     yield addFacultyInDb(payload)
-    yield put(addFacultySuccess(payload))
+    yield put(addFacultySuccess({ id: payload.id, ...payload.faculty }))
+    yield alert('Record Updated Successfully')
   } catch (er) {
     alert(er.message)
+    yield put(addFacultyFailed(er.message))
   }
 }
 

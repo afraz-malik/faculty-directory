@@ -5,15 +5,27 @@ import Form1 from '../Form/Form1'
 import Form2 from '../Form/Form2'
 import Form3 from '../Form/Form3'
 import { useDispatch, useSelector } from 'react-redux'
-import { addFaculty } from '../../redux/data/data.actions'
-import { facultySelectorByUid } from '../../redux/data/data.selectors'
+import { addFaculty, clearSuccess } from '../../redux/data/data.actions'
+import {
+  facultySelectorByUid,
+  Loading,
+  Success,
+} from '../../redux/data/data.selectors'
+import { Spinner } from '../spinner/spinner'
+import { useHistory } from 'react-router-dom'
 const FacultyDashboard = () => {
   const dispatch = useDispatch()
+  const history = useHistory()
   const currentUser = useSelector((state) => state.userReducer.currentUser)
-  const currentFaculty = useSelector((state) =>
-    facultySelectorByUid(currentUser.id)(state)
-  )
-
+  const cF = useSelector((state) => facultySelectorByUid(currentUser.id)(state))
+  const loading = useSelector((state) => Loading(state))
+  const success = useSelector((state) => Success(state))
+  let currentFaculty
+  if (cF) {
+    currentFaculty = cF
+  } else {
+    currentFaculty = []
+  }
   const [state, setstate] = React.useState(1)
   const [faculty, setFaculty] = React.useState({})
   const incState = () => {
@@ -25,10 +37,25 @@ const FacultyDashboard = () => {
   const collectData = (form) => {
     setFaculty({ ...faculty, ...form })
   }
+
   const submitForm = () => {
-    dispatch(addFaculty({ ...faculty, id: currentUser.id }))
+    dispatch(
+      addFaculty({
+        faculty: {
+          personal: faculty.personal,
+          qualification: faculty.qualification,
+          faculty: faculty.faculty,
+        },
+        id: currentUser.id,
+        images: faculty.images,
+      })
+    )
   }
   // const getFaculty = useSelector((state) => state.FacultyReducer.faculty)
+  if (success) {
+    history.push('/faculty')
+    dispatch(clearSuccess())
+  }
   return (
     <div className={FacultyDashboardCSs.container}>
       <MultiStepForm activeStep={state} accentColor={'#d82a4e'}>
@@ -38,7 +65,7 @@ const FacultyDashboard = () => {
             decState={decState}
             state={state}
             collectData={collectData}
-            currentFaculty={currentFaculty[0].personal}
+            currentFaculty={currentFaculty[0]}
           />
         </Step>
         <Step label="Qualification">
@@ -47,7 +74,7 @@ const FacultyDashboard = () => {
             decState={decState}
             state={state}
             collectData={collectData}
-            currentFaculty={currentFaculty[0].qualification}
+            currentFaculty={currentFaculty[0]}
           />
         </Step>
         <Step label="Faculty">
@@ -57,10 +84,11 @@ const FacultyDashboard = () => {
             state={state}
             collectData={collectData}
             submitForm={submitForm}
-            currentFaculty={currentFaculty[0].faculty}
+            currentFaculty={currentFaculty[0]}
           />
         </Step>
       </MultiStepForm>
+      {loading ? <Spinner /> : null}
     </div>
   )
 }

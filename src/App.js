@@ -26,6 +26,7 @@ const App = () => {
     dispatch(isUserAuthenticated())
     // eslint-disable-next-line
     dispatch(gettingFacultiesStart())
+    // eslint-disable-next-line
   }, [])
   return (
     <div className="App">

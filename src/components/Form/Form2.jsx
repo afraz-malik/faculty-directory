@@ -16,15 +16,15 @@ const initialState = {
 class Form1 extends React.Component {
   constructor(props) {
     super(props)
-    // if (this.props.oldUser) {
-    //   this.state = {
-    //     ...this.props.oldUser,
-    //     counter: this.props.oldUser.qualification.length,
-    //     removedItem: [],
-    //   }
-    // } else {
-    // }
-    this.state = initialState
+    if (this.props.currentFaculty) {
+      this.state = {
+        qualification: this.props.currentFaculty.qualification,
+        counter: 1,
+        removedItem: [],
+      }
+    } else {
+      this.state = initialState
+    }
   }
   componentDidMount() {
     window.scrollTo(0, 0)

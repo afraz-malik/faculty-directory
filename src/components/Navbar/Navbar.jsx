@@ -3,9 +3,11 @@ import NavbarCss from './Navbar.module.scss'
 import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { signOutStart } from '../../redux/user/user.action'
+import { facultySelectorByUid } from '../../redux/data/data.selectors'
 
 const Navbar = () => {
   const currentUser = useSelector((state) => state.userReducer.currentUser)
+
   const dispatch = useDispatch()
   const [toggle, settoggle] = useState(false)
   const [profile, setprofile] = useState(false)
@@ -110,7 +112,7 @@ const Navbar = () => {
               <div className={NavbarCss.dropdown}>
                 <div className={NavbarCss.profile}>
                   <img
-                    src="images/authors/9.png"
+                    src="images/authors/19.png"
                     alt=""
                     onClick={() => setprofile(!profile)}
                   />

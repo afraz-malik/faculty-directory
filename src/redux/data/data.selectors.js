@@ -10,6 +10,10 @@ export const Loading = createSelector(
   [dataSelector],
   (dataReducer) => dataReducer.sending
 )
+export const Success = createSelector(
+  [dataSelector],
+  (dataReducer) => dataReducer.success
+)
 export const facultySelectorList = createSelector(
   [dataSelector],
   (dataReducer) => dataReducer.faculties

@@ -39,7 +39,6 @@ class ReceivedMessages extends React.Component {
   }
   render() {
     const { title, messages } = this.props
-    console.log(messages)
     const { searchValue, pageNumber } = this.state
     const filteredData = messages.filter((data) => {
       return data.name.toLowerCase().includes(searchValue.toLowerCase())
