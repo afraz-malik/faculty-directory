@@ -62,7 +62,13 @@ const SmallHeader = ({ bg, section, location }) => {
                         setstate({ ...state, university: e.target.value })
                       }
                     />
-                    <Link to={`/faculty?${state.course}#${state.university}`}>
+                    <Link
+                      to={{
+                        pathname: `/faculty`,
+                        university: state.university,
+                        course: state.course,
+                      }}
+                    >
                       Search Couse
                     </Link>
                   </form>

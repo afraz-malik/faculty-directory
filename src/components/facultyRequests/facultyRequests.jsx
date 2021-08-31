@@ -46,7 +46,9 @@ class FacultyRequests extends React.Component {
     const { title } = this.props
     const { searchValue, pageNumber } = this.state
     const filteredData = pendingUsers.filter((data) => {
-      return data
+      return data.displayName
+        .toLowerCase()
+        .includes(this.state.searchValue.toLowerCase())
     })
     if (this.state.pageNumber > this.totalPages)
       this.setState({ ...this.state, pageNumber: 1 })

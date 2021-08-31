@@ -25,7 +25,6 @@ export const dataReducer = (state = initialState, action) => {
       return { ...state, sending: true }
     case 'ADD_FACULTY_SUCCESS':
       return Object.assign({}, state, {
-        faculties: [...state.faculties, action.payload],
         sending: false,
         success: true,
       })

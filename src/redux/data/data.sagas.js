@@ -68,8 +68,9 @@ export function* deleteFacultyStart() {
 export function* addFaculty({ payload }) {
   try {
     yield addFacultyInDb(payload)
-    yield put(addFacultySuccess({ id: payload.id, ...payload.faculty }))
+    yield put(addFacultySuccess())
     yield alert('Record Updated Successfully')
+    yield gettingFaculties()
   } catch (er) {
     alert(er.message)
     yield put(addFacultyFailed(er.message))

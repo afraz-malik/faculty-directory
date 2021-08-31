@@ -3,7 +3,6 @@ import NavbarCss from './Navbar.module.scss'
 import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { signOutStart } from '../../redux/user/user.action'
-import { facultySelectorByUid } from '../../redux/data/data.selectors'
 
 const Navbar = () => {
   const currentUser = useSelector((state) => state.userReducer.currentUser)

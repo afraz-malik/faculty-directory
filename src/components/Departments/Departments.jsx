@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import DepartmentsCss from './Departments.module.scss'
 const Departments = () => {
   const dept = [
@@ -61,7 +62,7 @@ const Departments = () => {
   return (
     <div className={DepartmentsCss.container} id="faculty">
       <div className={DepartmentsCss.title}>
-        <h4>Our Faculty Departments</h4>
+        <h4>Our Top Faculty Departments</h4>
         <p>
           This template is designed by Bc180404438 for University purpose on
           JustinMind. The quick brown fox jums over the lazy dog. This template
@@ -70,7 +71,14 @@ const Departments = () => {
       </div>
       <div className={DepartmentsCss.cards}>
         {dept.map((el) => (
-          <div key={el.name} className={DepartmentsCss.card}>
+          <Link
+            key={el.name}
+            className={DepartmentsCss.card}
+            to={{
+              pathname: `/faculty`,
+              department: el.name,
+            }}
+          >
             <div
               className={DepartmentsCss.img}
               style={{ backgroundImage: `url(images/categories/${el.image})` }}
@@ -89,7 +97,7 @@ const Departments = () => {
                 </h5>
               </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

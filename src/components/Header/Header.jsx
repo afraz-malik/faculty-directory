@@ -38,7 +38,13 @@ const Header = () => {
             value={state.university}
             onChange={(e) => setstate({ ...state, university: e.target.value })}
           />
-          <Link to={`/faculty?${state.course}#${state.university}`}>
+          <Link
+            to={{
+              pathname: `/faculty`,
+              university: state.university,
+              course: state.course,
+            }}
+          >
             {' '}
             Search Faculty
           </Link>

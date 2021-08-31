@@ -11,7 +11,7 @@ const DataListGen = ({ data }) => {
   return (
     <tr>
       <td>{data.displayName}</td>
-      <td>{data.company}</td>
+      <td>{data.university}</td>
       <td>{data.email}</td>
       <td>
         <div className={FacultyRequestsCss.actions}>

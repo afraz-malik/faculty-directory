@@ -13,7 +13,8 @@ import { filter } from 'smart-array-filter'
 import FacultyCard from '../FacultyCard/FacultyCard'
 import { withRouter } from 'react-router-dom'
 
-const Search = ({ location }) => {
+const Search = ({ location, ...props }) => {
+  console.log(location)
   const faculty = useSelector((state) => facultySelectorList(state))
   const universities = useSelector((state) => getUniversities(state)).sort()
   const departments = useSelector((state) => getDepartments(state)).sort()
@@ -21,37 +22,21 @@ const Search = ({ location }) => {
   const experties = useSelector((state) => getExperties(state)).sort()
   const [active, setactive] = React.useState({
     keyword: false,
-    university: false,
-    department: false,
-    course: false,
+    university: location.university ? true : false,
+    department: location.department ? true : false,
+    course: location.course ? true : false,
     professional: false,
     experty: false,
     filter: false,
   })
   const [state, setstate] = React.useState({
-    university: '',
+    university: location.university ? location.university : '',
     keyword: '',
-    department: '',
-    course: '',
+    department: location.department ? location.department : '',
+    course: location.course ? location.course : '',
     experty: '',
     professional: '',
   })
-  React.useEffect(() => {
-    if (location.hash || location.search) {
-      setstate({
-        ...state,
-        university: location.hash ? location.hash.slice(1) : '',
-        course: location.search ? location.search.slice(1) : '',
-      })
-      setactive({
-        ...active,
-        university: location.hash ? true : '',
-        course: location.search ? true : '',
-        filter: true,
-      })
-    }
-    // eslint-disable-next-line
-  }, [])
   const handleChange = (event) => {
     setstate({ ...state, [event.target.name]: event.target.value })
   }
@@ -132,7 +117,7 @@ const Search = ({ location }) => {
                 className={active.keyword ? SearchCss.active : null}
                 htmlFor="keyword"
               >
-                Name
+                Search by Name
               </label>
               <button
                 className={SearchCss.filterbtn}
@@ -387,11 +372,15 @@ const Search = ({ location }) => {
           </div>
         ) : null}
       </div>
-      <div className={SearchCss.cards}>
-        {filter6.map((el, i) => (
-          <FacultyCard key={i} el={el} />
-        ))}
-      </div>
+      {filter6.length > 0 ? (
+        <div className={SearchCss.cards}>
+          {filter6.map((el, i) => (
+            <FacultyCard key={i} el={el} />
+          ))}
+        </div>
+      ) : (
+        <img src="images/notfound.png" alt="" />
+      )}
     </>
   )
 }

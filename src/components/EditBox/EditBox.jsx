@@ -12,6 +12,7 @@ import { addFaculty } from '../../redux/data/data.actions'
 const EditBox = ({ toggleEditBox, data }) => {
   const dispatch = useDispatch()
   const [personal, setPersonal] = useState(data.personal)
+  console.log(personal)
   const [faculty, setFaculty] = useState(data.faculty)
   const handlePersonal = (event) => {
     setPersonal({ ...personal, [event.target.name]: event.target.value })
@@ -23,17 +24,41 @@ const EditBox = ({ toggleEditBox, data }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    // title === 'Client'
-    //   ? dispatch(EditClientAction({ newClient: newData, index }))
-    //   : dispatch(EditUserAction({ newUser: newData, index }))
+
     dispatch(
       addFaculty({
         id: data.id,
-        faculty: faculty,
-        qualification: data.qualification,
-        personal: personal,
+        faculty: {
+          faculty: faculty,
+          qualification: data.qualification,
+          personal: {
+            fm_dob: personal.fm_dob,
+            fm_email: personal.fm_email,
+            fm_gender: personal.fm_gender,
+            fm_name: personal.fm_name,
+            fm_phone: personal.fm_phone,
+            imgurl: personal.imgurl,
+          },
+        },
+        images: personal.images,
       })
     )
+    console.log({
+      id: data.id,
+      faculty: {
+        faculty: faculty,
+        qualification: data.qualification,
+        personal: {
+          fm_dob: personal.fm_dob,
+          fm_email: personal.fm_email,
+          fm_gender: personal.fm_gender,
+          fm_name: personal.fm_name,
+          fm_phone: personal.fm_phone,
+          imgurl: personal.imgurl,
+        },
+      },
+      images: personal.images,
+    })
     toggleEditBox()
   }
 
