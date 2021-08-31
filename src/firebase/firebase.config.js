@@ -181,11 +181,12 @@ function makeid() {
   return result
 }
 export const addFacultyInDb = async (payload) => {
+  console.log(payload.id)
   if (payload.id === 'ZLWIetGPINaOqWNuJoO6wFwMnYB2') {
     const rand = makeid()
     const docRef = doc(db, 'faculty', `${rand}`)
     await setDoc(docRef, { id: rand, ...payload.faculty })
-    const storageRef = ref(storage, `${rand}`)
+    const storageRef = ref(storage, `${rand}.jpg`)
     uploadBytes(storageRef, payload.images).then((snapshot) => {
       getDownloadURL(snapshot.ref).then(async (downloadURL) => {
         await updateDoc(docRef, {
@@ -196,7 +197,7 @@ export const addFacultyInDb = async (payload) => {
   } else {
     const docRef = doc(db, 'faculty', `${payload.id}`)
     await setDoc(docRef, { id: payload.id, ...payload.faculty })
-    const storageRef = ref(storage, `${payload.id}`)
+    const storageRef = ref(storage, `${payload.id}.jpg`)
     uploadBytes(storageRef, payload.images).then((snapshot) => {
       getDownloadURL(snapshot.ref).then(async (downloadURL) => {
         await updateDoc(docRef, {
