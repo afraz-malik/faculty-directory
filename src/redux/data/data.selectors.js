@@ -26,6 +26,7 @@ export const facultySelectorByParam = (urlParams) =>
         .includes(urlParams.toLowerCase())
     })
   })
+
 export const facultySelectorByUid = (uid) =>
   createSelector([facultySelectorList], (faculties) => {
     return faculties.filter((faculty) => faculty.id === uid)

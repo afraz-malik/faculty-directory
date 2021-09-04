@@ -36,7 +36,6 @@ class Form1 extends React.Component {
         fm_gender: this.props.currentFaculty.personal.fm_gender,
         fm_dob: this.props.currentFaculty.personal.fm_dob,
         imgurl: this.props.currentFaculty.personal.imgurl,
-        images: this.props.currentFaculty.personal.images,
       })
     }
   }
@@ -49,7 +48,6 @@ class Form1 extends React.Component {
   }
   handleSubmit = (event) => {
     event.preventDefault()
-    // console.log(this.state)
     this.props.collectData({
       personal: {
         fm_name: this.state.fm_name,

@@ -181,30 +181,40 @@ function makeid() {
   return result
 }
 export const addFacultyInDb = async (payload) => {
-  console.log(payload.id)
   if (payload.id === 'ZLWIetGPINaOqWNuJoO6wFwMnYB2') {
     const rand = makeid()
     const docRef = doc(db, 'faculty', `${rand}`)
     await setDoc(docRef, { id: rand, ...payload.faculty })
-    const storageRef = ref(storage, `${rand}.jpg`)
-    uploadBytes(storageRef, payload.images).then((snapshot) => {
-      getDownloadURL(snapshot.ref).then(async (downloadURL) => {
-        await updateDoc(docRef, {
-          'personal.imgurl': downloadURL,
+    if (!Array.isArray(payload.images)) {
+      console.log('image found')
+      const storageRef = ref(storage, `${rand}.jpg`)
+      uploadBytes(storageRef, payload.images).then((snapshot) => {
+        getDownloadURL(snapshot.ref).then(async (downloadURL) => {
+          await updateDoc(docRef, {
+            'personal.imgurl': downloadURL,
+          })
         })
       })
-    })
+    } else {
+      console.log('No image found')
+    }
   } else {
     const docRef = doc(db, 'faculty', `${payload.id}`)
     await setDoc(docRef, { id: payload.id, ...payload.faculty })
-    const storageRef = ref(storage, `${payload.id}.jpg`)
-    uploadBytes(storageRef, payload.images).then((snapshot) => {
-      getDownloadURL(snapshot.ref).then(async (downloadURL) => {
-        await updateDoc(docRef, {
-          'personal.imgurl': downloadURL,
+    if (!Array.isArray(payload.images)) {
+      console.log('image found')
+
+      const storageRef = ref(storage, `${payload.id}.jpg`)
+      uploadBytes(storageRef, payload.images).then((snapshot) => {
+        getDownloadURL(snapshot.ref).then(async (downloadURL) => {
+          await updateDoc(docRef, {
+            'personal.imgurl': downloadURL,
+          })
         })
       })
-    })
+    } else {
+      console.log('No image found')
+    }
   }
 }
 export const gettingFacultiesFromDb = async () => {

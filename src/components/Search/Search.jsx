@@ -14,7 +14,6 @@ import FacultyCard from '../FacultyCard/FacultyCard'
 import { withRouter } from 'react-router-dom'
 
 const Search = ({ location, ...props }) => {
-  console.log(location)
   const faculty = useSelector((state) => facultySelectorList(state))
   const universities = useSelector((state) => getUniversities(state)).sort()
   const departments = useSelector((state) => getDepartments(state)).sort()

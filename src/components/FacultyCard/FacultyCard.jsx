@@ -1,14 +1,15 @@
 import React from 'react'
-import { withRouter } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import FacultyCardCss from './FacultyCard.module.scss'
 
-const FacultyCard = ({ el, history }) => {
+const FacultyCard = ({ el }) => {
   return (
-    <div
+    <Link
+      to={{
+        pathname: `/faculty/${el.personal.fm_name.toLowerCase()}`,
+        uid: el.id,
+      }}
       className={FacultyCardCss.card}
-      onClick={() =>
-        history.push(`/faculty/${el.personal.fm_name.toLowerCase()}`)
-      }
     >
       <div
         className={FacultyCardCss.img}
@@ -29,7 +30,7 @@ const FacultyCard = ({ el, history }) => {
           </p>
         </div>
       </div>
-    </div>
+    </Link>
   )
 }
 export default withRouter(FacultyCard)

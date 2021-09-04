@@ -3,15 +3,20 @@ import { Link, withRouter } from 'react-router-dom'
 import FacultyProfileCss from './FacultyProfile.module.scss'
 import { connect } from 'react-redux'
 
-import { facultySelectorByParam } from '../../redux/data/data.selectors'
+import {
+  facultySelectorByParam,
+  facultySelectorByUid,
+} from '../../redux/data/data.selectors'
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    facultySelector: facultySelectorByParam(ownProps.match.params.id)(state),
+    facultySelector: ownProps.location.uid
+      ? facultySelectorByUid(ownProps.location.uid)(state)
+      : facultySelectorByParam(ownProps.match.params.id)(state),
   }
 }
 
-const FacultyProfile = ({ match, history, facultySelector }) => {
+const FacultyProfile = ({ history, facultySelector }) => {
   window.onscroll = function () {
     myFunction()
   }
