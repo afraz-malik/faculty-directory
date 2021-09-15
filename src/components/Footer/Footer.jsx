@@ -88,10 +88,14 @@ const Footer = () => {
       <div className={FooterCss.bottom}>
         <div className={FooterCss.warp}>
           <div className={FooterCss.copyright}>
-            Copyright ©{new Date().getFullYear()}
-            All rights reserved | This template is made with by{' '}
-            <a href="haaattps://colorlib.com" target="_blank" rel="noreferrer">
-              Colorlib
+            Copyright ©{new Date().getFullYear()}| All rights reserved | This
+            website is made with by &#9825; by &ensp;
+            <a
+              href="https://afraz-malik.github.io/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Afraz Malik
             </a>
           </div>
 
