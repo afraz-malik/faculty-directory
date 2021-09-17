@@ -158,63 +158,52 @@ export const deleteDbFaculty = async (id) => {
 // Firebase User till up
 
 const storage = getStorage()
-// export const addFacultyInDb = async (payload) => {
-//   const docRef = doc(db, 'faculty', `${payload.id}`)
-//   await setDoc(docRef, { id: payload.id, ...payload.faculty })
-//   const storageRef = ref(storage, `${payload.id}`)
-//   uploadBytes(storageRef, payload.images).then((snapshot) => {
-//     getDownloadURL(snapshot.ref).then(async (downloadURL) => {
-//       await updateDoc(docRef, {
-//         'personal.imgurl': downloadURL,
-//       })
-//     })
-//   })
-// }
-function makeid() {
-  var result = ''
-  var characters =
-    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
-  var charactersLength = characters.length
-  for (var i = 0; i < 5; i++) {
-    result += characters.charAt(Math.floor(Math.random() * charactersLength))
-  }
-  return result
-}
-export const addFacultyInDb = async (payload) => {
-  if (payload.id === 'ZLWIetGPINaOqWNuJoO6wFwMnYB2') {
-    const rand = makeid()
-    const docRef = doc(db, 'faculty', `${rand}`)
-    await setDoc(docRef, { id: rand, ...payload.faculty })
-    if (!Array.isArray(payload.images)) {
-      console.log('image found')
-      const storageRef = ref(storage, `${rand}.jpg`)
-      uploadBytes(storageRef, payload.images).then((snapshot) => {
-        getDownloadURL(snapshot.ref).then(async (downloadURL) => {
-          await updateDoc(docRef, {
-            'personal.imgurl': downloadURL,
-          })
-        })
-      })
-    } else {
-      console.log('No image found')
-    }
-  } else {
-    const docRef = doc(db, 'faculty', `${payload.id}`)
-    await setDoc(docRef, { id: payload.id, ...payload.faculty })
-    if (!Array.isArray(payload.images)) {
-      console.log('image found')
 
-      const storageRef = ref(storage, `${payload.id}.jpg`)
-      uploadBytes(storageRef, payload.images).then((snapshot) => {
-        getDownloadURL(snapshot.ref).then(async (downloadURL) => {
-          await updateDoc(docRef, {
-            'personal.imgurl': downloadURL,
-          })
+export const addFacultyInDb = async (payload) => {
+  // function makeid() {
+  //   var result = ''
+  //   var characters =
+  //     'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+  //   var charactersLength = characters.length
+  //   for (var i = 0; i < 5; i++) {
+  //     result += characters.charAt(Math.floor(Math.random() * charactersLength))
+  //   }
+  //   return result
+  // }
+  // if (payload.id === 'ZLWIetGPINaOqWNuJoO6wFwMnYB2') {
+  //   const rand = makeid()
+  //   const docRef = doc(db, 'faculty', `${rand}`)
+  //   await setDoc(docRef, { id: rand, ...payload.faculty })
+  //   if (!Array.isArray(payload.images)) {
+  //     console.log('image found')
+  //     const storageRef = ref(storage, `${rand}.jpg`)
+  //     uploadBytes(storageRef, payload.images).then((snapshot) => {
+  //       getDownloadURL(snapshot.ref).then(async (downloadURL) => {
+  //         await updateDoc(docRef, {
+  //           'personal.imgurl': downloadURL,
+  //         })
+  //       })
+  //     })
+  //   } else {
+  //     console.log('No image found')
+  //   }
+  // } else {
+  // }
+  const docRef = doc(db, 'faculty', `${payload.id}`)
+  await setDoc(docRef, { id: payload.id, ...payload.faculty })
+  if (!Array.isArray(payload.images)) {
+    console.log('image found')
+
+    const storageRef = ref(storage, `${payload.id}.jpg`)
+    uploadBytes(storageRef, payload.images).then((snapshot) => {
+      getDownloadURL(snapshot.ref).then(async (downloadURL) => {
+        await updateDoc(docRef, {
+          'personal.imgurl': downloadURL,
         })
       })
-    } else {
-      console.log('No image found')
-    }
+    })
+  } else {
+    console.log('No image found')
   }
 }
 export const gettingFacultiesFromDb = async () => {
