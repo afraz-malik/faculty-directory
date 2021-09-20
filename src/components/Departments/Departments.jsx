@@ -5,7 +5,7 @@ const Departments = () => {
   const dept = [
     {
       name: 'Computer Science',
-      des: 'Lorem ipsum dolor sit amet, consectetur',
+      des: 'Department of',
       member: '500',
       image: '1.jpg',
       authorName: 'Afraz Malik',
@@ -14,7 +14,7 @@ const Departments = () => {
     },
     {
       name: 'Education',
-      des: 'Lorem ipsum dolor sit amet, consectetur',
+      des: 'Department of',
       member: '102',
       image: '2.jpg',
       authorName: 'William David',
@@ -23,7 +23,7 @@ const Departments = () => {
     },
     {
       name: 'Arts',
-      des: 'Lorem ipsum dolor sit amet, consectetur',
+      des: 'Department of',
       member: '500',
       image: '3.jpg',
       authorName: 'Nina Anthew',
@@ -32,7 +32,7 @@ const Departments = () => {
     },
     {
       name: 'Management',
-      des: 'Lorem ipsum dolor sit amet, consectetur',
+      des: 'Department of',
       member: '200',
       image: '4.jpg',
       authorName: 'Paul Phenix',
@@ -41,7 +41,7 @@ const Departments = () => {
     },
     {
       name: 'Science & tech',
-      des: 'Lorem ipsum dolor sit amet, consectetur',
+      des: 'Department of',
       member: '60',
       image: '5.jpg',
       authorName: 'Eddy Sherof',
@@ -50,7 +50,7 @@ const Departments = () => {
     },
     {
       name: 'Cryptocurrencies',
-      des: 'Lorem ipsum dolor sit amet, consectetur',
+      des: 'Department of',
       member: '24',
       image: '6.jpg',
       authorName: 'Mathew Malik',
@@ -86,7 +86,9 @@ const Departments = () => {
             <div className={DepartmentsCss.cardtext}>
               <div className={DepartmentsCss.details}>
                 <h6>{el.name}</h6>
-                <p>{el.des}</p>
+                <p>
+                  {el.des} {el.name}
+                </p>
                 <span>{el.member} Members</span>
               </div>
               <div className={DepartmentsCss.author}>

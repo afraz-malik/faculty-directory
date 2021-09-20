@@ -30,9 +30,10 @@ const Contact = () => {
               <div className={ContactCss.title}>
                 <h2>Get in Touch</h2>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-                  malesuada lorem maximus mauris scelerisque, at rutrum nulla
-                  dictum. Ut ac ligula sapien.{' '}
+                  This template is designed by Bc180404438 for University
+                  purpose on JustinMind. The quick brown fox jums over the lazy
+                  dog This template is designed by Bc180404438 for University
+                  purpose on JustinMind
                 </p>
               </div>
               <form onSubmit={handleSubmit}>
@@ -78,22 +79,22 @@ const Contact = () => {
               <div className={ContactCss.title}>
                 <h2>Contact Info</h2>
                 <p>
-                  Donec malesuada lorem maximus mauris scelerisque, at rutrum
-                  nulla dictum. Ut ac ligula sapien. Suspendi sse cursus
-                  faucibus finibus.
+                  This template is designed by Bc180404438 for University
+                  purpose on JustinMind. The quick brown fox jums over the lazy
+                  dog.
                 </p>
               </div>
               <div className={ContactCss.phone}>
                 <span>Direct Line</span>
-                <h2>+53 345 7953 32453</h2>
+                <h2>+92 335 1699312</h2>
               </div>
               <ul className={ContactCss.contact}>
                 <li>
-                  1481 Creekside Lane <br />
-                  Avila Beach, CA 931
+                  49-A Shad Bagh <br />
+                  Lahore, Pakistan
                 </li>
-                <li>+53 345 7953 32453</li>
-                <li>yourmail@gmail.com</li>
+                <li>+92 335 1699312</li>
+                <li>facultydirectory@gmail.com</li>
               </ul>
               <div className={ContactCss.social}>
                 <a href="#af">

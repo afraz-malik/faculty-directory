@@ -8,30 +8,30 @@ const Footer = () => {
           <h4>Contact Info</h4>
           <ul className={FooterCss.contact_list}>
             <li>
-              1481 Creekside Lane <br />
-              Avila Beach, CA 931
+              49-A Shad Bagh <br />
+              Lahore, Pakistan
             </li>
-            <li>+53 345 7953 32453</li>
-            <li>yourmail@gmail.com</li>
+            <li>+92 335 1699312</li>
+            <li>facultydirectory@gmail.com</li>
           </ul>
         </div>
         <div className={FooterCss.widget_item}>
           <h4>Engeneering</h4>
           <ul>
             <li>
-              <a href="#aaaaf">Applied Studies</a>
+              <span>Applied Studies</span>
             </li>
             <li>
-              <a href="#aaaaf">Computer Engeneering</a>
+              <span>Computer Engeneering</span>
             </li>
             <li>
-              <a href="#aaaaf">Software Engeneering</a>
+              <span>Software Engeneering</span>
             </li>
             <li>
-              <a href="#aaaaf">Informational Engeneering</a>
+              <span>Informational Engeneering</span>
             </li>
             <li>
-              <a href="#aaaaf">System Engeneering</a>
+              <span>System Engeneering</span>
             </li>
           </ul>
         </div>
@@ -39,19 +39,19 @@ const Footer = () => {
           <h4>Graphic Design</h4>
           <ul>
             <li>
-              <a href="#aaaaf">Applied Studies</a>
+              <span>Applied Studies</span>
             </li>
             <li>
-              <a href="#aaaaf">Computer Engeneering</a>
+              <span>Computer Engeneering</span>
             </li>
             <li>
-              <a href="#aaaaf">Software Engeneering</a>
+              <span>Software Engeneering</span>
             </li>
             <li>
-              <a href="#aaaaf">Informational Engeneering</a>
+              <span>Informational Engeneering</span>
             </li>
             <li>
-              <a href="#aaaaf">System Engeneering</a>
+              <span>System Engeneering</span>
             </li>
           </ul>
         </div>
@@ -59,25 +59,28 @@ const Footer = () => {
           <h4>Development</h4>
           <ul>
             <li>
-              <a href="#aaaaf">Applied Studies</a>
+              <span>Applied Studies</span>
             </li>
             <li>
-              <a href="#aaaaf">Computer Engeneering</a>
+              <span>Computer Engeneering</span>
             </li>
             <li>
-              <a href="#aaaaf">Software Engeneering</a>
+              <span>Software Engeneering</span>
             </li>
             <li>
-              <a href="#aaaaf">Informational Engeneering</a>
+              <span>Informational Engeneering</span>
             </li>
             <li>
-              <a href="#aaaaf">System Engeneering</a>
+              <span>System Engeneering</span>
             </li>
           </ul>
         </div>
         <div className={FooterCss.widget_item}>
           <h4>Newsletter</h4>
-          <form className={FooterCss.newslatter}>
+          <form
+            className={FooterCss.newslatter}
+            onSubmit={() => alert('submitted')}
+          >
             <input type="email" placeholder="E_mail" />
             <button className={FooterCss.site_btn}>Subscribe</button>
             <p>*We don’t spam</p>
@@ -101,13 +104,17 @@ const Footer = () => {
 
           <ul className={FooterCss.menu}>
             <li>
-              <a href="#aaa">Terms &amp; Conditions</a>
+              {/* eslint-disable-next-line */}
+              <a>Terms &amp; Conditions</a>
             </li>
             <li>
-              <a href="#aaa">Register</a>
+              {/* eslint-disable-next-line */}
+              <a>Register</a>
             </li>
+
             <li>
-              <a href="#aaa">Privacy</a>
+              {/* eslint-disable-next-line */}
+              <a>Privacy</a>
             </li>
           </ul>
         </div>

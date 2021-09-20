@@ -29,9 +29,10 @@ const BecomeFaculty = () => {
           <div className={BecomeFacultyCss.section_title}>
             <h2>Join Our Community Now!</h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-              malesuada lorem maximus mauris scelerisque, at rutrum nulla
-              dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus.
+              This template is designed by Bc180404438 for University purpose on
+              JustinMind. The quick brown fox jums over the lazy dog This
+              template is designed by Bc180404438 for University purpose on
+              JustinMind
             </p>
           </div>
           <div className={BecomeFacultyCss.button}>
