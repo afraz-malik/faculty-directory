@@ -79,7 +79,7 @@ export const createUserInFirestore = async (user, additionalData) => {
         email,
         createdAt,
         isAdmin: false,
-        approve: true,
+        approve: false,
         id: user.uid,
         ...additionalData,
       })

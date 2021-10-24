@@ -50,15 +50,23 @@ class Form1 extends React.Component {
     //   ? this.props.updateUser(this.state)
     //   : this.props.addUser(this.state)
     // console.log(this.state)
-    await this.props.collectData({ faculty: this.state })
-    const result = await window.confirm(
-      'Are you sure you have verified all record and want to proceed? (Strict Action will be taken against false information)'
+
+    if (
+      this.state.fm_courses.length === 0 ||
+      this.state.fm_experties.length === 0
     )
-    if (result) {
-      // console.log(this.state)
-      this.props.submitForm()
+      alert('Enter Courses and/or Experties before proceeding')
+    else {
+      await this.props.collectData({ faculty: this.state })
+      const result = window.confirm(
+        'Are you sure you have verified all record and want to proceed? (Strict Action will be taken against false information)'
+      )
+      if (result) {
+        // console.log(this.state)
+        this.props.submitForm()
+      }
+      // console.log(this.props.history.push('/dashboard'))
     }
-    // console.log(this.props.history.push('/dashboard'))
   }
 
   render() {

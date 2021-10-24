@@ -94,11 +94,12 @@ const Footer = () => {
             Copyright ©{new Date().getFullYear()}| All rights reserved | This
             website is made with by &#9825; by &ensp;
             <a
-              href="https://afraz-malik.github.io/"
-              target="_blank"
+              href="#"
+              // href="https://afraz-malik.github.io/"
+              // target="_blank"
               rel="noreferrer"
             >
-              Afraz Malik
+              Malik Moin
             </a>
           </div>
 
