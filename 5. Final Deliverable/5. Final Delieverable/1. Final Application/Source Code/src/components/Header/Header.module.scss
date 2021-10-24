@@ -1,0 +1,213 @@
+.header {
+  // background-image: url('images/bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
+  padding: 20px 0px;
+  .body {
+    // border: 1px solid black;
+    width: 70%;
+    margin: 250px auto;
+    // margin: auto;
+    .title {
+      h3 {
+        font-size: 60px;
+        font-weight: 500;
+        margin-bottom: 20px;
+        color: white;
+      }
+      p {
+        color: white;
+        // margin: 100px;
+        line-height: 30px;
+      }
+    }
+    .input {
+      display: flex;
+      margin-top: 100px;
+      input {
+        height: 53px;
+        width: 36.4%;
+        padding: 0 30px;
+        margin-right: 22px;
+        float: left;
+        border: none;
+        font-size: 14px;
+        outline: none;
+        &:focus {
+          border-bottom: 3px solid #d82a4e;
+        }
+      }
+      a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        // display: inline-block;
+        min-width: 196px;
+        text-align: center;
+        border: none;
+        padding: 15px 10px;
+        font-weight: 600;
+        font-size: 16px;
+        position: relative;
+        color: #fff;
+        cursor: pointer;
+        background: #d82a4e;
+      }
+    }
+  }
+}
+
+@media (min-width: 1281px) {
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .header {
+    .body {
+      width: 70%;
+      margin: 250px auto;
+    }
+  }
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .header {
+    .body {
+      width: 80%;
+      margin: 250px auto;
+    }
+  }
+}
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .header {
+    body {
+      width: 80%;
+      margin: 250px auto;
+    }
+  }
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 600px) and (max-width: 767px) {
+  .header {
+    .body {
+      width: 95%;
+      margin: 100px auto;
+      .title {
+        h3 {
+          font-size: 45px;
+          font-weight: 500;
+          margin-bottom: 20px;
+          color: white;
+        }
+        p {
+          color: white;
+          // margin: 100px;
+          line-height: 30px;
+        }
+      }
+      .input {
+        a {
+          min-width: 150px;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+@media (min-width: 481px) and (max-width: 599px) {
+  .header {
+    .body {
+      width: 95%;
+      margin: 100px auto;
+      .title {
+        h3 {
+          font-size: 45px;
+          font-weight: 500;
+          margin-bottom: 20px;
+          color: white;
+        }
+        p {
+          color: white;
+          // margin: 100px;
+          font-size: 12px;
+
+          line-height: 30px;
+        }
+      }
+      .input {
+        display: flex;
+        flex-direction: column;
+        grid-gap: 20px;
+        input {
+          width: 100%;
+        }
+        a {
+          min-width: 150px;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .header {
+    .body {
+      width: 95%;
+      margin: 100px auto;
+      .title {
+        h3 {
+          font-size: 45px;
+          font-weight: 500;
+          margin-bottom: 20px;
+          color: white;
+        }
+        p {
+          color: white;
+          // margin: 100px;
+          line-height: 30px;
+          font-size: 12px;
+        }
+      }
+      .input {
+        display: flex;
+        flex-direction: column;
+        grid-gap: 20px;
+        input {
+          width: 100%;
+        }
+        a {
+          min-width: 150px;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}

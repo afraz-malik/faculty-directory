@@ -1,0 +1,260 @@
+.container {
+  width: 80%;
+  margin: auto;
+  overflow: hidden;
+  margin-top: 50px;
+  .title {
+    padding: 0 20px;
+    h4 {
+      font-size: 42px;
+      // font-weight: 600;
+      margin-bottom: 25px;
+      color: #474747;
+    }
+    p {
+      font-size: 14.1px;
+      color: #878787;
+      line-height: 2.2;
+      font-weight: 500;
+      margin: 5px 125px;
+    }
+  }
+  .cards {
+    margin: 100px 0;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: space-around;
+    grid-gap: 40px;
+    .card {
+      width: 340px;
+      height: 410px;
+      cursor: pointer;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      color: grey;
+      overflow: hidden;
+      &:hover {
+        .cardtext {
+          background-color: #d82a4e;
+          .details {
+            span,
+            p,
+            h6 {
+              color: white;
+            }
+          }
+          .author {
+            span,
+            h5 {
+              color: white;
+            }
+          }
+        }
+      }
+      .img {
+        // width: 100%;
+        height: 100%;
+        background-repeat: no-repeat;
+        // background-size: cover;
+        background-position: top center;
+      }
+      .cardtext {
+        transition: all 0.4s;
+
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        background: #edf4f6;
+        text-align: left;
+        height: 250px;
+        .details {
+          padding: 30px;
+          h6 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            margin-top: 10px;
+            font-weight: 600;
+            color: #474747;
+          }
+          p {
+            margin: 0;
+            // font-size: 12px;
+            margin-bottom: 20px;
+            font-size: 14.1px;
+            color: #878787;
+            line-height: 2.2;
+            font-weight: 500;
+          }
+          span {
+            font-size: 18px;
+            font-weight: 600;
+            color: #d82a4e;
+            font-size: 16px;
+          }
+        }
+
+        .author {
+          position: absolute;
+          width: 100%;
+          border-top: 1px solid lightgrey;
+          bottom: 0;
+          z-index: 5555;
+          height: 80px;
+          display: flex;
+          align-items: center;
+          padding: 0px 30px;
+          img {
+            border-radius: 25px;
+            // height: 25px;
+            width: 50px;
+            margin-right: 20px;
+          }
+          span {
+            //   font-size: 18px;
+            font-weight: 600;
+            color: #d82a4e;
+            //   font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1281px) {
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .container {
+    width: 99%;
+    .cards {
+      .card {
+        width: 310px;
+      }
+    }
+  }
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .container {
+    width: 99%;
+    .cards {
+      grid-template-columns: auto auto;
+      justify-content: space-around;
+      grid-gap: 20px;
+
+      .card {
+        width: 310px;
+      }
+    }
+  }
+}
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .container {
+    width: 99%;
+
+    .cards {
+      grid-template-columns: auto auto;
+      justify-content: space-around;
+      grid-gap: 20px;
+
+      .card {
+        width: 310px;
+      }
+    }
+  }
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 600px) and (max-width: 767px) {
+  .container {
+    width: 99%;
+    .title {
+      p {
+        margin: 5px 50px;
+      }
+    }
+    .cards {
+      grid-template-columns: auto auto;
+      justify-content: space-around;
+      grid-gap: 20px;
+
+      .card {
+        width: 290px;
+      }
+    }
+  }
+}
+@media (min-width: 481px) and (max-width: 599px) {
+  .container {
+    width: 99%;
+    .title {
+      p {
+        margin: 5px 50px;
+      }
+    }
+    .cards {
+      grid-template-columns: auto auto;
+      justify-content: space-around;
+      grid-gap: 20px;
+
+      .card {
+        width: 233px;
+      }
+    }
+  }
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .container {
+    width: 99%;
+    .title {
+      p {
+        margin: 5px 50px;
+      }
+    }
+    .cards {
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+      overflow-x: auto;
+      justify-content: space-around;
+      // grid-gap: 20px;
+      justify-content: unset;
+      // align-items: center;
+      .card {
+        width: 300px;
+        .cardtext {
+          .author {
+            height: 65px;
+          }
+        }
+      }
+    }
+  }
+}

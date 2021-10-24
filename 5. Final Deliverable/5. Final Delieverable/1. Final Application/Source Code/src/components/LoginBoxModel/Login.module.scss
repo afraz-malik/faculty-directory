@@ -1,0 +1,121 @@
+.container {
+  //   height: 443px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  // background-position: top center;
+  // filter: blur(px);
+  // -webkit-filter: blur(8px);
+  text-align: left;
+  padding-top: 20px;
+  position: relative;
+  .site {
+    margin: 100px;
+    // position: absolute;
+    // top: 0;
+    a {
+      color: #fff;
+      position: relative;
+      display: inline-block;
+      margin-right: 10px;
+      padding-right: 10px;
+      font-weight: 600;
+      font-size: 18px;
+      text-decoration: none;
+      background-color: transparent;
+      &::after {
+        position: absolute;
+        content: '/';
+        right: -6px;
+        top: 0;
+        color: #fff;
+      }
+      &:hover {
+        color: #d82a4e;
+      }
+    }
+    span {
+      color: #d82a4e;
+      display: inline-block;
+      margin-right: 10px;
+      padding-right: 10px;
+      font-weight: 600;
+      font-size: 18px;
+      &::first-letter {
+        text-transform: capitalize;
+      }
+    }
+  }
+  .form {
+    height: 100vh;
+    // margin-top: 150px;
+    padding-bottom: 150px;
+    // background-color: pink;
+  }
+}
+@media (min-width: 1281px) {
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+}
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 600px) and (max-width: 767px) {
+  .container {
+    .site {
+      margin: 50px;
+    }
+    .form {
+    }
+  }
+}
+@media (min-width: 481px) and (max-width: 599px) {
+  .container {
+    .site {
+      margin: 50px;
+    }
+    .form {
+      padding: 0 50px 150px 50px;
+    }
+  }
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .container {
+    .site {
+      margin: 50px;
+    }
+    .form {
+      // padding: 0 50px 150px 50px;
+    }
+  }
+}

@@ -1,0 +1,231 @@
+.smallHeader {
+  .container {
+    height: 443px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center;
+    text-align: left;
+    padding-top: 20px;
+    position: relative;
+    .site {
+      margin: 100px 50px;
+
+      // position: absolute;
+      // top: 0;
+      a {
+        color: #fff;
+        position: relative;
+        display: inline-block;
+        margin-right: 10px;
+        padding-right: 10px;
+        font-weight: 600;
+        font-size: 18px;
+        text-decoration: none;
+        text-transform: capitalize;
+        background-color: transparent;
+        &::after {
+          position: absolute;
+          content: '/';
+          right: -6px;
+          top: 0;
+          color: #fff;
+        }
+        &:hover {
+          color: #d82a4e;
+        }
+      }
+      span {
+        color: #d82a4e;
+        display: inline-block;
+        margin-right: 10px;
+        padding-right: 10px;
+        font-weight: 600;
+        font-size: 18px;
+        &::first-letter {
+          text-transform: capitalize;
+        }
+      }
+    }
+  }
+  .section {
+    // display: none;
+    // background-color: pink;
+    display: block;
+    margin-top: -90px;
+    .seccontainer {
+      max-width: 1180px;
+      width: 100%;
+      padding-right: 15px;
+      padding-left: 15px;
+      margin-right: auto;
+      margin-left: auto;
+      .warp {
+        position: relative;
+        padding: 60px 0;
+        background: #d82a4e;
+        .title {
+          margin-bottom: 0;
+          text-align: center;
+          padding: 0 110px;
+          color: #fff !important;
+          h2 {
+            position: absolute;
+            width: 100%;
+            left: 0;
+            bottom: 100%;
+            font-size: 24px;
+            margin-bottom: 0;
+            text-align: center;
+            font-weight: 600;
+            margin: 0;
+            font-family: inherit;
+            span {
+              display: inline-block;
+              background: #d82a4e;
+              padding: 20px 60px 10px;
+              color: #fff;
+            }
+          }
+        }
+        .row {
+          display: flex;
+          -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+          margin-right: -15px;
+          margin-left: -15px;
+          .col {
+            margin-left: 8.333333%;
+            flex: 0 0 83.333333%;
+            max-width: 83.333333%;
+            position: relative;
+            width: 100%;
+            min-height: 1px;
+            padding-right: 15px;
+            padding-left: 15px;
+            form {
+              background-color: transparent;
+              padding: 0;
+              display: flex;
+              justify-content: space-between;
+              input {
+                height: 56px;
+                width: 36.6%;
+                padding: 0 30px;
+                margin-right: 18px;
+                float: left;
+                border: none;
+                font-size: 14px;
+                background: white;
+                margin: 0;
+                font-family: inherit;
+                font-size: inherit;
+                line-height: inherit;
+                outline: none;
+                &:focus {
+                  // border-bottom: 3px solid #d82a4e;
+                }
+              }
+              a {
+                text-decoration: none;
+                // display: none;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-width: 196px;
+                text-align: center;
+                border: none;
+                padding: 15px 10px;
+                font-weight: 600;
+                font-size: 16px;
+                position: relative;
+                color: #fff;
+                cursor: pointer;
+                background: #000;
+                -webkit-appearance: button;
+                text-transform: none;
+                overflow: visible;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 600px) and (max-width: 767px) {
+  .smallHeader {
+    .container {
+      .site {
+        margin: 50px;
+      }
+    }
+  }
+}
+
+@media (min-width: 481px) and (max-width: 599px) {
+  .smallHeader {
+    .container {
+      .site {
+        margin: 50px;
+      }
+    }
+
+    .section {
+      .seccontainer {
+        .warp {
+          .row {
+            .col {
+              form {
+                flex-direction: column;
+                grid-gap: 20px;
+                input {
+                  width: 100%;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .smallHeader {
+    .container {
+      .site {
+        margin: 50px;
+      }
+    }
+    .section {
+      .seccontainer {
+        .warp {
+          .title {
+            h2 {
+              span {
+                padding: 20px 25px 10px;
+              }
+            }
+          }
+          .row {
+            .col {
+              form {
+                flex-direction: column;
+                grid-gap: 20px;
+                input {
+                  width: 100%;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

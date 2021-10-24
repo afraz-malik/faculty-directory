@@ -1,0 +1,176 @@
+.container {
+  //   height: 100vh;
+  //   justify-content: center;
+  //   align-items: center;
+  margin-top: 50px;
+  border-top: 3px solid #d82a4e;
+  // border-bottom: 3px solid #d82a4e;
+  .sec1 {
+    display: none;
+    .form {
+      width: 50%;
+      background-color: #d82a4e;
+      display: flex;
+      flex-direction: column;
+      // justify-content: center;
+      // align-items: center;
+      text-align: left;
+      padding: 100px;
+      h1 {
+        font-size: 48px;
+        font-weight: 600;
+        margin-bottom: 25px;
+        color: white;
+      }
+      p {
+        margin-bottom: 0;
+        font-weight: 500;
+        color: white;
+        font-size: 14px;
+        line-height: 2;
+        text-align: justify;
+      }
+      form {
+        margin-top: 55px;
+        display: flex;
+        flex-direction: column;
+        background: #fff;
+        padding: 60px;
+        input {
+          height: 57px;
+          width: 100%;
+          padding: 0 30px;
+          margin-bottom: 27px;
+          float: left;
+          border: none;
+          font-size: 14px;
+          font-weight: 500;
+          background: #edf4f6;
+        }
+        button {
+          display: inline-block;
+          min-width: 196px;
+          text-align: center;
+          border: none;
+          padding: 17px 10px;
+          font-weight: 600;
+          font-size: 16px;
+          position: relative;
+          color: #fff;
+          cursor: pointer;
+          background: #d82a4e;
+        }
+      }
+    }
+    .image {
+      background-color: #000000;
+      width: 50%;
+      // height: 100%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      // background-position: top center;
+    }
+  }
+  .sec2 {
+    padding-top: 115px;
+    padding-bottom: 115px;
+    .div {
+      max-width: 1180px;
+      margin: auto;
+      .section_title {
+        text-align: center;
+        padding: 0 110px;
+        h2 {
+          font-size: 48px;
+          font-weight: 600;
+          margin-bottom: 25px;
+          margin: 0;
+          color: #474747;
+        }
+        p {
+          font-size: 14.1px;
+          color: #878787;
+          line-height: 2.2;
+          font-weight: 500;
+        }
+      }
+      .button {
+        text-align: center !important;
+        padding-top: 3rem !important;
+
+        a {
+          display: inline-block;
+          min-width: 196px;
+          text-align: center;
+          border: none;
+          padding: 15px 40px;
+          font-weight: 600;
+          font-size: 16px;
+          position: relative;
+          color: #fff;
+          cursor: pointer;
+          background: #d82a4e;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+@media (min-width: 1281px) {
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+}
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 600px) and (max-width: 767px) {
+}
+@media (min-width: 481px) and (max-width: 599px) {
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .container {
+    .sec2 {
+      padding-top: 115px;
+      padding-bottom: 115px;
+      .div {
+        max-width: unset;
+        margin: auto;
+        .section_title {
+          text-align: center;
+          padding: 0 50px;
+        }
+      }
+    }
+  }
+}

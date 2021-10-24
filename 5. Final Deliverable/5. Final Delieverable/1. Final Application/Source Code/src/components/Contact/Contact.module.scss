@@ -1,0 +1,283 @@
+.section {
+  padding-top: 115px;
+  margin-bottom: 115px;
+  .container {
+    max-width: 1180px;
+    margin: auto;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    .row {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      margin-right: -15px;
+      margin-left: -15px;
+      .col1 {
+        flex: 0 0 66.666667%;
+        max-width: 66.666667%;
+        position: relative;
+        width: 100%;
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+        .contact_warp {
+          background: #d82a4e;
+          padding: 45px 47px;
+          .title {
+            padding: 0 15px;
+            margin-bottom: 50px;
+            color: #fff !important;
+            text-align: left !important;
+            h2 {
+              font-size: 48px;
+              font-weight: 600;
+              margin-bottom: 25px;
+              color: #fff;
+              line-height: 2.2;
+              margin-top: 0;
+            }
+            p {
+              margin-bottom: 0;
+              color: #fff;
+
+              font-weight: 500;
+            }
+          }
+          form {
+            padding: 69px 40px 47px;
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            input[type='text'],
+            textarea {
+              height: 57px;
+              width: 100%;
+              padding: 0 30px;
+              margin-bottom: 27px;
+              float: left;
+              border: none;
+              font-size: 14px;
+              font-weight: 500;
+              background: #edf4f6;
+              outline: none;
+              &:focus {
+                border-bottom: 3px solid #d82a4e;
+              }
+            }
+            textarea {
+              padding-top: 23px;
+              padding-bottom: 15px;
+              height: 225px;
+              width: 100%;
+              // padding: 0 30px;
+              float: left;
+              border: none;
+              font-size: 14px;
+              font-weight: 500;
+              background: #edf4f6;
+              overflow: auto;
+              resize: vertical;
+              // margin: 0;
+              margin-bottom: 27px;
+              font-family: inherit;
+              line-height: inherit;
+            }
+            button {
+              display: inline-block;
+              // float: l;
+              width: 196px;
+              text-align: center;
+              border: none;
+              padding: 17px 10px;
+              font-weight: 600;
+              font-size: 16px;
+              position: relative;
+              color: #fff;
+              cursor: pointer;
+              background: #d82a4e;
+
+              -webkit-appearance: button;
+            }
+          }
+        }
+      }
+
+      .col2 {
+        -ms-flex: 0 0 33.333333%;
+        flex: 0 0 33.333333%;
+        max-width: 33.333333%;
+        position: relative;
+        width: 100%;
+        text-align: left;
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+        .contact_warp {
+          padding-top: 60px;
+          .title {
+            margin-bottom: 80px;
+            h2 {
+              font-size: 48px;
+              font-weight: 600;
+              margin-bottom: 25px;
+              color: #474747;
+              line-height: 1.2;
+              font-family: inherit;
+            }
+            p {
+              margin-bottom: 0;
+              font-weight: 500;
+              color: #878787;
+              line-height: 2.2;
+
+              margin-top: 0;
+            }
+          }
+          .phone {
+            margin-bottom: 80px;
+            span {
+              font-size: 18px;
+              font-weight: 700;
+              color: #d82a4e;
+              display: block;
+              margin-bottom: 5px;
+            }
+            h2 {
+              color: #646464;
+              display: inline-block;
+              position: relative;
+              padding: 0 0 10px;
+              padding-right: 12px;
+              &::after {
+                position: absolute;
+                content: '';
+                width: 100%;
+                height: 3px;
+                left: 0;
+                bottom: 0;
+                background: #d82a4e;
+              }
+            }
+          }
+          .contact {
+            list-style: none;
+            padding-left: 50px;
+            li {
+              margin-bottom: 27px;
+              position: relative;
+              padding-left: 10px;
+              font-size: 14px;
+              font-weight: 500;
+              color: #878787;
+              &::after {
+                position: absolute;
+                content: '';
+                width: 8px;
+                height: 8px;
+                left: -5px;
+                top: 6px;
+                border-radius: 50%;
+                background: #d82a4e;
+              }
+            }
+          }
+          .social {
+            padding-top: 60px;
+            padding-left: 50px;
+            a {
+              font-size: 14px;
+              color: #707070;
+              margin-right: 30px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1281px) {
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+}
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 600px) and (max-width: 767px) {
+  .section {
+    .container {
+      .row {
+        display: flex;
+        flex-direction: column-reverse;
+        .col1,
+        .col2 {
+          max-width: unset;
+        }
+      }
+    }
+  }
+}
+@media (min-width: 481px) and (max-width: 599px) {
+  .section {
+    .container {
+      .row {
+        display: flex;
+        flex-direction: column-reverse;
+        .col1,
+        .col2 {
+          max-width: unset;
+        }
+      }
+    }
+  }
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .section {
+    padding-top: 0;
+    .container {
+      .row {
+        display: flex;
+        flex-direction: column-reverse;
+        .col1,
+        .col2 {
+          max-width: unset;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,149 @@
+.container {
+  width: 99;
+  margin: auto;
+  overflow: hidden;
+  // margin-top: 50px;
+  .title {
+    padding: 0 20px;
+    h4 {
+      font-size: 42px;
+      // font-weight: 600;
+      margin-bottom: 25px;
+      color: #474747;
+    }
+    p {
+      font-size: 14.1px;
+      color: #878787;
+      line-height: 2.2;
+      font-weight: 500;
+      margin: 5px 125px;
+    }
+  }
+  .faculty {
+    margin: 100px 0 0 0;
+    display: flex;
+    padding: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+    //   grid-template-columns: auto auto auto;
+    justify-content: center;
+    grid-gap: 20px;
+  }
+  .more {
+    text-align: right;
+    // font-style: italic;
+    padding: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    text-decoration: none;
+    span {
+      padding: 25px 50px;
+      background-color: #d82a4e;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      opacity: 0.9;
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+@media (min-width: 1281px) {
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .container {
+    width: 99%;
+  }
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .container {
+    width: 99%;
+  }
+}
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .container {
+    width: 99%;
+  }
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 600px) and (max-width: 767px) {
+  .container {
+    width: 99%;
+    .title {
+      p {
+        margin: 5px 50px;
+      }
+    }
+    .faculty {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      overflow-x: auto;
+      justify-content: unset;
+    }
+  }
+}
+@media (min-width: 481px) and (max-width: 599px) {
+  .container {
+    width: 99%;
+    .title {
+      p {
+        margin: 5px 50px;
+      }
+    }
+    .faculty {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      overflow-x: auto;
+      justify-content: unset;
+    }
+  }
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .container {
+    width: 99%;
+    .title {
+      p {
+        margin: 5px 50px;
+      }
+    }
+    .faculty {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      overflow-x: auto;
+      justify-content: unset;
+    }
+  }
+}
